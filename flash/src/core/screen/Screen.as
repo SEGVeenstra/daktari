@@ -14,6 +14,16 @@ package core.screen
 			
 		}
 		
+		public function Pim():void
+		{
+			return null;
+		}
+
+		public function Stephan():void
+		{
+			return null;
+		}
+		
 	}
 
 }
