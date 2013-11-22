@@ -16,6 +16,16 @@ package core.gameobject
 			
 		}
 		
+		/**
+		 * Checks if this collider collides with the given collider
+		 * @param	col Collider to check collision with
+		 * @return 	TRUE or FALSE depending on if this collider hits the other collider
+		 */
+		public function Collide(col:Collider):Boolean
+		{
+			return false;
+		}
+		
 	}
 
 }
