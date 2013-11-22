@@ -14,6 +14,11 @@ package core.screen
 			
 		}
 		
+		public function Stephan():void
+		{
+			return null;
+		}
+		
 	}
 
 }
