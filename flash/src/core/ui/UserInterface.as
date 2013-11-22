@@ -14,6 +14,14 @@ package core.ui
 			
 		}
 		
+		/**
+		 * does git works
+		 * @return
+		 */
+		public function testGit():boolean {
+			return true;
+		}
+		
 	}
 
 }
