@@ -14,6 +14,9 @@ package core.screen
 			
 		}
 		
+		/**
+		 * Zo schrijf je comments!
+		 */
 		public function Pim():void
 		{
 			return null;
