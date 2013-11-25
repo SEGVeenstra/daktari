@@ -9,11 +9,14 @@ package core.gameobject
 	 */
 	public class GameObject extends Sprite 
 	{
+		public var id:String;
 		public var collider:Collider;
+		public var active:Boolean;
 		
-		public function GameObject() 
+		public function GameObject(id:String) 
 		{
-			
+			this.id = id;
+			active = false;
 		}
 		
 		/**
