@@ -8,23 +8,11 @@ package core.screen
 	 */
 	public class Screen extends Sprite 
 	{
+		static public var current:Screen;
 		
 		public function Screen() 
 		{
 			
-		}
-		
-		/**
-		 * Zo schrijf je comments!
-		 */
-		public function Pim():void
-		{
-			return null;
-		}
-
-		public function Stephan():void
-		{
-			return null;
 		}
 		
 	}
