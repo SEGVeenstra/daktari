@@ -1,7 +1,6 @@
 package  
 {
 	import core.screen.Screen;
-	import game.screens.Intro;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	
@@ -24,7 +23,7 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
 			
-			LoadScreen(new IntroScreen());
+			//LoadScreen(new IntroScreen());
 		}
 		
 		/**
