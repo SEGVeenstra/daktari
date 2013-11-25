@@ -4,10 +4,10 @@ package core.ui.uiobjects
 	 * ...
 	 * @author Henderikus
 	 */
-	public class HealthIndicator extends UiObject 
+	public class Healthbar extends UiObject 
 	{
 		
-		public function HealthIndicator() 
+		public function Healthbar() 
 		{
 			
 		}
