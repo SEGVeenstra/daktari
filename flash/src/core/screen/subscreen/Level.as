@@ -10,13 +10,14 @@ package core.screen.subscreen
 	 */
 	public class Level extends Sprite 
 	{
-		private var gameObjects:Vector.<GameObject>;
-		public var active:Boolean;
+		public static const GRIDSIZE:int = 16;
+		public static var current:Level;
+		
+		public var gameObjects:Vector.<GameObject> = new Vector.<GameObject>();
+		public var active:Boolean = false;
 		
 		public function Level() 
 		{
-			GameObject = new Vector.<GameObject>();
-			active = false;
 			Build();
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
 		}
@@ -24,8 +25,6 @@ package core.screen.subscreen
 		private function OnAddedToStage(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
-			
-			Play();
 		}
 		
 		/**
@@ -36,6 +35,8 @@ package core.screen.subscreen
 			
 		}
 		
+		
+		
 		/**
 		 * Add the given GameObject if the id is not yet used
 		 * @param	gameObject
@@ -44,7 +45,9 @@ package core.screen.subscreen
 		{
 			if (!GetGameObjectByID(gameObject.id))
 			{
+				trace('add to screen:', gameObject, gameObject.id);
 				gameObjects.push(gameObject);
+				addChild(gameObject);
 			}
 		}
 		
@@ -57,7 +60,8 @@ package core.screen.subscreen
 		{
 			for each(var gameObj:GameObject in gameObjects)
 			{
-				gameObj.id == id ? return gameObj;
+				if (gameObj.id == id)
+					return gameObj;
 			}
 			return null;
 		}

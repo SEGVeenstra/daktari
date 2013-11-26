@@ -2,6 +2,7 @@ package core.gameobject
 {
 	import core.collision.Collider;
 	import starling.display.Sprite;
+	import starling.events.Event;
 	
 	/**
 	 * Is an object that can be placed into a level
@@ -11,22 +12,31 @@ package core.gameobject
 	{
 		public var id:String;
 		public var collider:Collider;
-		public var active:Boolean;
+		public var active:Boolean = false;
 		
-		public function GameObject(id:String) 
+		public function GameObject(id:String, x:Number, y:Number, width:Number, height:Number) 
 		{
 			this.id = id;
-			active = false;
+			this.x = x;
+			this.y = y;
+			
+			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+		}
+		
+		private function OnAddedToStage(e:Event):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+			
 		}
 		
 		/**
-		 * Checks if this collider collides with the given collider
-		 * @param	col Collider to check collision with
-		 * @return 	TRUE or FALSE depending on if this collider hits the other collider
+		 * Checks if this GameObject collides with the given GameObject
+		 * @param	gameObject to check collision with
+		 * @return 	TRUE or FALSE depending on if this GameObject hits the other GameObject
 		 */
-		public function Collide(col:Collider):Boolean
+		public function Collide(gameObject:GameObject):Boolean
 		{
-			return false;
+			return collider.Collide(gameObject.collider);
 		}
 		
 	}

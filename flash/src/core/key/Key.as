@@ -44,7 +44,7 @@ package core.key
 		private function onKeyDown(e:KeyboardEvent):void
 		{
 			Keys[e.keyCode] = true;
-			//trace(e.keyCode);
+			trace(e.keyCode);
 		}
 		
 		public static function isDown(key:uint):Boolean

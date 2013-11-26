@@ -77,7 +77,7 @@ package core.collision
 		 */
 		public function GetRight():Number
 		{
-			return getLeft() + width;
+			return GetLeft() + width;
 		}
 	}
 
