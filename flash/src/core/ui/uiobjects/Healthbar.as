@@ -72,7 +72,7 @@ package core.ui.uiobjects
 					curHealth = 0;
 				}else{
 					curHealth -= amount;
-					scale = curHealth;
+					scale = amount;
 				}
 				healthBar.scaleX -= scale / 100;
 			}
