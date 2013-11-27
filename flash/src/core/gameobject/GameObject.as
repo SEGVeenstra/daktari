@@ -1,8 +1,9 @@
 package core.gameobject 
 {
-	import core.collision.Collider;
+	import flash.geom.Rectangle;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import test.Collider;
 	
 	/**
 	 * Is an object that can be placed into a level
@@ -11,10 +12,11 @@ package core.gameobject
 	public class GameObject extends Sprite 
 	{
 		public var id:String;
-		public var collider:Collider;
+		public var collider:Rectangle;
 		public var active:Boolean = false;
+		public var solid:Boolean = false;
 		
-		public function GameObject(id:String, x:Number, y:Number, width:Number, height:Number) 
+		public function GameObject(id:String, x:Number, y:Number) 
 		{
 			this.id = id;
 			this.x = x;
@@ -26,7 +28,6 @@ package core.gameobject
 		private function OnAddedToStage(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
-			
 		}
 		
 		/**
@@ -36,7 +37,7 @@ package core.gameobject
 		 */
 		public function Collide(gameObject:GameObject):Boolean
 		{
-			return collider.Collide(gameObject.collider);
+			return collider.intersects(gameObject.collider);
 		}
 		
 	}

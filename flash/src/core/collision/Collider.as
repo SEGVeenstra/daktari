@@ -1,5 +1,6 @@
 package core.collision 
 {
+	import flash.geom.Point;
 	/**
 	 * A Collider represents the area that detects the collision between GameObjects
 	 * @author SEG.Veenstra
@@ -78,6 +79,18 @@ package core.collision
 		public function GetRight():Number
 		{
 			return GetLeft() + width;
+		}
+		
+		/**
+		 * Returns the centerpoint of the collider
+		 * @return Point The center of the collider
+		 */
+		public function GetCenter():Point
+		{
+			var p:Point = new Point();
+			p.x = GetLeft() + ((GetRight() - GetLeft()) / 2);
+			p.y = GetTop() + ((GetBottom() - GetTop()) / 2);
+			return p;
 		}
 	}
 
