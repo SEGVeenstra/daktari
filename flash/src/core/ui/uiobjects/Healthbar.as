@@ -2,6 +2,7 @@ package core.ui.uiobjects
 {
 	import starling.display.Graphics;
 	import starling.display.Sprite;
+	import starling.display.Shape;
 	/**
 	 * This class contains everything concerning the healthbar
 	 * @author Henderikus
@@ -10,7 +11,7 @@ package core.ui.uiobjects
 	{
 		private var maxHealth:Number = 100;
 		private var curHealth:Number;
-		private var healthBar:Sprite;
+		private var healthBar:Shape;
 		
 		
 		public function Healthbar() 
@@ -24,7 +25,7 @@ package core.ui.uiobjects
 		 */
 		private function buildHealthBar():void {
 			var high:Number = 15;
-			var hbol:Sprite = new Sprite(); // background healthbar
+			var hbol:Shape = new Shape(); // background healthbar
 			addChild(hbol);
 		
 			//outline background healthbar
@@ -39,13 +40,13 @@ package core.ui.uiobjects
 			ol.endFill();
 		
 			// actual healthbar
-			healthBar = new Sprite();
+			healthBar = new Shape();
 			hbol.addChild(healthBar);
 		
 			//outline
 			var ins:Graphics = healthBar.graphics;
 			ins.lineStyle(0, 0x000000);
-			ins.beginFill(foregroundColor);
+			ins.beginFill(0xFF0000);
 			ins.lineTo(maxHealth,0);
 			ins.lineTo(maxHealth,high);
 			ins.lineTo(0,high);
@@ -63,7 +64,7 @@ package core.ui.uiobjects
 		 * 
 		 * @param	amount of health that is lost
 		 */
-		public function looseHealth(amount:Number) {
+		public function looseHealth(amount:Number):void {
 			var scale:Number = 0;
 			if (curHealth > 0 && play == true) {
 				if (amount > curHealth) {
@@ -84,7 +85,7 @@ package core.ui.uiobjects
 		 * 
 		 * @param	amount of health thats needs to be added
 		 */
-		public function restoreHealth(amount:Number) {
+		public function restoreHealth(amount:Number):void {
 			var scale:Number = 0;
 			if (curHealth > 0 && curHealth < maxHealth && play == true) {
 				if (reachedMaxHealth(amount)){
@@ -96,6 +97,14 @@ package core.ui.uiobjects
 				}
 				healthBar.scaleX += scale / 100;
 			}
+		}
+		
+		/**
+		 * get current health
+		 * @return current health
+		 */
+		public function getCurrentHealth():Number {
+			return curHealth;
 		}
 		
 		/**
@@ -114,4 +123,5 @@ package core.ui.uiobjects
 		}
 		
 
+	}
 }

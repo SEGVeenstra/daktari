@@ -19,7 +19,7 @@ package core.ui.uiobjects
 		 * pause the game
 		 * @param	play
 		 */
-		public function pause(play:Boolean) {
+		public function pauseGame(play:Boolean):void {
 			if (play) {
 				this.play = false;
 			}
@@ -28,7 +28,7 @@ package core.ui.uiobjects
 		 * continue the game
 		 * @param	play
 		 */
-		public function play(play:Boolean) {
+		public function resumePlay(play:Boolean):void {
 			if (!play) {
 				this.play = true;
 			}
