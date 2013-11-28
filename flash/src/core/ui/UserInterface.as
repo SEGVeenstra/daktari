@@ -18,17 +18,29 @@ package core.ui
 		public function UserInterface() 
 		{
 			uiObjects = new Vector.<UiObject>();
-			builtUserInterface();
+			setupHealthBar();
+			setupInventory();
 			
 		}
 		
 		/**
-		 * setting up all element of the HUD
+		 * setting up the healthbar of the HUD
 		 */
-		private function builtUserInterface():void {
+		private function setupHealthBar():void {
 			var healthbar:Healthbar = new Healthbar();
 			uiObjects.push(healthbar);
 			addChild(healthbar);
+		}
+		
+		/**
+		 * setting up the inventory
+		 */
+		private function setupInventory():void {
+			var inv:Inventory = new Inventory();
+			uiObjects.push(inv);
+			addChild(inv);
+			
+			
 		}
 		
 		/**
