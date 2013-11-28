@@ -12,26 +12,32 @@ package core.ui.uiobjects
 		
 		public function UiObject() 
 		{
-			
+			play = true;
 		}
 		
 		/**
 		 * pause the game
-		 * @param	play
 		 */
-		public function pauseGame(play:Boolean):void {
+		public function pause():void {
 			if (play) {
 				this.play = false;
 			}
 		}
 		/**
 		 * continue the game
-		 * @param	play
 		 */
-		public function resumePlay(play:Boolean):void {
+		public function resume():void {
 			if (!play) {
 				this.play = true;
 			}
+		}
+		
+		/**
+		 * check if paused
+		 * @return
+		 */
+		public function getState():Boolean {
+			return play;
 		}
 		
 	}

@@ -108,6 +108,14 @@ package core.ui.uiobjects
 		}
 		
 		/**
+		 * get max health
+		 * @return maxHealth
+		 */
+		public function getMaxHealth():Number {
+			return maxHealth
+		}
+		
+		/**
 		 * Check if maxHealth is reached or exceeded
 		 * 
 		 * @param amount of health thats need to be added
