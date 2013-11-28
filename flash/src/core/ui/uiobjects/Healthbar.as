@@ -87,7 +87,7 @@ package core.ui.uiobjects
 		 */
 		public function restoreHealth(amount:Number):void {
 			var scale:Number = 0;
-			if (curHealth > 0 && curHealth < maxHealth && play == true) {
+			if (curHealth < maxHealth && play == true) {
 				if (reachedMaxHealth(amount)){
 					scale = maxHealth - curHealth;
 					curHealth = maxHealth;

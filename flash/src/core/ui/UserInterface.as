@@ -12,6 +12,9 @@ package core.ui
 		
 		private var uiObjects:Vector.<UiObject>; // list of all ui elements
 		
+		/**
+		 * constructor
+		 */
 		public function UserInterface() 
 		{
 			uiObjects = new Vector.<UiObject>();
@@ -54,11 +57,25 @@ package core.ui
 		public function reset():void {
 			for each(var uiObject:UiObject in uiObjects) {
 				if (uiObject is Healthbar) {
-					var healthbar:Healthbar = iuObject as Healthbar;
+					var healthbar:Healthbar = uiObject as Healthbar;
 					healthbar.restoreHealth(healthbar.getMaxHealth());
 					trace(healthbar.getMaxHealth());
 				}
 			}
+		}
+		
+		/**
+		 * select the healthbar from uiObjects 
+		 * @return healthbar
+		 */
+		public function getHealthbar():Healthbar {
+			var healthbar:Healthbar;
+			for each(var uiObject:UiObject in uiObjects) {
+				if (uiObject is Healthbar) {
+					healthbar = uiObject as Healthbar;
+				}
+			} 
+			return healthbar;
 		}
 		
 	}
