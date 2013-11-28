@@ -1,5 +1,6 @@
 package core.screen.subscreen 
 {
+	import core.gameobject.Character;
 	import core.gameobject.GameObject;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -14,6 +15,7 @@ package core.screen.subscreen
 		public static var current:Level;
 		
 		public var gameObjects:Vector.<GameObject> = new Vector.<GameObject>();
+		public var player:Character;
 		public var active:Boolean = false;
 		
 		public function Level() 
@@ -64,6 +66,15 @@ package core.screen.subscreen
 					return gameObj;
 			}
 			return null;
+		}
+		
+		protected function SetPlayer(player:Character):void
+		{
+			if (!this.player)
+			{
+				this.player = player;
+				addChild(player);
+			}
 		}
 		
 		/**

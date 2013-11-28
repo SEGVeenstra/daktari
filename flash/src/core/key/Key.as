@@ -16,6 +16,7 @@ package core.key
 		public static const ARROW_UP:uint = 38;
 		public static const ARROW_DOWN:uint = 40;
 		public static const SPACEBAR:uint = 32;
+		public static const CTRL_LEFT:uint = 17;
 		public static const ENTER:uint = 13;
 		public static const ESCAPE:uint = 27;
 		

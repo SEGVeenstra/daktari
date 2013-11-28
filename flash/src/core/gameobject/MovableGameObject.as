@@ -90,7 +90,7 @@ package core.gameobject
 			if (blockedLeft)
 			{
 				var overlap:Rectangle = collider.intersection(blockedLeft.collider);
-				collider.x += overlap.right - collider.left;
+				collider.x += (overlap.right - collider.left);
 			}
 		}
 		
@@ -114,7 +114,7 @@ package core.gameobject
 			if (blockedBottom)
 			{
 				var overlap:Rectangle = collider.intersection(blockedBottom.collider);
-				collider.y += overlap.top - collider.bottom;
+				collider.y += (overlap.top - collider.bottom)+1;
 			}
 		}
 		

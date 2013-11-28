@@ -13,6 +13,8 @@ package core.gameobject
 	 */
 	public class Character extends MovableGameObject 
 	{
+		static const MODE_CLIMBING:int = 2;
+		
 		protected const MAX_RUN_SPEED:Number = 6;
 		protected const MAX_JUMP_SPEED:Number = 12;
 		protected const JUMP_HEIGHT:Number = 10;
@@ -54,7 +56,8 @@ package core.gameobject
 			Control();
 			UpdateCollisions();
 			SetBlocks();
-			CorrectAll();
+			if(mode != MODE_CLIMBING)
+				CorrectAll();
 			Move();
 		}
 		
@@ -80,6 +83,41 @@ package core.gameobject
 				case MODE_AIRBOURNE:
 					ControlAir();
 					break;
+				case MODE_CLIMBING:
+					ControlClimb();
+					break;
+			}
+		}
+		
+		private function ControlClimb():void 
+		{
+			if (!climbable)
+			{
+				mode = MODE_AIRBOURNE;
+				return;
+			}
+			if (collider.bottom > climbable.collider.bottom && blockedBottom)
+				collider.y = climbable.collider.bottom - collider.height;
+			
+			if (Key.isDown(Key.ARROW_UP))
+			{
+				collider.y -= MAX_RUN_SPEED / 2;
+			}
+			if (Key.isDown(Key.ARROW_DOWN) && (collider.bottom < climbable.collider.bottom))
+			{
+				collider.y += MAX_RUN_SPEED;
+			}
+			if (Key.isDown(Key.ARROW_LEFT) && !(Key.isDown(Key.ARROW_DOWN) || Key.isDown(Key.ARROW_UP)))
+			{
+				mode = MODE_AIRBOURNE;
+				runSpd = -MAX_RUN_SPEED;
+				return;
+			}
+			if (Key.isDown(Key.ARROW_RIGHT) && !(Key.isDown(Key.ARROW_DOWN) || Key.isDown(Key.ARROW_UP)))
+			{
+				mode = MODE_AIRBOURNE;
+				runSpd = MAX_RUN_SPEED;
+				return;
 			}
 		}
 		
@@ -95,24 +133,37 @@ package core.gameobject
 				jumpSpd = 0;
 				return;
 			}
-			if (blockedLeft && blockedRight)
-				runSpd = 0;
-			
-			if (Key.isDown(Key.ARROW_LEFT) && !blockedLeft)
+			if (blockedLeft || blockedRight)
 			{
-				if (runSpd > 0)
+				runSpd = 0;
+			}
+			
+			if (Key.isDown(Key.ARROW_LEFT) && !blockedLeft && !Key.isDown(Key.ARROW_RIGHT))
+			{
+				if (runSpd == 0)
+					runSpd = -1.6;
+				else if (runSpd > 0)
 					runSpd *= 1 - MAX_RUN_SPEED / 60;
 				else if(runSpd < -MAX_RUN_SPEED)
 					runSpd *= 1 + MAX_RUN_SPEED / 60;
 			}
-			else if (Key.isDown(Key.ARROW_RIGHT) && !blockedRight)
+			if (Key.isDown(Key.ARROW_RIGHT) && !blockedRight && !Key.isDown(Key.ARROW_LEFT))
 			{
-				if (runSpd < 0)
+				if (runSpd == 0)
+					runSpd = 1.6;
+				else if (runSpd < 0)
 					runSpd *= 1 - MAX_RUN_SPEED / 60;
 				else if(runSpd > MAX_RUN_SPEED)
 					runSpd *= 1 + MAX_RUN_SPEED / 60;
 			}
-			else
+			
+			if (climbable && (Key.isDown(Key.ARROW_UP) || Key.isDown(Key.ARROW_DOWN)))
+			{
+				collider.x = (climbable.collider.left + (climbable.collider.width/2)) - collider.width/2;
+				mode = MODE_CLIMBING;
+				return;
+			}
+			if(!Key.isDown(Key.ARROW_LEFT) && !Key.isDown(Key.ARROW_RIGHT))
 				runSpd *= 1 - MAX_RUN_SPEED / 60;
 				
 			collider.x += runSpd;
@@ -120,7 +171,7 @@ package core.gameobject
 			if (jumpSpd == 0) jumpSpd = 1;
 			
 			var jumpRatio:int = 150;
-			if (!Key.isDown(Key.SPACEBAR) || !pressedJmp)
+			if (!Key.isDown(Key.CTRL_LEFT) || !pressedJmp)
 			{
 				jumpRatio = 40;
 				pressedJmp = false;
@@ -149,6 +200,12 @@ package core.gameobject
 		 */
 		private function ControlGround():void 
 		{
+			if (!blockedBottom)
+			{
+				mode = MODE_AIRBOURNE;
+				jumpSpd = 1.6;
+				return;
+			}
 			
 			if (Key.isDown(Key.ARROW_LEFT) && !blockedLeft)
 			{
@@ -160,15 +217,79 @@ package core.gameobject
 				runSpd = MAX_RUN_SPEED;
 				collider.x += runSpd;
 			}
-			if (Key.isDown(Key.SPACEBAR) && !blockedTop && !pressedJmp)
+			if (!Key.isDown(Key.ARROW_RIGHT) && !Key.isDown(Key.ARROW_LEFT))
+				runSpd = 0;
+			else if (Key.isDown(Key.ARROW_RIGHT) && Key.isDown(Key.ARROW_LEFT))
+				runSpd = 0;
+			if (Key.isDown(Key.CTRL_LEFT) && !blockedTop && !pressedJmp)
 			{
+				collider.y -= 1;
 				mode = MODE_AIRBOURNE;
 				pressedJmp = true;
 				jumpSpd = MAX_JUMP_SPEED * -1;
 				return;
 			}
+			else if (!Key.isDown(Key.CTRL_LEFT))
+			{
+				pressedJmp = false;
+			}
+			if (Key.isDown(Key.ARROW_UP))
+			{
+				if (climbable)
+				{
+					if (climbable.collider.top < collider.top)
+					{
+						collider.x = (climbable.collider.left + (climbable.collider.width/2)) - collider.width/2;
+						mode = MODE_CLIMBING;
+						return;
+					}
+				}
+			}
+			if (Key.isDown(Key.ARROW_DOWN))
+			{
+				if (climbable)
+				{
+					collider.x = (climbable.collider.left + (climbable.collider.width/2)) - collider.width/2;
+					mode = MODE_CLIMBING;
+					return;
+				}
+			}
+		}
+		
+		 /**
+		 * Set the block properties based on the collisions
+		 */
+		override protected function SetBlocks():void
+		{
+			blockedLeft = null;
+			blockedBottom = null;
+			blockedRight = null;
+			blockedTop = null;
+			climbable = null;
 			
-			runSpd = 0;
+			for each(var o:GameObject in collisions)
+			{
+				if (o.solid)
+				{
+					var intersect:Rectangle = collider.intersection(o.collider);
+					if (intersect.height > intersect.width)
+					{
+						if (intersect.x + (intersect.width / 2) < collider.x + (collider.width / 2))
+							blockedLeft = o;
+						else
+							blockedRight = o;
+					}
+					else
+						if (intersect.y + (intersect.height / 2) < collider.y + (collider.height / 2))
+							blockedTop = o;
+						else
+							blockedBottom = o;
+				}
+				else if (o is Climbable)
+				{
+					climbable = o;
+				}
+			}
 		}
 		
 	}
