@@ -1,7 +1,7 @@
 package core.gameobject 
 {
-	import core.collision.Collider;
 	import core.key.Key;
+	import Game;
 	import core.screen.subscreen.Level;
 	import flash.geom.Rectangle;
 	import starling.display.Shape;
@@ -53,12 +53,15 @@ package core.gameobject
 		
 		private function OnEnterFrame(e:EnterFrameEvent):void 
 		{
-			Control();
-			UpdateCollisions();
-			SetBlocks();
-			if(mode != MODE_CLIMBING)
-				CorrectAll();
-			Move();
+			if (paused)
+			{
+				Control();
+				UpdateCollisions();
+				SetBlocks();
+				if(mode != MODE_CLIMBING)
+					CorrectAll();
+				Move();
+			}
 		}
 		
 		/**
@@ -269,25 +272,28 @@ package core.gameobject
 			
 			for each(var o:GameObject in collisions)
 			{
-				if (o.solid)
+				if (o.active)
 				{
-					var intersect:Rectangle = collider.intersection(o.collider);
-					if (intersect.height > intersect.width)
+					if (o.solid)
 					{
-						if (intersect.x + (intersect.width / 2) < collider.x + (collider.width / 2))
-							blockedLeft = o;
+						var intersect:Rectangle = collider.intersection(o.collider);
+						if (intersect.height > intersect.width)
+						{
+							if (intersect.x + (intersect.width / 2) < collider.x + (collider.width / 2))
+								blockedLeft = o;
+							else
+								blockedRight = o;
+						}
 						else
-							blockedRight = o;
+							if (intersect.y + (intersect.height / 2) < collider.y + (collider.height / 2))
+								blockedTop = o;
+							else
+								blockedBottom = o;
 					}
-					else
-						if (intersect.y + (intersect.height / 2) < collider.y + (collider.height / 2))
-							blockedTop = o;
-						else
-							blockedBottom = o;
-				}
-				else if (o is Climbable)
-				{
-					climbable = o;
+					else if (o is Climbable)
+					{
+						climbable = o;
+					}
 				}
 			}
 		}

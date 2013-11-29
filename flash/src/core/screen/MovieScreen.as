@@ -6,11 +6,13 @@ package core.screen
 	 */
 	public class MovieScreen extends Screen 
 	{
+		private var _paused:Boolean;
 		
 		public function MovieScreen() 
 		{
-			
+			trace('MovieScreen loaded');
 		}
+		
 		
 	}
 

@@ -16,7 +16,9 @@ package core.screen.subscreen
 		
 		public var gameObjects:Vector.<GameObject> = new Vector.<GameObject>();
 		public var player:Character;
-		public var active:Boolean = false;
+		
+		private var _active:Boolean = true;
+		private var _paused:Boolean = false;
 		
 		public function Level() 
 		{
@@ -36,8 +38,6 @@ package core.screen.subscreen
 		{
 			
 		}
-		
-		
 		
 		/**
 		 * Add the given GameObject if the id is not yet used
@@ -92,7 +92,7 @@ package core.screen.subscreen
 		{
 			for each(var gameObj:GameObject in gameObjects)
 			{
-				gameObj.active = false;
+				gameObj.Pause();
 			}
 		}
 		

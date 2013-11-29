@@ -52,7 +52,7 @@ package core.gameobject
 			
 			for each(var o:GameObject in collisions)
 			{
-				if (o.solid)
+				if (o.solid && o.active)
 				{
 					var intersect:Rectangle = collider.intersection(o.collider);
 					if (intersect.height > intersect.width)

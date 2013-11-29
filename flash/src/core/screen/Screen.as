@@ -8,9 +8,8 @@ package core.screen
 	 */
 	public class Screen extends Sprite 
 	{
-		static public var current:Screen;
 		
-		public function Screen() 
+		public function Screen()
 		{
 			
 		}

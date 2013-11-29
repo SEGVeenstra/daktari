@@ -1,6 +1,5 @@
 package core.gameobject 
 {
-	import core.collision.Collider;
 	import flash.geom.Rectangle;
 	import starling.display.Shape;
 	/**
