@@ -16,7 +16,7 @@ package core.gameobject
 		public var active:Boolean = false;
 		public var solid:Boolean = false;
 		
-		public function GameObject(id:String, x:Number, y:Number) 
+		public function GameObject(id:String, x:Number, y:Number)
 		{
 			this.id = id;
 			this.x = x;
