@@ -9,16 +9,18 @@ package core.ui.uiobjects
 	 */
 	public class Inventory extends UiObject 
 	{
+		private var inventory:Vector.<Object>;
 		
 		public function Inventory() 
 		{
+			inventory = new Vector.<Object>;
 			setupInventoryBox();
 		}
 		
 		private function setupInventoryBox():void {
 			var high:Number = 30;
 			var box:Shape = new Shape();
-			addChild(box);
+			this.addChild(box);
 			box.x = 600;
 			
 			var inv:Graphics = box.graphics;

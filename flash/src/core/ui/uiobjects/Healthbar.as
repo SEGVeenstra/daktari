@@ -135,8 +135,11 @@ package core.ui.uiobjects
 		 * reset healthbar
 		 */
 		public function reset():void {
-			curHealth = maxHealth;
-			healthBar.scaleX += curHealth / 100;
+			if (curHealth != maxHealth) {
+				curHealth = maxHealth;
+				healthBar.scaleX += curHealth / 100;
+			}
+			
 		}
 		
 
