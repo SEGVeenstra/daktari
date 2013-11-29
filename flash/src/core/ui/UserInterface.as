@@ -10,8 +10,8 @@ package core.ui
 	public class UserInterface extends Sprite 
 	{
 		
-		private var healthbar:Healthbar;
-		private var inv:Inventory;
+		public var healthbar:Healthbar;
+		public var inv:Inventory;
 		/**
 		 * constructor
 		 */
