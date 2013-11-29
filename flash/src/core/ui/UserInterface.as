@@ -10,14 +10,13 @@ package core.ui
 	public class UserInterface extends Sprite 
 	{
 		
-		private var uiObjects:Vector.<UiObject>; // list of all ui elements
-		
+		private var healthbar:Healthbar;
+		private var inv:Inventory;
 		/**
 		 * constructor
 		 */
 		public function UserInterface() 
 		{
-			uiObjects = new Vector.<UiObject>();
 			setupHealthBar();
 			setupInventory();
 			
@@ -27,8 +26,7 @@ package core.ui
 		 * setting up the healthbar of the HUD
 		 */
 		private function setupHealthBar():void {
-			var healthbar:Healthbar = new Healthbar();
-			uiObjects.push(healthbar);
+			healthbar = new Healthbar();
 			addChild(healthbar);
 		}
 		
@@ -36,8 +34,7 @@ package core.ui
 		 * setting up the inventory
 		 */
 		private function setupInventory():void {
-			var inv:Inventory = new Inventory();
-			uiObjects.push(inv);
+			inv = new Inventory();
 			addChild(inv);
 			
 			
@@ -47,33 +44,28 @@ package core.ui
 		 * pause userinterface
 		 */
 		public function pause():void {
-				for each(var uiObject:UiObject in uiObjects) {
-					uiObject.pause();
-					trace(uiObject.getState());
-				}	
+					healthbar.pause();
+					trace(healthbar.getState());
+					inv.pause();
+					trace(inv.getState());
 		}
 		
 		/**
 		 * resume interface
 		 */
 		public function resume():void {
-			for each(var uiObject:UiObject in uiObjects) {
-				uiObject.resume();
-				trace(uiObject.getState());
-			}
+				healthbar.resume();
+				trace(healthbar.getState());
+				inv.resume();
+				trace(inv.getState());
 		}
 		
 		/**
 		 * reset HUD
 		 */
 		public function reset():void {
-			for each(var uiObject:UiObject in uiObjects) {
-				if (uiObject is Healthbar) {
-					var healthbar:Healthbar = uiObject as Healthbar;
-					healthbar.restoreHealth(healthbar.getMaxHealth());
-					trace(healthbar.getMaxHealth());
-				}
-			}
+			healthbar.reset();
+			trace(healthbar.getMaxHealth());
 		}
 		
 		/**
@@ -81,12 +73,6 @@ package core.ui
 		 * @return healthbar
 		 */
 		public function getHealthbar():Healthbar {
-			var healthbar:Healthbar;
-			for each(var uiObject:UiObject in uiObjects) {
-				if (uiObject is Healthbar) {
-					healthbar = uiObject as Healthbar;
-				}
-			} 
 			return healthbar;
 		}
 		

@@ -24,7 +24,8 @@ package core.ui.uiobjects
 		 * build healthbar
 		 */
 		private function buildHealthBar():void {
-			var high:Number = 15;
+			var high:Number = 20;
+			var barwidth:Number = 200;
 			var hbol:Shape = new Shape(); // background healthbar
 			addChild(hbol);
 		
@@ -33,8 +34,8 @@ package core.ui.uiobjects
 		
 			ol.lineStyle(1, 0x000000);
 			ol.beginFill(0x666666);
-			ol.lineTo(maxHealth, 0);
-			ol.lineTo(maxHealth, high);
+			ol.lineTo(barwidth, 0);
+			ol.lineTo(barwidth, high);
 			ol.lineTo(0, high);
 			ol.lineTo(0, 0);
 			ol.endFill();
@@ -47,8 +48,8 @@ package core.ui.uiobjects
 			var ins:Graphics = healthBar.graphics;
 			ins.lineStyle(0, 0x000000);
 			ins.beginFill(0xFF0000);
-			ins.lineTo(maxHealth,0);
-			ins.lineTo(maxHealth,high);
+			ins.lineTo(barwidth,0);
+			ins.lineTo(barwidth,high);
 			ins.lineTo(0,high);
 			ins.lineTo(0,0);
 			ins.endFill();
@@ -87,7 +88,7 @@ package core.ui.uiobjects
 		 */
 		public function restoreHealth(amount:Number):void {
 			var scale:Number = 0;
-			if (curHealth < maxHealth && play == true) {
+			if (curHealth > 0 && curHealth < maxHealth && play == true) {
 				if (reachedMaxHealth(amount)){
 					scale = maxHealth - curHealth;
 					curHealth = maxHealth;
@@ -128,6 +129,14 @@ package core.ui.uiobjects
 			}else {
 				return false;
 			}
+		}
+		
+		/**
+		 * reset healthbar
+		 */
+		public function reset():void {
+			curHealth = maxHealth;
+			healthBar.scaleX += curHealth / 100;
 		}
 		
 
