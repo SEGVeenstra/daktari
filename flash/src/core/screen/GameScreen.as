@@ -1,7 +1,8 @@
 package core.screen 
 {
-	import core.screen.subscreen.Level;
+	import core.level.Level;
 	import core.ui.UserInterface;
+	import test.TestLevel;
 	/**
 	 * A Screen that represents a level ofthe Game.
 	 * @author SEG.Veenstra

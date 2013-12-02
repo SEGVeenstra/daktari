@@ -1,6 +1,6 @@
 package core.screen 
 {
-	import core.screen.subscreen.Menu;
+	import core.menu.Menu;
 	
 	/**
 	 * Can be extended to create custom MenuScreens

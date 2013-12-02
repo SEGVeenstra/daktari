@@ -16,31 +16,35 @@ package
 	public class Game extends Sprite 
 	{	
 		private static var instance:Game;
-		public static const SCREEN_GAME:GameScreen = new GameScreen();
-		public static const SCREEN_SCREEN:MenuScreen = new MenuScreen();
 		
-		public var focus:Screen;
+		private var _focus:Screen;
 		
-		public var gameScreen:GameScreen;
-		public var menuScreen:MenuScreen;
-		public var movieScreen:MovieScreen;
+		private var _gameScreen:GameScreen;
+		private var _menuScreen:MenuScreen;
+		private var _movieScreen:MovieScreen;
 		
 		public function Game() 
 		{
 			instance = this;
 			addChild(new Key());
 			
-			gameScreen = new GameScreen();
-			menuScreen = new MenuScreen();
-			movieScreen = new MovieScreen();
+			CreateScreens();
 			
-			addChild(gameScreen);
-			addChild(menuScreen);
-			addChild(movieScreen);			
-			
-			gameScreen.loadLevel(new TestLevel());
+			// Load the first screen!
+			focus = Game.menuScreen;
 			
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+		}
+		
+		private function CreateScreens():void
+		{
+			_gameScreen = new GameScreen();
+			_menuScreen = new MenuScreen();
+			_movieScreen = new MovieScreen();
+			
+			addChild(_gameScreen);
+			addChild(_menuScreen);
+			addChild(_movieScreen);	
 		}
 		
 		private function OnAddedToStage(e:Event):void 
@@ -48,24 +52,40 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
 		}
 		
-		public function FocusScreen(screen:Screen):void
+		static public function get gameScreen():GameScreen
 		{
-			if (focus)
+			return instance._gameScreen;
+		}
+		
+		static public function get menuScreen():MenuScreen
+		{
+			return instance._menuScreen;
+		}
+		
+		static public function get movieScreen():MovieScreen
+		{
+			return instance._movieScreen;
+		}
+		
+		/**
+		 * Let the game focus on one of the 3 screens (Game.[gameScreen/menuScreen/movieScreen]
+		 */
+		public function set focus(screen:Screen):void
+		{
+			if (_focus != screen)
 			{
-				if (focus != screen)
-				{
-					focus.active = false;
-					focus.visible = false;
-					
-					screen.visible = true;
-					screen.active = true;
-					focus = screen;
-				}
+				if (_focus)
+					_focus.active = false
+				_focus = screen;
+				_focus.active = true;
 			}
 			else
-			{
-				focus = screen;
-			}
+				trace('tried to focus the already focussed screen!');
+		}
+		
+		public function get focus():Screen
+		{
+			return _focus;
 		}
 		
 	}

@@ -2,7 +2,7 @@ package core.gameobject
 {
 	import core.key.Key;
 	import Game;
-	import core.screen.subscreen.Level;
+	import core.level.Level;
 	import flash.geom.Rectangle;
 	import starling.display.Shape;
 	import starling.events.EnterFrameEvent;

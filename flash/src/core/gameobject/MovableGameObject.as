@@ -1,6 +1,6 @@
 package core.gameobject 
 {
-	import core.screen.subscreen.Level;
+	import core.level.Level;
 	import flash.geom.Rectangle;
 	/**
 	 * ...
