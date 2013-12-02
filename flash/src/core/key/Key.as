@@ -19,6 +19,7 @@ package core.key
 		public static const CTRL_LEFT:uint = 17;
 		public static const ENTER:uint = 13;
 		public static const ESCAPE:uint = 27;
+		public static const PAUSE:uint = 80;
 		
 		// Object wich stores all the currently pressed keys
 		private static var Keys:Object;

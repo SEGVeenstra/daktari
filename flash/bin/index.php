@@ -29,7 +29,7 @@
 	<style>
 		html, body { height:100%; overflow:hidden;font-family: Arial;}
 		body { display:table; min-width: 1024px}
-                table {width:800px; font-size: 12px}
+                table {width:800px; font-size: 12px; vertical-align: top}
                 h1 {font-weight: normal;}
                 span {display:block;}
                 #game {display: table-cell}
@@ -49,13 +49,38 @@
 	</div>
     <table>
         <thead><tr><th>Controls:</th><th>Obstacles:</th></tr></thead>
-        <tbody><tr><td>Arrow Keys to move</td><td>Grey: Platforms</td></tr>
-        <tr><td>CTRL (left) to jump (hold to jump higher)</td><td>Blue: Ladder(climbable)
-            </td></tr></tbody>
+        <tbody><tr><td>
+        
+                    <ul>
+                        <li><b>Menu</b>
+                        <ul>
+                            <li>Arrow Keys: Control menu</li>
+                            <li>Esc: Back</li>
+                            <li>Enter: Select Item</li>
+                        </ul></li>
+                        <li><b>Game</b>
+                        <ul>
+                            <li>Arrow Keys: Control Character</li>
+                            <li>CTRL(left): Jump</li>
+                            <li>P: Pause</li>
+                            <li>Enter: Continue</li>
+                            
+                        </ul></li>
+                    </ul>
+                    
+                </td><td>
+                    
+                    <ul>
+                        <li>Blue: Climbable</li>
+                        <li>Grey: Platform (Solid)</li>
+                    </ul>
+                    
+                </td></tr>
+        </tbody>
     </table>
     </div>
     <div id="release_notes">
-        <?php include_once 'release_notes.html' ?>;
+        <?php include_once 'release_notes.html' ?>
     </div>
 </body>
 </html>

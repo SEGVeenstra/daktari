@@ -1,6 +1,7 @@
 package core.gameobject 
 {
 	import core.key.Key;
+	import flash.geom.Point;
 	import Game;
 	import core.level.Level;
 	import flash.geom.Rectangle;
@@ -26,13 +27,24 @@ package core.gameobject
 		protected var jumpSpd:Number = 0.1;
 		protected var pressedJmp:Boolean = false;
 		
+		private var _startPosition:Point;
+		
 		public function Character(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
+			_startPosition = new Point(x, y);
 			collider = new Rectangle(x, y, Level.GRIDSIZE * 3, Level.GRIDSIZE * 5);
 			Draw();
 			mode = MODE_AIRBOURNE;
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+		}
+		
+		/**
+		 * Returns the start position of this Object
+		 */
+		public function get startPosition():Point
+		{
+			return _startPosition;
 		}
 		
 		private function Draw():void
@@ -53,7 +65,7 @@ package core.gameobject
 		
 		private function OnEnterFrame(e:EnterFrameEvent):void 
 		{
-			if (paused)
+			if (!paused)
 			{
 				Control();
 				UpdateCollisions();
@@ -92,6 +104,9 @@ package core.gameobject
 			}
 		}
 		
+		/**
+		 * Control the character when he is climbing
+		 */
 		private function ControlClimb():void 
 		{
 			if (!climbable)

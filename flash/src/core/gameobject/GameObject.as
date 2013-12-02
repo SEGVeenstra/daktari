@@ -67,6 +67,22 @@ package core.gameobject
 			_paused = true;
 		}
 		
+		/**
+		 * Continues to Play this GameObject
+		 */
+		public function Play():void
+		{
+			_paused = false;
+		}
+		
+		/**
+		 * Resets this GameObject to it's first state
+		 */
+		public function Reset():void
+		{
+			
+		}
+		
 	}
 
 }

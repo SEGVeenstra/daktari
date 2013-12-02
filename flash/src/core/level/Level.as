@@ -68,6 +68,10 @@ package core.level
 			return null;
 		}
 		
+		/**
+		 * Set the player for this level
+		 * @param	player
+		 */
 		protected function SetPlayer(player:Character):void
 		{
 			if (!this.player)
@@ -93,6 +97,7 @@ package core.level
 			for each(var gameObj:GameObject in gameObjects)
 			{
 				gameObj.Pause();
+				player.Pause();
 			}
 		}
 		
@@ -103,7 +108,8 @@ package core.level
 		{
 			for each(var gameObj:GameObject in gameObjects)
 			{
-				gameObj.active = true;
+				gameObj.Play();
+				player.Play();
 			}
 		}
 		
