@@ -7,11 +7,11 @@ package core.ui
 	 * Contains the information about the player in a level
 	 * @author Henderikus Harms
 	 */
-	public class UserInterface extends Sprite 
+	public class UserInterface extends Sprite
 	{
 		
 		public var healthbar:Healthbar;
-		public var inv:Inventory;
+		public var inventory:Inventory;
 		/**
 		 * constructor
 		 */
@@ -27,17 +27,15 @@ package core.ui
 		 */
 		private function setupHealthBar():void {
 			healthbar = new Healthbar();
-			addChild(healthbar);
+			this.addChild(healthbar);
 		}
 		
 		/**
 		 * setting up the inventory
 		 */
 		private function setupInventory():void {
-			inv = new Inventory();
-			addChild(inv);
-			
-			
+			inventory = new Inventory();
+			this.addChild(inventory);
 		}
 		
 		/**
@@ -46,8 +44,8 @@ package core.ui
 		public function pause():void {
 					healthbar.pause();
 					trace(healthbar.getState());
-					inv.pause();
-					trace(inv.getState());
+					inventory.pause();
+					trace(inventory.getState());
 		}
 		
 		/**
@@ -56,8 +54,8 @@ package core.ui
 		public function resume():void {
 				healthbar.resume();
 				trace(healthbar.getState());
-				inv.resume();
-				trace(inv.getState());
+				inventory.resume();
+				trace(inventory.getState());
 		}
 		
 		/**
