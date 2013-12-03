@@ -1,6 +1,11 @@
 package game.screens 
 {
+	import core.key.Key;
 	import core.menu.Menu;
+	import core.menu.menuobject.Button;
+	import game.levels.Level1;
+	import starling.events.KeyboardEvent;
+	import starling.text.TextField;
 	
 	/**
 	 * ...
@@ -34,7 +39,7 @@ package game.screens
 			{
 				if (activeItem == playButton)
 				{
-					Game.gameScreen.loadLevel(new TestLevel());
+					Game.gameScreen.loadLevel(new Level1());
 					Game.focus = Game.gameScreen;
 					Game.gameScreen.Play();
 				}

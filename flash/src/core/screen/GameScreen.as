@@ -1,12 +1,9 @@
 package core.screen 
 {
-	import core.gameobject.GameObject;
 	import core.key.Key;
 	import core.level.Level;
-	import core.menu.Menu;
 	import core.ui.UserInterface;
 	import starling.events.KeyboardEvent;
-	import test.TestLevel;
 	/**
 	 * A Screen that represents a level ofthe Game.
 	 * @author SEG.Veenstra

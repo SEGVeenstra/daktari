@@ -3,7 +3,6 @@ package core.gameobject
 	import flash.geom.Rectangle;
 	import starling.display.Sprite;
 	import starling.events.Event;
-	import test.Collider;
 	
 	/**
 	 * Is an object that can be placed into a level

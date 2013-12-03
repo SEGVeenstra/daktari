@@ -1,5 +1,8 @@
 package game.levels 
 {
+	import core.gameobject.Character;
+	import core.gameobject.Climbable;
+	import core.gameobject.Platform;
 	import core.level.Level;
 	
 	/**
