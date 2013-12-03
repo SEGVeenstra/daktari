@@ -43,14 +43,24 @@ package core.ui.uiobjects
 		
 		
 		public function useInventoryItem(item:Collectable):void {
+			var newArray:String = "";
 			var useItem:Collectable;
 			var indexItem:Number = inventoryItems.indexOf(item);
+			trace (indexItem);
 			useItem = inventoryItems[indexItem];
 			trace (useItem.id);
-			
+			inventoryItems = inventoryItems.splice(indexItem, 1);
+			inventorySprite.removeChild(useItem);
+			for (var i:Number; i < Array.length; i++) {
+				var curItem:Collectable = inventoryItems[i];
+				newArray += inventoryItems.indexOf(curItem) + " : " + curItem.id + " ";
+			}
+			//trace (inventoryItems);
 		}
 		
-		
+		public function removeFromInventory():void {
+			
+		}
 	}
 
 }
