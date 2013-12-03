@@ -8,8 +8,8 @@ package core.gameobject
 	 */
 	public class MovableGameObject extends GameObject 
 	{
-		static const MODE_GROUNDED:int = 0;
-		static const MODE_AIRBOURNE:int = 1;
+		static public const MODE_GROUNDED:int = 0;
+		static public const MODE_AIRBOURNE:int = 1;
 		
 		protected var blockedLeft:GameObject;
 		protected var blockedRight:GameObject;

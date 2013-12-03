@@ -14,7 +14,7 @@ package core.gameobject
 	 */
 	public class Character extends MovableGameObject 
 	{
-		static const MODE_CLIMBING:int = 2;
+		static public const MODE_CLIMBING:int = 2;
 		
 		protected const MAX_RUN_SPEED:Number = 6;
 		protected const MAX_JUMP_SPEED:Number = 12;

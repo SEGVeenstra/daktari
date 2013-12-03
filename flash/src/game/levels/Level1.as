@@ -2,6 +2,7 @@ package game.levels
 {
 	import core.gameobject.Character;
 	import core.gameobject.Climbable;
+	import core.gameobject.Collectable;
 	import core.gameobject.Platform;
 	import core.level.Level;
 	
@@ -33,6 +34,7 @@ package game.levels
 			AddGameObject(new Climbable("ladder2", 400, 200, 16, 200));
 			AddGameObject(new Platform('testplatform', 150, 200, 500, 16));
 			SetPlayer(new Character('player', 10, 10));
+			AddGameObject(new Collectable('item1', 200, 100));
 		}
 	}
 
