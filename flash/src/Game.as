@@ -6,8 +6,8 @@ package
 	import core.screen.MenuScreen;
 	import core.screen.MovieScreen;
 	import core.screen.Screen;
-	import flash.display.Sprite;
 	import game.screens.IntroScreen;
+	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.KeyboardEvent;
 	import test.menu.TestMenu;
