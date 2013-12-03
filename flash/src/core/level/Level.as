@@ -12,7 +12,6 @@ package core.level
 	public class Level extends Sprite 
 	{
 		public static const GRIDSIZE:int = 16;
-		public static var current:Level;
 		
 		public var gameObjects:Vector.<GameObject> = new Vector.<GameObject>();
 		public var player:Character;

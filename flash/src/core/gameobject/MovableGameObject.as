@@ -32,7 +32,7 @@ package core.gameobject
 		protected function UpdateCollisions():Vector.<GameObject> 
 		{
 			collisions = new Vector.<GameObject>();
-			for each(var o:GameObject in Level.current.gameObjects)
+			for each(var o:GameObject in Game.gameScreen.level.gameObjects)
 			{
 				if (Collide(o))
 					collisions.push(o);

@@ -13,7 +13,7 @@ package core.screen
 		private var _level:Level;
 		private var _userInterface:UserInterface;
 		
-		public function GameScreen(level:Level = null, userInterface:UserInterface = null) 
+		public function GameScreen(level:Level = null) 
 		{
 			trace('GameScreen loaded');
 			if(level)
