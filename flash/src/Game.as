@@ -1,7 +1,6 @@
 package  
 {
 	import core.key.Key;
-	import core.menu.Menu;
 	import core.screen.GameScreen;
 	import core.screen.MenuScreen;
 	import core.screen.MovieScreen;
@@ -10,8 +9,6 @@ package
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.KeyboardEvent;
-	import test.menu.TestMenu;
-	import test.TestLevel;
 	
 	/**
 	 * Manages the screens and playerdata

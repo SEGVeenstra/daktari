@@ -2,10 +2,8 @@ package game.screens
 {
 	import core.key.Key;
 	import core.menu.Menu;
-	import core.screen.MenuScreen;
 	import starling.events.KeyboardEvent;
 	import starling.text.TextField;
-	import test.menu.TestMenu;
 	
 	/**
 	 * Sample of using MenuScreen
@@ -33,7 +31,7 @@ package game.screens
 		{
 			if (e.keyCode == Key.ENTER)
 			{
-				Game.menuScreen.loadMenu(new TestMenu());
+				Game.menuScreen.loadMenu(new MainMenu());
 			}
 		}
 		
