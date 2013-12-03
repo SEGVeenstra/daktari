@@ -7,19 +7,19 @@ package core.ui.uiobjects
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
-	import test.testobjects.TestItem;
+	import core.gameobject.Collectable;
 	/**
 	 * ...
 	 * @author Henderikus
 	 */
 	public class Inventory extends UiObject 
 	{
-		private var inventoryItems:Vector.<TestItem>;
+		private var inventoryItems:Vector.<Collectable>;
 		private var inventorySprite:Sprite;
 		
 		public function Inventory() 
 		{
-			inventoryItems = new Vector.<TestItem>;
+			inventoryItems = new Vector.<Collectable>;
 			inventorySprite = new Sprite();
 			inventorySprite.x = 600;
 			inventorySprite.y = -200;
@@ -31,7 +31,7 @@ package core.ui.uiobjects
 			var touch:Touch = e.getTouch(stage);
 			if (touch) {
 				if (touch.phase == TouchPhase.ENDED) {
-					var item:TestItem = e.currentTarget as TestItem;
+					var item:Collectable = e.currentTarget as Collectable;
 					inventoryItems.push(item);
 					inventorySprite.addChild(item);
 					if (inventoryItems.length > 3) {
@@ -43,19 +43,20 @@ package core.ui.uiobjects
 				}
 			}
 			
+			
 		}
 		
 		public function useInventoryItem(e:TouchEvent):void {
 			var touch:Touch = e.getTouch(stage);
 			if (touch) {
 				if (touch.phase == TouchPhase.ENDED) {
-					var item:TestItem = e.currentTarget as TestItem;
+					var item:Collectable = e.currentTarget as Collectable;
 					//trace("Use Item: " + item.naam); 
-					for each(var invItem:TestItem in inventoryItems) {
-						var inv:TestItem = invItem;
-						if (item.naam == invItem.naam) {
-							trace (invItem.naam);	
-						}
+					for each(var invItem:Collectable in inventoryItems) {
+						var inv:Collectable = invItem;
+						//if (item.naam == invItem.naam) {
+							//trace (invItem.naam);	
+						//}
 					}
 				}
 			}
