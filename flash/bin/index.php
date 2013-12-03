@@ -41,7 +41,7 @@
 <body>
     <div id="game">
     <h1><b>Daktari Msaidizi</b> Character control prototype</h1>
-    <span>v0.01 : basic_movement</span>
+    <span>v0.02 : menu_implementation</span>
     
 	<div id="altContent">
 		<h1>Daktari</h1>
