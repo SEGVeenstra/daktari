@@ -5,9 +5,10 @@ package core.ui.uiobjects
 	import starling.display.Sprite;
 	import starling.display.Shape;
 	import core.gameobject.Collectable;
+	import mx.utils.ObjectUtil;
 	
 	/**
-	 * ...
+	 * this class controls the players inventory
 	 * @author Henderikus
 	 */
 	public class Inventory extends UiObject 
@@ -15,19 +16,28 @@ package core.ui.uiobjects
 		private var inventoryItems:Array;
 		private var inventorySprite:Sprite;
 		private var inventorySize:Number = 5;
+		private var defaultX:Number = 600;
+		private var defaultY:Number = -200;
 		
+		/**
+		 * constructor
+		 */
 		public function Inventory() 
 		{
 			inventoryItems = new Array();
 			inventorySprite = new Sprite();
-			inventorySprite.x = 600;
+			inventorySprite.x = defaultX;
 			inventorySprite.y = -200;
 			addChild(inventorySprite);
 			
 		}
-
+		
+		/**
+		 * add item to inventory when inventory still has room
+		 * @param	item
+		 */
 		public function addToInventory(item:Collectable):void {
-			if (this.play == true) {
+			if (this.play) {
 				if (inventoryItems.length < inventorySize) {
 					if (item is Collectable) {
 						inventoryItems.push(item);
@@ -38,28 +48,71 @@ package core.ui.uiobjects
 						item.x = (inventoryItems.length - 1) * 65;
 					}	
 				}
+				//showInventoryItems();
 			}	
 		}
 		
-		
+		/**
+		 * this method allows the player the use a certain 
+		 * item in the inventory
+		 * 
+		 * @param	item
+		 */
 		public function useInventoryItem(item:Collectable):void {
-			var newArray:String = "";
-			var useItem:Collectable;
-			var indexItem:Number = inventoryItems.indexOf(item);
-			trace (indexItem);
-			useItem = inventoryItems[indexItem];
-			trace (useItem.id);
-			inventoryItems = inventoryItems.splice(indexItem, 1);
-			inventorySprite.removeChild(useItem);
-			for (var i:Number; i < Array.length; i++) {
-				var curItem:Collectable = inventoryItems[i];
-				newArray += inventoryItems.indexOf(curItem) + " : " + curItem.id + " ";
+			if (this.play) {
+				var indexItem:Number = inventoryItems.indexOf(item);
+				inventoryItems.splice(indexItem, 1);
+				inventorySprite.removeChild(item);
+				showInventoryItems();
+				redrawInventory();
 			}
-			//trace (inventoryItems);
 		}
 		
-		public function removeFromInventory():void {
+		/**
+		 * function that traces the items in the inventoryarray
+		 */
+		public function showInventoryItems():void {
+			for each(var i:Collectable in inventoryItems) {
+				trace(inventoryItems.indexOf(i) + " " + i.id);
+			}
+		}
+		
+		/**
+		 * this function redraws the inventorySprite and it's items
+		 */
+		private function redrawInventory():void {
+			var position:Number = 0;
+			resetInventorySprite();
+			for each(var i:Collectable in inventoryItems) {
+				position += 1;
+				inventorySprite.addChild(i);
+				if (inventoryItems.length > 3 && inventorySprite.x == defaultX) {
+							inventorySprite.x -= 65;
+				}
+				i.x = (position - 1) * 65;
+			}
+		}
+		/**
+		 * reset the players inventory by removing every item in the inventory
+		 * and rebuilding the sprite
+		 */
+		public function resetInventory():void {
+			resetInventorySprite();
+			for (var i:Number; i < inventoryItems.length; i++) {
+				inventoryItems.pop();
+			}
 			
+		}
+		
+		/**
+		 * removes the old inventorySprite and replaces it with a new inventory sprite 
+		 */
+		private function resetInventorySprite():void {
+			removeChild(inventorySprite);
+			inventorySprite = new Sprite();
+			inventorySprite.x = defaultX;	
+			inventorySprite.y = defaultY;
+			addChild(inventorySprite);
 		}
 	}
 
