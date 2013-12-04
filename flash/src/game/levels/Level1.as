@@ -3,6 +3,7 @@ package game.levels
 	import core.gameobject.Character;
 	import core.gameobject.Climbable;
 	import core.gameobject.Collectable;
+	import core.gameobject.Door;
 	import core.gameobject.Platform;
 	import core.level.Level;
 	
@@ -12,7 +13,9 @@ package game.levels
 	 */
 	public class Level1 extends Level 
 	{
-		
+		private var door1:Door = new Door('door1', 400, 550 - 112);
+		private var door2:Door = new Door('door2', 500, 200 - 112);
+		private var door3:Door = new Door('door3', 200, 200 - 112);
 		public function Level1() 
 		{
 			super();
@@ -34,7 +37,13 @@ package game.levels
 			AddGameObject(new Climbable("ladder2", 400, 200, 16, 200));
 			AddGameObject(new Platform('testplatform', 150, 200, 500, 16));
 			SetPlayer(new Character('player', 10, 10));
-			AddGameObject(new Collectable('item1', 200, 100));
+			AddGameObject(new Collectable('item1', 300, 100));
+			AddGameObject(door1);
+			AddGameObject(door2);
+			AddGameObject(door3);
+			door1.SetExits(null, null, door2, null);
+			door2.SetExits(door3, null, null, door1);
+			door3.SetExits(null, door2, null, door1);
 		}
 	}
 

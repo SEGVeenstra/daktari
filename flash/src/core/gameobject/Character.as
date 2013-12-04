@@ -15,6 +15,7 @@ package core.gameobject
 	public class Character extends MovableGameObject 
 	{
 		static public const MODE_CLIMBING:int = 2;
+		static public const MODE_INDOOR:int = 3;
 		
 		protected const MAX_RUN_SPEED:Number = 6;
 		protected const MAX_JUMP_SPEED:Number = 12;
@@ -22,10 +23,12 @@ package core.gameobject
 		
 		private var shape:Shape;
 		protected var climbable:GameObject;
+		protected var door:Door;
 		
 		protected var runSpd:Number = 0;
 		protected var jumpSpd:Number = 0.1;
 		protected var pressedJmp:Boolean = false;
+		protected var switchedDoors:Boolean = false;
 		
 		private var _startPosition:Point;
 		
@@ -101,7 +104,50 @@ package core.gameobject
 				case MODE_CLIMBING:
 					ControlClimb();
 					break;
+				case MODE_INDOOR:
+					ControlIndoor();
+					break;
 			}
+		}
+		
+		private function ControlIndoor():void 
+		{
+			if (Key.isDown(Key.CTRL_LEFT))
+			{
+				pressedJmp = true;
+				mode = MODE_GROUNDED;
+				return;
+			}
+			if (!switchedDoors)
+			{
+				if (Key.isDown(Key.ARROW_DOWN) && door.exitDown)
+				{
+					switchedDoors = true;
+					collider.x = (door.exitDown.collider.left + (door.exitDown.collider.width / 2) - collider.width / 2);
+					collider.y = (door.exitDown.collider.bottom - collider.height);
+				}
+				if (Key.isDown(Key.ARROW_UP) && door.exitUp)
+				{
+					switchedDoors = true;
+					collider.x = (door.exitUp.collider.left + (door.exitUp.collider.width / 2) - collider.width / 2);
+					collider.y = (door.exitUp.collider.bottom - collider.height);
+				}
+				if (Key.isDown(Key.ARROW_LEFT) && door.exitLeft)
+				{
+					switchedDoors = true;
+					collider.x = (door.exitLeft.collider.left + (door.exitLeft.collider.width / 2) - collider.width / 2);
+					collider.y = (door.exitLeft.collider.bottom - collider.height);
+				}
+				if (Key.isDown(Key.ARROW_RIGHT) && door.exitRight)
+				{
+					switchedDoors = true;
+					collider.x = (door.exitRight.collider.left + (door.exitRight.collider.width / 2) - collider.width / 2);
+					collider.y = (door.exitRight.collider.bottom - collider.height);
+				}
+			}
+			if (!Key.isDown(Key.ARROW_UP) && !Key.isDown(Key.ARROW_LEFT) && !Key.isDown(Key.ARROW_RIGHT) && !Key.isDown(Key.ARROW_DOWN))
+				switchedDoors = false;
+				trace(switchedDoors);
 		}
 		
 		/**
@@ -262,6 +308,13 @@ package core.gameobject
 						return;
 					}
 				}
+				else if (door)
+				{
+					collider.x = (door.collider.left + (door.collider.width / 2) - collider.width / 2);
+					mode = MODE_INDOOR;
+					switchedDoors = true;
+					return;
+				}
 			}
 			if (Key.isDown(Key.ARROW_DOWN))
 			{
@@ -269,6 +322,13 @@ package core.gameobject
 				{
 					collider.x = (climbable.collider.left + (climbable.collider.width/2)) - collider.width/2;
 					mode = MODE_CLIMBING;
+					return;
+				}
+				else if (door)
+				{
+					collider.x = (door.collider.left + (door.collider.width / 2) - collider.width / 2);
+					mode = MODE_INDOOR;
+					switchedDoors = true;
 					return;
 				}
 			}
@@ -284,6 +344,7 @@ package core.gameobject
 			blockedRight = null;
 			blockedTop = null;
 			climbable = null;
+			door = null;
 			
 			for each(var o:GameObject in collisions)
 			{
@@ -308,6 +369,10 @@ package core.gameobject
 					else if (o is Climbable)
 					{
 						climbable = o;
+					}
+					else if (o is Door)
+					{
+						door = o as Door;
 					}
 				}
 			}
