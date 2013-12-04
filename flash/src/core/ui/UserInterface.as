@@ -64,6 +64,8 @@ package core.ui
 		public function reset():void {
 			healthbar.reset();
 			trace(healthbar.getMaxHealth());
+			inventory.reset();
+			trace(inventory.showInventoryItems);
 		}
 		
 		/**

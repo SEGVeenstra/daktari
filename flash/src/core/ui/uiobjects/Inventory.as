@@ -69,7 +69,7 @@ package core.ui.uiobjects
 		}
 		
 		/**
-		 * function that traces the items in the inventoryarray
+		 * function that traces the items in the inventoryItems array
 		 */
 		public function showInventoryItems():void {
 			for each(var i:Collectable in inventoryItems) {
@@ -87,7 +87,7 @@ package core.ui.uiobjects
 				position += 1;
 				inventorySprite.addChild(i);
 				if (inventoryItems.length > 3 && inventorySprite.x == defaultX) {
-							inventorySprite.x -= 65;
+					inventorySprite.x -= 65;
 				}
 				i.x = (position - 1) * 65;
 			}
@@ -96,9 +96,9 @@ package core.ui.uiobjects
 		 * reset the players inventory by removing every item in the inventory
 		 * and rebuilding the sprite
 		 */
-		public function resetInventory():void {
+		public function reset():void {
 			resetInventorySprite();
-			for (var i:Number; i < inventoryItems.length; i++) {
+			for (var i:Number; i <= inventoryItems.length; i++) {
 				inventoryItems.pop();
 			}
 			
