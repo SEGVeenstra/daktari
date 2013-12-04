@@ -27,7 +27,7 @@ package core.ui.uiobjects
 			inventoryItems = new Array();
 			inventorySprite = new Sprite();
 			inventorySprite.x = defaultX;
-			inventorySprite.y = -200;
+			inventorySprite.y = defaultY;
 			addChild(inventorySprite);
 			
 		}
@@ -98,10 +98,8 @@ package core.ui.uiobjects
 		 */
 		public function reset():void {
 			resetInventorySprite();
-			for (var i:Number; i <= inventoryItems.length; i++) {
-				inventoryItems.pop();
-			}
-			
+			var size:Number = inventoryItems.length;
+			inventoryItems.splice(0, size);
 		}
 		
 		/**
