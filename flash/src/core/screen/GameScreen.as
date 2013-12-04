@@ -3,6 +3,8 @@ package core.screen
 	import core.key.Key;
 	import core.level.Level;
 	import core.ui.UserInterface;
+	import flash.geom.Point;
+	import starling.events.EnterFrameEvent;
 	import starling.events.KeyboardEvent;
 	/**
 	 * A Screen that represents a level ofthe Game.
@@ -10,8 +12,13 @@ package core.screen
 	 */
 	public class GameScreen extends Screen 
 	{
+		private const CAMERA_SPEED:int = 40;
+		private const CAMERA_DISTANCE:int = 250;
+		
 		private var _level:Level;
 		private var _userInterface:UserInterface;
+		
+		private var cameraPoint:Point = new Point(0, 0);
 		
 		public function GameScreen(level:Level = null) 
 		{
@@ -20,6 +27,33 @@ package core.screen
 				loadLevel(level);
 			_userInterface = new UserInterface();
 			addChild(_userInterface);
+			addEventListener(EnterFrameEvent.ENTER_FRAME, OnEnterFrame);
+		}
+		
+		private function OnEnterFrame(e:EnterFrameEvent):void 
+		{
+			if (active)
+			{
+				cameraPoint.x = level.player.x;
+				cameraPoint.y = level.player.y;
+				
+				if (Key.isDown(Key.ARROW_RIGHT))
+					cameraPoint.x += CAMERA_DISTANCE;
+				if (Key.isDown(Key.ARROW_LEFT))
+					cameraPoint.x -= CAMERA_DISTANCE;
+					
+				if (cameraPoint.x < stage.stageWidth / 2)
+					cameraPoint.x = stage.stageWidth / 2;
+				else if (cameraPoint.x > level.width -stage.stageWidth / 2)
+					cameraPoint.x = level.width -stage.stageWidth / 2;
+				if (cameraPoint.y < stage.stageHeight / 2)
+					cameraPoint.y = stage.stageHeight / 2;
+				else if (cameraPoint.y > level.height -stage.stageHeight / 2)
+					cameraPoint.y = level.height -stage.stageHeight / 2;
+					
+				level.x -= ((level.x - stage.stageWidth / 2) + cameraPoint.x) / CAMERA_SPEED;
+				level.y -= ((level.y-stage.stageHeight/2) + cameraPoint.y) / CAMERA_SPEED;
+			}
 		}
 		
 		public function get userInterface():UserInterface

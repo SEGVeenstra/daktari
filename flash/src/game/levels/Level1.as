@@ -25,9 +25,9 @@ package game.levels
 		override protected function Build():void
 		{
 			AddGameObject(new Platform('barrier_left', 0, 0, 1, 600));
-			AddGameObject(new Platform('barrier_right', 800 - 1, 0, 1, 600));
-			AddGameObject(new Platform('barrier_top', 0, 0, 800, 1));
-			AddGameObject(new Platform("ground", 0, 550, 800, 50));
+			AddGameObject(new Platform('barrier_right', 1600 - 1, 0, 1, 600));
+			AddGameObject(new Platform('barrier_top', 0, 0, 1600, 1));
+			AddGameObject(new Platform("ground", 0, 550, 1600, 50));
 			AddGameObject(new Platform("platform1", 150, 400, 300, 16));
 			AddGameObject(new Platform("platform2", 500, 500, 300, 16));
 			AddGameObject(new Climbable("ladder1", 250, 400, 16, 150));
