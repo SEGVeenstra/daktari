@@ -372,10 +372,20 @@ package core.gameobject
 					}
 					else if (o is Door)
 					{
-						door = o as Door;
+						if (o.collider.containsPoint(new Point(collider.x+collider.width/2,collider.y)))
+							door = o as Door;
+					}
+					else if (o is Collectable)
+					{
+						CollectItem(o);
 					}
 				}
 			}
+		}
+		
+		private function CollectItem(o:GameObject):void 
+		{
+			Game.gameScreen.level.RemoveGameObject(o);
 		}
 		
 	}

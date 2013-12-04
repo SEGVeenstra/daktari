@@ -53,6 +53,20 @@ package core.level
 		}
 		
 		/**
+		 * Removes a GameObject from the list and screen
+		 * @param	o
+		 */
+		public function RemoveGameObject(o:GameObject):void
+		{
+			if (GetGameObjectByID(o.id))
+			{
+				trace('removed from screen:', o, o.id);
+				gameObjects.splice(gameObjects.indexOf(o),1);
+				removeChild(o);
+			}
+		}
+		
+		/**
 		 * Get the GameObject with the given id
 		 * @param	id
 		 * @return	GameObject is found, else null
