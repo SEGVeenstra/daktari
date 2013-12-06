@@ -1,5 +1,6 @@
 package core.gameobject 
 {
+	import core.level.Level;
 	import flash.geom.Rectangle;
 	import starling.display.Shape;
 	/**
@@ -15,10 +16,14 @@ package core.gameobject
 		
 		private var shape:Shape;
 		
+		public var requiredKey:Key;
+		
 		public function Door(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
 			Draw(64, 112);
+			x *= Level.GRIDSIZE;
+			y *= Level.GRIDSIZE;
 			collider = new Rectangle(x,y,64, 112);
 			solid = false;
 		}
@@ -40,7 +45,6 @@ package core.gameobject
 			this.exitLeft = exitLeft;
 			this.exitRight = exitRight;
 		}
-		
 	}
 
 }

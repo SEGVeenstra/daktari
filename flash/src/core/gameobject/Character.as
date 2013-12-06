@@ -30,24 +30,13 @@ package core.gameobject
 		protected var pressedJmp:Boolean = false;
 		protected var switchedDoors:Boolean = false;
 		
-		private var _startPosition:Point;
-		
 		public function Character(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
-			_startPosition = new Point(x, y);
 			collider = new Rectangle(x, y, Level.GRIDSIZE * 3, Level.GRIDSIZE * 5);
 			Draw();
 			mode = MODE_AIRBOURNE;
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
-		}
-		
-		/**
-		 * Returns the start position of this Object
-		 */
-		public function get startPosition():Point
-		{
-			return _startPosition;
 		}
 		
 		private function Draw():void

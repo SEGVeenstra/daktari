@@ -1,5 +1,6 @@
 package core.gameobject 
 {
+	import core.level.Level;
 	import flash.geom.Rectangle;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -11,18 +12,30 @@ package core.gameobject
 	public class GameObject extends Sprite 
 	{
 		public var id:String;
-		public var collider:Rectangle;
+		public var collider:Rectangle = new Rectangle(0, 0, 10, 10);;
+		private var _startX:Number;
+		private var _startY:Number;
 		private var _active:Boolean = true;
 		private var _paused:Boolean = true;
 		public var solid:Boolean = false;
 		
-		public function GameObject(id:String, x:Number, y:Number)
+		public function GameObject(id:String, gridX:Number, gridY:Number)
 		{
 			this.id = id;
-			this.x = x;
-			this.y = y;
-			
+			_startX = gridX;
+			_startY = gridY;
+			x = _startX * Level.GRIDSIZE;
+			y = _startY * Level.GRIDSIZE;
+			Create();
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+		}
+		
+		/**
+		 * Creates the object (Collider & Shape)
+		 */
+		protected function Create():void
+		{
+			
 		}
 		
 		/**

@@ -1,5 +1,6 @@
 package core.gameobject 
 {
+	import core.level.Level;
 	import flash.geom.Rectangle;
 	import starling.display.Shape;
 	/**
@@ -13,6 +14,10 @@ package core.gameobject
 		public function Platform(id:String, x:Number, y:Number, width:Number, height:Number) 
 		{
 			super(id, x, y);
+			width *= Level.GRIDSIZE;
+			height *= Level.GRIDSIZE;
+			x *= Level.GRIDSIZE;
+			y *= Level.GRIDSIZE;
 			Draw(width, height);
 			collider = new Rectangle(x,y,width,height);
 			solid = true;

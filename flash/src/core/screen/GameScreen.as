@@ -16,6 +16,7 @@ package core.screen
 		
 		private var _level:Level;
 		private var _userInterface:UserInterface;
+		private var _pause:Boolean = false;
 		
 		private var cameraPoint:Point = new Point(0, 0);
 		
@@ -31,7 +32,7 @@ package core.screen
 		
 		private function OnEnterFrame(e:EnterFrameEvent):void 
 		{
-			if (active)
+			if (active && !paused)
 			{
 				cameraPoint.x = level.player.x;
 				cameraPoint.y = level.player.y;
@@ -59,6 +60,11 @@ package core.screen
 		public function get level():Level
 		{
 			return _level;
+		}
+		
+		public function get paused():Boolean
+		{
+			return _pause;
 		}
 		
 		/**
@@ -92,6 +98,7 @@ package core.screen
 		{
 			super.Pause();
 			level.Pause();
+			_pause = true;
 		}
 		
 		/**
@@ -101,6 +108,7 @@ package core.screen
 		{
 			super.Play();
 			level.Play();
+			_pause = false;
 		}
 	}
 
