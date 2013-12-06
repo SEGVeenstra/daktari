@@ -147,7 +147,6 @@ package core.gameobject
 			}
 			if (!Key.isDown(Key.ARROW_UP) && !Key.isDown(Key.ARROW_LEFT) && !Key.isDown(Key.ARROW_RIGHT) && !Key.isDown(Key.ARROW_DOWN))
 				switchedDoors = false;
-				trace(switchedDoors);
 		}
 		
 		/**
