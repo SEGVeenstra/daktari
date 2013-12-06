@@ -13,13 +13,40 @@ package game.levels
 	 */
 	public class Level1 extends Level 
 	{
-		private var door1:Door = new Door('door1', 400, 550 - 112);
-		private var door2:Door = new Door('door2', 500, 200 - 112);
-		private var door3:Door = new Door('door3', 200, 200 - 112);
+		//Character
+		private var character:Character = new Character('player', 10, 50 * Level.GRIDSIZE);
+		//Grounds
+		private var ground:Platform = new Platform('ground', 0, 55 * Level.GRIDSIZE, 84 * Level.GRIDSIZE, 5 * Level.GRIDSIZE);
+		//Bounds
+		private var barierLeft:Platform = new Platform('barrier_left', 0, 0, 1, 60 * Level.GRIDSIZE);
+		private var barierRight:Platform = new Platform('barrier_right', Level.GRIDSIZE * 84 - 1, 0, 1, 60 * Level.GRIDSIZE);
+		private var barierTop:Platform = new Platform('barrier_top', 0, 0, Level.GRIDSIZE * 84, 1);
+		// Building 1
+			// Platforms
+		private var building1Roof:Platform = new Platform('building1_roof', Level.GRIDSIZE * 8, 25 * Level.GRIDSIZE, 26 * Level.GRIDSIZE, Level.GRIDSIZE);
+		private var building1Floor2:Platform = new Platform('building1_floor2', Level.GRIDSIZE * 3, 35*Level.GRIDSIZE , 31 * Level.GRIDSIZE, Level.GRIDSIZE);
+		private var building1Floor1:Platform = new Platform('building1_floor1', Level.GRIDSIZE * 8, 45 * Level.GRIDSIZE , 26 * Level.GRIDSIZE, Level.GRIDSIZE);
+			// Doors
+		private var building1Door1:Door = new Door('building1_door1', Level.GRIDSIZE * 12 ,Level.GRIDSIZE * 48);
+		private var building1Door2:Door = new Door('building1_door2', Level.GRIDSIZE * 12 ,Level.GRIDSIZE * 38);
+		private var building1Door3:Door = new Door('building1_door3', Level.GRIDSIZE * 12 , Level.GRIDSIZE * 28);
+			// Climbables
+		private var building1Ladder1:Climbable = new Climbable('building1_ladder1', Level.GRIDSIZE * 29, Level.GRIDSIZE * 35, Level.GRIDSIZE * 3, Level.GRIDSIZE * 10);
+		
+		// Building 2
+			// Platforms
+		private var building2Roof:Platform = new Platform('building2_roof', Level.GRIDSIZE * 40, 15 * Level.GRIDSIZE, 26 * Level.GRIDSIZE, Level.GRIDSIZE);
+		private var building2Floor3:Platform = new Platform('building2_floor3', Level.GRIDSIZE * 40, 25 * Level.GRIDSIZE, 26 * Level.GRIDSIZE, Level.GRIDSIZE);
+		private var building2Floor2:Platform = new Platform('building2_floor2', Level.GRIDSIZE * 40, 35 * Level.GRIDSIZE, 26 * Level.GRIDSIZE, Level.GRIDSIZE);
+		private var building2Floor1:Platform = new Platform('building2_floor1', Level.GRIDSIZE * 40, 45 * Level.GRIDSIZE, 26 * Level.GRIDSIZE, Level.GRIDSIZE);
+			// Doors
+		private var building2Door1:Door = new Door('building2_door1', Level.GRIDSIZE * 51 ,Level.GRIDSIZE * 48);
+		private var building2Door2:Door = new Door('building2_door2', Level.GRIDSIZE * 51 ,Level.GRIDSIZE * 8);
+		
 		public function Level1() 
 		{
 			super();
-			trace('Testlevel geladen');
+			trace('Level 1 geladen');
 		}
 		
 		/**
@@ -27,23 +54,34 @@ package game.levels
 		 */
 		override protected function Build():void
 		{
-			AddGameObject(new Platform('barrier_left', 0, 0, 1, 600));
-			AddGameObject(new Platform('barrier_right', 1600 - 1, 0, 1, 600));
-			AddGameObject(new Platform('barrier_top', 0, 0, 1600, 1));
-			AddGameObject(new Platform("ground", 0, 550, 1600, 50));
-			AddGameObject(new Platform("platform1", 150, 400, 300, 16));
-			AddGameObject(new Platform("platform2", 500, 500, 300, 16));
-			AddGameObject(new Climbable("ladder1", 250, 400, 16, 150));
-			AddGameObject(new Climbable("ladder2", 400, 200, 16, 200));
-			AddGameObject(new Platform('testplatform', 150, 200, 500, 16));
-			SetPlayer(new Character('player', 10, 10));
-			AddGameObject(new Collectable('item1', 300, 100));
-			AddGameObject(door1);
-			AddGameObject(door2);
-			AddGameObject(door3);
-			door1.SetExits(null, null, door2, null);
-			door2.SetExits(door3, null, null, door1);
-			door3.SetExits(null, door2, null, door1);
+			SetPlayer(character);
+			// Level
+			AddGameObject(ground);
+			AddGameObject(barierLeft);
+			AddGameObject(barierRight);
+			AddGameObject(barierTop);
+			// Building 1
+			AddGameObject(building1Roof);
+			AddGameObject(building1Floor2);
+			AddGameObject(building1Floor1);
+			AddGameObject(building1Door1);
+			building1Door1.SetExits(null,null,building1Door3,null);
+			AddGameObject(building1Door2);
+			building1Door2.active = false;
+			AddGameObject(building1Door3);
+			building1Door3.SetExits(null, null, null, building1Door1);
+			AddGameObject(building1Ladder1);
+			
+			// Building 2
+			AddGameObject(building2Roof);
+			AddGameObject(building2Floor3);
+			AddGameObject(building2Floor2);
+			AddGameObject(building2Floor1);
+			AddGameObject(building2Door1);
+			building2Door1.SetExits(null, null, building2Door2, null);
+			AddGameObject(building2Door2);
+			building2Door2.SetExits(null, null, null, building2Door1);
+
 		}
 	}
 

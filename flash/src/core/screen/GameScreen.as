@@ -12,8 +12,7 @@ package core.screen
 	 */
 	public class GameScreen extends Screen 
 	{
-		private const CAMERA_SPEED:int = 40;
-		private const CAMERA_DISTANCE:int = 250;
+		private const CAMERA_SPEED:int = 20;
 		
 		private var _level:Level;
 		private var _userInterface:UserInterface;
@@ -36,11 +35,6 @@ package core.screen
 			{
 				cameraPoint.x = level.player.x;
 				cameraPoint.y = level.player.y;
-				
-				if (Key.isDown(Key.ARROW_RIGHT))
-					cameraPoint.x += CAMERA_DISTANCE;
-				if (Key.isDown(Key.ARROW_LEFT))
-					cameraPoint.x -= CAMERA_DISTANCE;
 					
 				if (cameraPoint.x < stage.stageWidth / 2)
 					cameraPoint.x = stage.stageWidth / 2;
@@ -52,7 +46,8 @@ package core.screen
 					cameraPoint.y = level.height -stage.stageHeight / 2;
 					
 				level.x -= ((level.x - stage.stageWidth / 2) + cameraPoint.x) / CAMERA_SPEED;
-				level.y -= ((level.y-stage.stageHeight/2) + cameraPoint.y) / CAMERA_SPEED;
+				level.y -= ((level.y - stage.stageHeight / 2) + cameraPoint.y) / CAMERA_SPEED;
+				
 			}
 		}
 		
