@@ -30,11 +30,9 @@ package core.ui.uiobjects
 			var deg:Number = 0;
 			bar = new Shape();
 			addChild(bar);
-			bar.graphics.clear();
 			bar.x = centerX;
 			bar.y = centerY;
 			drawWedge(deg);
-			drawWedge(10);
 		}
 		
 		/**
@@ -45,6 +43,7 @@ package core.ui.uiobjects
 		private function drawWedge(deg:Number):void {
 			var radius:Number = 20;
 			var color:uint = 0x00CC00;
+			bar.graphics.clear();
 			bar.graphics.beginFill(color);
 			bar.graphics.moveTo(0, 0);
 			bar.graphics.lineTo(radius * Math.sin(deg / 180 * Math.PI), radius * Math.cos(deg / 180 * Math.PI));
