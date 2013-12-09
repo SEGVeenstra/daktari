@@ -122,9 +122,6 @@ package core.ui.uiobjects
 				if (ObjectUtil.compare(invItem, item) == 0){
 					check = true;
 				}
-				else {
-					check = false;
-				}
 			}
 			return check;
 		}
