@@ -9,7 +9,6 @@ package core.gameobject
 	 */
 	public class Climbable extends GameObject 
 	{
-		private var shape:Shape;
 		
 		public function Climbable(id:String, x:Number, y:Number, width:Number, height:Number) 
 		{

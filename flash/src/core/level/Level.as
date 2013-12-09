@@ -39,6 +39,14 @@ package core.level
 		}
 		
 		/**
+		 * returns the paused state
+		 */
+		public function get paused():Boolean
+		{
+			return _paused;
+		}
+		
+		/**
 		 * Add the given GameObject if the id is not yet used
 		 * @param	gameObject
 		 */

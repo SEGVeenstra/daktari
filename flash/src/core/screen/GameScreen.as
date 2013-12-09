@@ -2,8 +2,11 @@ package core.screen
 {
 	import core.key.Key;
 	import core.level.Level;
+	import core.menu.Menu;
 	import core.ui.UserInterface;
 	import flash.geom.Point;
+	import game.screens.GameOverScreen;
+	import game.screens.PauseScreen;
 	import starling.events.EnterFrameEvent;
 	import starling.events.KeyboardEvent;
 	/**
@@ -18,6 +21,9 @@ package core.screen
 		private var _userInterface:UserInterface;
 		private var _pause:Boolean = false;
 		
+		private var _pauseScreen:PauseScreen;
+		private var _gameOverScreen:GameOverScreen;
+		
 		private var cameraPoint:Point = new Point(0, 0);
 		
 		public function GameScreen(level:Level = null) 
@@ -26,7 +32,11 @@ package core.screen
 			if(level)
 				loadLevel(level);
 			_userInterface = new UserInterface();
+			_pauseScreen = new PauseScreen();
+			_gameOverScreen = new GameOverScreen();
 			addChild(_userInterface);
+			addChild(_gameOverScreen);
+			addChild(_pauseScreen);
 			addEventListener(EnterFrameEvent.ENTER_FRAME, OnEnterFrame);
 		}
 		
@@ -85,10 +95,15 @@ package core.screen
 		 */
 		override public function Control(e:KeyboardEvent):void 
 		{
-			if (e.keyCode == Key.PAUSE)
-				Pause();
-			if (e.keyCode == Key.ENTER)
-				Play();
+			if (!level.paused)
+			{
+				if (e.keyCode == Key.PAUSE)
+				{
+					Pause();
+				}
+			}
+			if (_pauseScreen.active)
+				_pauseScreen.Control(e);
 		}
 		
 		/**
@@ -98,6 +113,8 @@ package core.screen
 		{
 			super.Pause();
 			level.Pause();
+			_pauseScreen.active = true;
+			setChildIndex(_pauseScreen, numChildren -1);
 			_pause = true;
 		}
 		
@@ -108,7 +125,21 @@ package core.screen
 		{
 			super.Play();
 			level.Play();
+			_pauseScreen.active = false;
+			setChildIndex(level, numChildren -1);
+			setChildIndex(userInterface, numChildren -2);
 			_pause = false;
+		}
+		
+		/**
+		 * Show game over screen
+		 */
+		public function GameOver():void
+		{
+			super.Pause();
+			level.Pause();
+			_gameOverScreen.active = true;
+			_pause = true;
 		}
 	}
 

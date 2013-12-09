@@ -12,6 +12,7 @@ package core.menu
 	public class Menu extends Sprite 
 	{
 		private var _grid:int;
+		private var _active:Boolean;
 		protected var loop:Boolean = true;
 		private var _activeItemPosition:int;
 		private var _activeItem:MenuObject;
@@ -21,6 +22,7 @@ package core.menu
 		public function Menu(grid:int = 1) 
 		{
 			this.grid = grid;
+			
 		}
 		
 		/**
@@ -40,6 +42,23 @@ package core.menu
 		public function get grid():int
 		{
 			return _grid;
+		}
+		
+		/**
+		 * Set the active state of this menu
+		 */
+		public function set active(setting:Boolean):void
+		{
+			_active = setting;
+			visible = setting;
+		}
+		
+		/**
+		 * Returns the active state of this menu
+		 */
+		public function get active():Boolean
+		{
+			return _active;
 		}
 		
 		/**

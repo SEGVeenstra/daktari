@@ -15,8 +15,6 @@ package core.gameobject
 		public var exitUp:Door;
 		public var exitDown:Door;
 		
-		private var shape:Shape;
-		
 		public var requiredKey:Key;
 		
 		public function Door(id:String, x:Number, y:Number) 
@@ -45,6 +43,14 @@ package core.gameobject
 			this.exitUp = exitUp;
 			this.exitLeft = exitLeft;
 			this.exitRight = exitRight;
+		}
+		
+		public function Unlock(key:Key):void
+		{
+			if (key == requiredKey)
+				requiredKey = null;
+			else
+				trace('The provided key is invalid!');
 		}
 	}
 

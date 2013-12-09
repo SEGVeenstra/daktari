@@ -3,6 +3,8 @@ package game.levels
 	import core.gameobject.Character;
 	import core.gameobject.Climbable;
 	import core.gameobject.collectable.Collectable;
+	import core.gameobject.collectable.Key;
+	import core.gameobject.collectable.PowerUp;
 	import core.gameobject.Door;
 	import core.gameobject.Platform;
 	import core.level.Level;
@@ -42,6 +44,10 @@ package game.levels
 			// Doors
 		private var building2Door1:Door = new Door('building2_door1',   51 ,  48);
 		private var building2Door2:Door = new Door('building2_door2',   51 ,  8);
+		
+		// Items
+		private var testItem:Key =  new Key('key1', 16, 20);
+		private var testPowerUp:PowerUp =  new PowerUp('fruit', 21, 20, 100, 5);
 		
 		public function Level1() 
 		{
@@ -83,7 +89,8 @@ package game.levels
 			building2Door2.SetExits(null, null, null, building2Door1);
 
 			
-			AddGameObject(new Collectable('item1', 40, 3));
+			AddGameObject(testItem);
+			AddGameObject(testPowerUp);
 		}
 	}
 

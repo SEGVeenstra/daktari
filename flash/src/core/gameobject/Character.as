@@ -1,6 +1,8 @@
 package core.gameobject 
 {
 	import core.gameobject.collectable.Collectable;
+	import core.gameobject.collectable.Item;
+	import core.gameobject.collectable.PowerUp;
 	import core.key.Key;
 	import core.level.Level;
 	import flash.geom.Point;
@@ -21,8 +23,9 @@ package core.gameobject
 		protected const MAX_RUN_SPEED:Number = 6;
 		protected const MAX_JUMP_SPEED:Number = 12;
 		protected const JUMP_HEIGHT:Number = 10;
+		protected const MAX_HEALTH:int = 100;
+		protected const MAX_VITALITY:int = 120;
 		
-		private var shape:Shape;
 		protected var climbable:GameObject;
 		protected var door:Door;
 		
@@ -31,6 +34,10 @@ package core.gameobject
 		protected var pressedJmp:Boolean = false;
 		protected var switchedDoors:Boolean = false;
 		
+		private var _health:int = 100;
+		private var _points:int = 0;
+		private var _vitality:int = 120;
+		
 		public function Character(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
@@ -38,6 +45,46 @@ package core.gameobject
 			Draw();
 			mode = MODE_AIRBOURNE;
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+		}
+		
+		/**
+		 * returns the current health
+		 */
+		public function get health():int
+		{
+			return _health;
+		}
+		
+		/**
+		 * Apply damage to the Character
+		 * @param	damage
+		 */
+		public function TakeHit(damage:int):void
+		{
+			if (health - damage <= 0)
+				_health = 0;
+			else
+				_health -= damage;
+		}
+		
+		/**
+		 * Restores health to the character
+		 * @param	health
+		 */
+		public function RestoreHealth(health:int):void
+		{
+			if (this.health + health >= MAX_HEALTH)
+				_health = MAX_HEALTH;
+			else
+				_health += health;
+		}
+		
+		/**
+		 * Returns the current amount of points
+		 */
+		protected function get points():int
+		{
+			return _points;
 		}
 		
 		private function Draw():void
@@ -361,20 +408,41 @@ package core.gameobject
 					}
 					else if (o is Door)
 					{
-						if (o.collider.containsPoint(new Point(collider.x+collider.width/2,collider.y)))
-							door = o as Door;
+						interactWithDoor(o as Door);
 					}
 					else if (o is Collectable)
 					{
-						CollectItem(o);
+						CollectItem(o as Collectable);
 					}
 				}
 			}
 		}
 		
-		private function CollectItem(o:GameObject):void 
+		/**
+		 * Interect with a door object that collided with the character
+		 * @param	door
+		 */
+		private function interactWithDoor(door:Door):void 
 		{
-			Game.gameScreen.level.RemoveGameObject(o);
+			if (door.collider.containsPoint(new Point(collider.x+collider.width/2,collider.y)))
+				this.door = door;
+		}
+		
+		private function CollectItem(o:Collectable):void 
+		{
+			if (o is PowerUp)
+			{
+				var p:PowerUp = o as PowerUp;
+				Game.gameScreen.level.RemoveGameObject(o);
+				trace('points +' + p.points, 'health +' + p.health);
+			}
+			else if (o is Item)
+			{
+				var i:Item = o as Item;
+				Game.gameScreen.level.RemoveGameObject(o);
+				trace('Added item:' + i.id + ' to inventory!');
+			}
+			
 		}
 		
 	}

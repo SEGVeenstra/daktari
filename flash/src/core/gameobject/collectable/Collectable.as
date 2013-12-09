@@ -10,7 +10,6 @@ package core.gameobject.collectable
 	 */
 	public class Collectable extends GameObject 
 	{
-		private var shape:Shape;
 		
 		public function Collectable(id:String, x:Number, y:Number) 
 		{

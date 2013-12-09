@@ -2,6 +2,7 @@ package core.gameobject
 {
 	import core.level.Level;
 	import flash.geom.Rectangle;
+	import starling.display.Shape;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	
@@ -11,6 +12,8 @@ package core.gameobject
 	 */
 	public class GameObject extends Sprite 
 	{
+		protected var shape:Shape;
+		
 		public var id:String;
 		public var collider:Rectangle = new Rectangle(0, 0, 10, 10);;
 		private var _startX:Number;

@@ -9,7 +9,6 @@ package core.gameobject
 	 */
 	public class Platform extends GameObject 
 	{
-		private var shape:Shape;
 		
 		public function Platform(id:String, x:Number, y:Number, width:Number, height:Number) 
 		{

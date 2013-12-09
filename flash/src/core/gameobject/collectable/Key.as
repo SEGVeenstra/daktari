@@ -1,6 +1,8 @@
 package core.gameobject.collectable 
 {
+	import core.level.Level;
 	import flash.media.StageVideoAvailabilityReason;
+	import starling.display.Shape;
 	/**
 	 * ...
 	 * @author SEG.Veenstra
@@ -13,10 +15,6 @@ package core.gameobject.collectable
 			super(id, x, y);
 		}
 		
-		override protected function Create():void 
-		{
-			
-		}
 	}
 
 }
