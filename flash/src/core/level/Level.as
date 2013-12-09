@@ -2,6 +2,7 @@ package core.level
 {
 	import core.gameobject.Character;
 	import core.gameobject.GameObject;
+	import flash.utils.getDefinitionByName;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	
@@ -100,14 +101,6 @@ package core.level
 				this.player = player;
 				addChild(player);
 			}
-		}
-		
-		/**
-		 * Resets the level to the start
-		 */
-		public function Reset():void
-		{
-			
 		}
 		
 		/**

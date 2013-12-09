@@ -16,7 +16,7 @@ package game.levels
 	public class Level1 extends Level 
 	{
 		//Character
-		private var character:Character = new Character('player', 1, 30);
+		private var character:Character = new Character('player', 1, 48);
 		//Grounds
 		private var ground:Platform = new Platform('ground', 0, 55 , 100 , 5 );
 		//Bounds

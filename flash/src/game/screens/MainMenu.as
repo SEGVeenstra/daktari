@@ -14,8 +14,6 @@ package game.screens
 	public class MainMenu extends Menu 
 	{
 		private var playButton:Button = new Button('play_button', 200, 30, 'Play');
-		private var restartButton:Button = new Button('restart_button', 200, 30, 'Restart');
-		private var stopButton:Button = new Button('stop_button', 200, 30, 'Stop');
 		
 		public function MainMenu() 
 		{
@@ -27,8 +25,6 @@ package game.screens
 		private function Build():void 
 		{
 			AddMenuObject(playButton, 300, 100);
-			AddMenuObject(restartButton, 300, 200);
-			AddMenuObject(stopButton, 300, 300);
 			addChild(new TextField(800, 50, 'Test Menu', 'Arial', 30, 0, true));
 		}
 		

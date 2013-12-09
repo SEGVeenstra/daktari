@@ -41,7 +41,7 @@ package core.gameobject
 		public function Character(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
-			collider = new Rectangle(x, y, Level.GRIDSIZE * 3, Level.GRIDSIZE * 5);
+			collider = new Rectangle(x * Level.GRIDSIZE, y * Level.GRIDSIZE, Level.GRIDSIZE * 3, Level.GRIDSIZE * 5);
 			Draw();
 			mode = MODE_AIRBOURNE;
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);

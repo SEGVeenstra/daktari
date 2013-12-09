@@ -3,6 +3,8 @@ package game.screens
 	import core.key.Key;
 	import core.menu.Menu;
 	import core.menu.menuobject.Button;
+	import flash.utils.getDefinitionByName;
+	import flash.utils.getQualifiedClassName;
 	import starling.display.Shape;
 	import starling.events.KeyboardEvent;
 	import starling.text.TextField;
@@ -17,13 +19,14 @@ package game.screens
 		private var titleText:TextField = new TextField(800, 100, 'Paused', 'Arial', 60, 0 , true); 
 		
 		private var resumeButton:Button = new Button('resume_button', 200, 50, 'Resume');
+		private var restartButton:Button = new Button('restart_button', 200, 50, 'Restart');
 		
 		public function PauseScreen() 
 		{
 			super(1);
 			active = false;
 			Create();
-			activeItemPosition = 1;
+			activeItemPosition = 0;
 		}
 		
 		private function Create():void 
@@ -35,6 +38,8 @@ package game.screens
 			addChild(backgroundShape);
 			addChild(titleText);
 			AddMenuObject(resumeButton, 300, 200);
+			AddMenuObject(restartButton, 300, 250);
+			
 		}
 		
 		override public function Control(e:KeyboardEvent):void 
@@ -42,9 +47,12 @@ package game.screens
 			super.Control(e);
 			if (e.keyCode == Key.ENTER)
 			{
-				trace('doing');
 				if (activeItem == resumeButton)
 					Game.gameScreen.Play();
+				if (activeItem == restartButton)
+				{
+					Game.gameScreen.Reset();
+				}
 			}
 			
 		}

@@ -5,6 +5,8 @@ package core.screen
 	import core.menu.Menu;
 	import core.ui.UserInterface;
 	import flash.geom.Point;
+	import flash.utils.getDefinitionByName;
+	import flash.utils.getQualifiedClassName;
 	import game.screens.GameOverScreen;
 	import game.screens.PauseScreen;
 	import starling.events.EnterFrameEvent;
@@ -42,7 +44,7 @@ package core.screen
 		
 		private function OnEnterFrame(e:EnterFrameEvent):void 
 		{
-			if (active && !paused)
+			if (active && !paused && level.player)
 			{
 				cameraPoint.x = level.player.x;
 				cameraPoint.y = level.player.y;
@@ -129,6 +131,14 @@ package core.screen
 			setChildIndex(level, numChildren -1);
 			setChildIndex(userInterface, numChildren -2);
 			_pause = false;
+		}
+		
+		override public function Reset():void 
+		{
+			super.Reset();
+			var c:Class = Class(getDefinitionByName(getQualifiedClassName(Game.gameScreen.level)));
+			loadLevel(new c);
+			Play();
 		}
 		
 		/**
