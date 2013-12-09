@@ -3,6 +3,7 @@ package core.ui.uiobjects
 	
 	import core.gameobject.collectable.Collectable;
 	import starling.display.Sprite;
+	import mx.utils.ObjectUtil;
 	
 	/**
 	 * this class controls the players inventory
@@ -108,6 +109,24 @@ package core.ui.uiobjects
 			inventorySprite.x = defaultX;	
 			inventorySprite.y = defaultY;
 			addChild(inventorySprite);
+		}
+		
+		/**
+		 * check if item is in inventory
+		 * @param	item
+		 * @return
+		 */
+		public function checkItem(item:Collectable):Boolean {
+			var check:Boolean = false;
+			for each(var invItem:Collectable in inventoryItems) {
+				if (ObjectUtil.compare(invItem, item) == 0){
+					check = true;
+				}
+				else {
+					check = false;
+				}
+			}
+			return check;
 		}
 	}
 
