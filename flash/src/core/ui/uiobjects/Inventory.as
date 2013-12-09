@@ -116,7 +116,7 @@ package core.ui.uiobjects
 		 * @param	item
 		 * @return
 		 */
-		public function checkItem(item:Collectable):Boolean {
+		public function contains(item:Collectable):Boolean {
 			var check:Boolean = false;
 			for each(var invItem:Collectable in inventoryItems) {
 				if (ObjectUtil.compare(invItem, item) == 0){
