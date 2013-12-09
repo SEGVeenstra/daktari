@@ -12,6 +12,7 @@ package core.ui
 		
 		public var healthbar:Healthbar;
 		public var inventory:Inventory;
+		public var vitalitybar:Vitalitybar;
 		/**
 		 * constructor
 		 */
@@ -19,9 +20,10 @@ package core.ui
 		{
 			setupHealthBar();
 			setupInventory();
+			setupVitalitybar(20, healthbar.height + 21);
 			
 		}
-		
+
 		/**
 		 * setting up the healthbar of the HUD
 		 */
@@ -36,6 +38,15 @@ package core.ui
 		private function setupInventory():void {
 			inventory = new Inventory();
 			this.addChild(inventory);
+		}
+		
+		/**
+		 * setting up vatalitybar
+		 */
+		private function setupVitalitybar(centerX:Number, centerY:Number):void {
+			vitalitybar = new Vitalitybar(centerX, centerY);
+			this.addChild(vitalitybar);
+			vitalitybar.visible = vitalitybar.active;
 		}
 		
 		/**
@@ -74,6 +85,14 @@ package core.ui
 		 */
 		public function getHealthbar():Healthbar {
 			return healthbar;
+		}
+		
+		/**
+		 * regulate visibilty of vatilitybar
+		 */
+		public function activateVitalitybar(active:Boolean):void {
+			vitalitybar.active = active;
+			vitalitybar.visible = active;
 		}
 		
 	}

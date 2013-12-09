@@ -1,5 +1,9 @@
 package core.ui.uiobjects 
 {
+	import starling.display.Sprite;
+	import starling.display.Shape;
+
+	
 	/**
 	 * ...
 	 * @author Henderikus
@@ -9,14 +13,48 @@ package core.ui.uiobjects
 	
 		private var _maxVitality:Number = 100;
 		private var _curVitality:Number;
-		private var _visible:Boolean = false;
+		private var _active:Boolean = false;
+		private var arc:Number = 360
+		private var bar:Shape;
 		
-		public function Vitalitybar() 
+		public function Vitalitybar(centerX:Number, centerY:Number) 
 		{
-			curVitality(maxVitality);
+			_curVitality = maxVitality;
+			draw(centerX, centerY);
 		}
 		
+		/**
+		 * draws to actual indicator
+		 */
+		private function draw(centerX:Number, centerY:Number):void {
+			var deg:Number = 0;
+			bar = new Shape();
+			addChild(bar);
+			bar.graphics.clear();
+			bar.x = centerX;
+			bar.y = centerY;
+			drawWedge(deg);
+			drawWedge(10);
+		}
 		
+		/**
+		 * draw indicator segment
+		 * @param	deg
+		 * @param	color
+		 */
+		private function drawWedge(deg:Number):void {
+			var radius:Number = 20;
+			var color:uint = 0x00CC00;
+			bar.graphics.beginFill(color);
+			bar.graphics.moveTo(0, 0);
+			bar.graphics.lineTo(radius * Math.sin(deg / 180 * Math.PI), radius * Math.cos(deg / 180 * Math.PI));
+			for (var i:int = deg; i<=arc; i++)
+			{
+				bar.graphics.lineTo(radius * Math.sin(i / 180 * Math.PI), radius * Math.cos(i / 180 * Math.PI));
+			}
+			bar.graphics.lineTo(0,0);
+			bar.graphics.endFill();
+		}
 		
 		/**
 		 * this method sets curVitality 
@@ -29,8 +67,8 @@ package core.ui.uiobjects
 		 * set visibilty of indicator
 		 * if true indicator visible, if false indicator not visible
 		 */
-		public function set visible(setting:Boolean):void {
-			_visible = setting;
+		public function set active(setting:Boolean):void {
+			_active = setting;
 		}
 		
 		/**
@@ -54,10 +92,25 @@ package core.ui.uiobjects
 		 * if true indicator visible, if false indicator not visible
 		 * @return visibilty
 		 */
-		public function get visible():Boolean {
-			return _visible;
+		public function get active():Boolean {
+			return _active;
 		}
 		
+		/**
+		 * 
+		 * @param	dec
+		 */
+		public function decreaseVitality(dec:Number):void {
+			if (active) {
+				var deg:Number;
+				if (curVitality > 0 && curVitality - dec >= 0) {
+					curVitality -= dec;
+					deg = (maxVitality - curVitality) * arc / 100;
+					drawWedge(deg);
+					trace(deg);
+				}
+			}
+		}
 		
 	}
 
