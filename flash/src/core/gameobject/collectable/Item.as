@@ -1,4 +1,4 @@
-package core.gameobject 
+package core.gameobject.collectable 
 {
 	/**
 	 * Items can be collected by the player and are stored in the Inventory

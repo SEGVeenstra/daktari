@@ -1,10 +1,11 @@
 package core.gameobject 
 {
+	import core.gameobject.collectable.Collectable;
 	import core.key.Key;
-	import flash.geom.Point;
-	import Game;
 	import core.level.Level;
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
+	import Game;
 	import starling.display.Shape;
 	import starling.events.EnterFrameEvent;
 	import starling.events.Event;

@@ -1,4 +1,4 @@
-package core.gameobject 
+package core.gameobject.collectable 
 {
 	import flash.media.StageVideoAvailabilityReason;
 	/**

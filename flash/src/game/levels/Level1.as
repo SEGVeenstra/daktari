@@ -2,7 +2,7 @@ package game.levels
 {
 	import core.gameobject.Character;
 	import core.gameobject.Climbable;
-	import core.gameobject.Collectable;
+	import core.gameobject.collectable.Collectable;
 	import core.gameobject.Door;
 	import core.gameobject.Platform;
 	import core.level.Level;

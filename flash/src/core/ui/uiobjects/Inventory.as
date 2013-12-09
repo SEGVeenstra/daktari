@@ -1,11 +1,8 @@
 package core.ui.uiobjects
 {
 	
-	import starling.display.Graphics;
+	import core.gameobject.collectable.Collectable;
 	import starling.display.Sprite;
-	import starling.display.Shape;
-	import core.gameobject.Collectable;
-	import mx.utils.ObjectUtil;
 	
 	/**
 	 * this class controls the players inventory

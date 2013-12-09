@@ -1,4 +1,4 @@
-package core.gameobject 
+package core.gameobject.collectable 
 {
 	/**
 	 * A power up can be collected by the player and takes effect immidetly

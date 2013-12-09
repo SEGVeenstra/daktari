@@ -1,5 +1,6 @@
-package core.gameobject 
+package core.gameobject.collectable 
 {
+	import core.gameobject.GameObject;
 	import core.level.Level;
 	import flash.geom.Rectangle;
 	import starling.display.Shape;
