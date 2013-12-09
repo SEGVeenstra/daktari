@@ -1,7 +1,7 @@
 package core.ui.uiobjects
 {
 	
-	import core.gameobject.collectable.Collectable;
+	import core.gameobject.collectable.Item;
 	import starling.display.Sprite;
 	import mx.utils.ObjectUtil;
 	
@@ -34,10 +34,10 @@ package core.ui.uiobjects
 		 * add item to inventory when inventory still has room
 		 * @param	item
 		 */
-		public function addToInventory(item:Collectable):void {
+		public function addToInventory(item:Item):void {
 			if (this.play) {
 				if (inventoryItems.length < inventorySize) {
-					if (item is Collectable) {
+					if (item is Item) {
 						inventoryItems.push(item);
 						inventorySprite.addChild(item);
 						if (inventoryItems.length > 3) {
@@ -56,7 +56,7 @@ package core.ui.uiobjects
 		 * 
 		 * @param	item
 		 */
-		public function useInventoryItem(item:Collectable):void {
+		public function useInventoryItem(item:Item):void {
 			if (this.play) {
 				var indexItem:Number = inventoryItems.indexOf(item);
 				inventoryItems.splice(indexItem, 1);
@@ -70,7 +70,7 @@ package core.ui.uiobjects
 		 * function that traces the items in the inventoryItems array
 		 */
 		public function showInventoryItems():void {
-			for each(var i:Collectable in inventoryItems) {
+			for each(var i:Item in inventoryItems) {
 				trace(inventoryItems.indexOf(i) + " " + i.id);
 			}
 		}
@@ -81,7 +81,7 @@ package core.ui.uiobjects
 		private function redrawInventory():void {
 			var position:Number = 0;
 			resetInventorySprite();
-			for each(var i:Collectable in inventoryItems) {
+			for each(var i:Item in inventoryItems) {
 				position += 1;
 				inventorySprite.addChild(i);
 				if (inventoryItems.length > 3 && inventorySprite.x == defaultX) {
@@ -116,9 +116,9 @@ package core.ui.uiobjects
 		 * @param	item
 		 * @return
 		 */
-		public function contains(item:Collectable):Boolean {
+		public function containsItem(item:Item):Boolean {
 			var check:Boolean = false;
-			for each(var invItem:Collectable in inventoryItems) {
+			for each(var invItem:Item in inventoryItems) {
 				if (ObjectUtil.compare(invItem, item) == 0){
 					check = true;
 				}
