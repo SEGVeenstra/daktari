@@ -116,6 +116,7 @@ package core.screen
 			super.Pause();
 			level.Pause();
 			_pauseScreen.active = true;
+			_pauseScreen.activeItemPosition = 0;
 			setChildIndex(_pauseScreen, numChildren -1);
 			_pause = true;
 		}
@@ -128,8 +129,8 @@ package core.screen
 			super.Play();
 			level.Play();
 			_pauseScreen.active = false;
-			setChildIndex(level, numChildren -1);
-			setChildIndex(userInterface, numChildren -2);
+			setChildIndex(level, numChildren -2);
+			setChildIndex(userInterface, numChildren -1);
 			_pause = false;
 		}
 		

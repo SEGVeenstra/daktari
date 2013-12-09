@@ -20,6 +20,7 @@ package game.screens
 		
 		private var resumeButton:Button = new Button('resume_button', 200, 50, 'Resume');
 		private var restartButton:Button = new Button('restart_button', 200, 50, 'Restart');
+		private var stopButton:Button = new Button('stop_button', 200, 50, 'Stop');
 		
 		public function PauseScreen() 
 		{
@@ -39,6 +40,7 @@ package game.screens
 			addChild(titleText);
 			AddMenuObject(resumeButton, 300, 200);
 			AddMenuObject(restartButton, 300, 250);
+			AddMenuObject(stopButton, 300, 300);
 			
 		}
 		
@@ -49,9 +51,14 @@ package game.screens
 			{
 				if (activeItem == resumeButton)
 					Game.gameScreen.Play();
-				if (activeItem == restartButton)
+				else if (activeItem == restartButton)
 				{
 					Game.gameScreen.Reset();
+				}
+				else if (activeItem == stopButton)
+				{
+					Game.focus = Game.menuScreen;
+					Game.menuScreen.loadMenu(new MainMenu());
 				}
 			}
 			

@@ -20,7 +20,7 @@ package core.gameobject
 		static public const MODE_CLIMBING:int = 2;
 		static public const MODE_INDOOR:int = 3;
 		
-		protected const MAX_RUN_SPEED:Number = 6;
+		protected const MAX_RUN_SPEED:Number = 5;
 		protected const MAX_JUMP_SPEED:Number = 12;
 		protected const JUMP_HEIGHT:Number = 10;
 		protected const MAX_HEALTH:int = 100;
