@@ -81,7 +81,7 @@ package core.menu
 		/**
 		 * Returns the active item position
 		 */
-		public function get activeItemPosition():int 
+		public function get activeItemPosition():int
 		{
 			return _activeItemPosition;
 		}

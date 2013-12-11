@@ -1,7 +1,6 @@
 package core.gameobject.collectable 
 {
 	import core.level.Level;
-	//import flash.media.StageVideoAvailabilityReason;
 	import starling.display.Shape;
 	/**
 	 * ...
