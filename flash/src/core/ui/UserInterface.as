@@ -13,6 +13,8 @@ package core.ui
 		public var healthbar:Healthbar;
 		public var inventory:Inventory;
 		public var vitalitybar:Vitalitybar;
+		public var highscore:HighScore;
+		
 		/**
 		 * constructor
 		 */
@@ -21,6 +23,7 @@ package core.ui
 			setupHealthBar();
 			setupInventory();
 			setupVitalitybar(20, healthbar.height + 21);
+			setupHighScore();
 			
 		}
 
@@ -48,7 +51,17 @@ package core.ui
 			this.addChild(vitalitybar);
 			vitalitybar.visible = vitalitybar.active;
 		}
-		
+		/**
+		 * set up highscore
+		 */
+		private function setupHighScore():void {
+			highscore = new HighScore();
+			this.addChild(highscore);
+			highscore.x = healthbar.width + 100;
+			highscore.y = 0;
+			
+			
+		}
 		/**
 		 * pause userinterface
 		 */
@@ -59,6 +72,9 @@ package core.ui
 					trace(inventory.getState());
 					vitalitybar.pause();
 					trace(vitalitybar.getState());
+					highscore.pause();
+					trace(highscore.getState());
+					
 		}
 		
 		/**
@@ -71,6 +87,8 @@ package core.ui
 				trace(inventory.getState());
 				vitalitybar.resume();
 				trace(vitalitybar.getState());
+				highscore.resume();
+				trace(highscore.getState());
 		}
 		
 		/**
@@ -83,6 +101,7 @@ package core.ui
 			trace(inventory.showInventoryItems);
 			vitalitybar.reset();
 			trace(vitalitybar.curVitality);
+			highscore.reset();
 		}
 		
 		/**
