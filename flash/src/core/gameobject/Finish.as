@@ -7,7 +7,7 @@ package core.gameobject
 	public class Finish extends GameObject 
 	{
 		
-		public function Finish() 
+		public function Finish(id:String, x:Number) 
 		{
 			
 		}

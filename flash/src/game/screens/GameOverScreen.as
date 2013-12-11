@@ -1,9 +1,11 @@
 package game.screens 
 {
+	import core.key.Key;
 	import core.menu.Menu;
 	import core.menu.menuobject.Button;
-	import flash.display.Shape;
+	import starling.display.Shape;
 	import starling.events.KeyboardEvent;
+	import starling.text.TextField;
 	
 	/**
 	 * ...
