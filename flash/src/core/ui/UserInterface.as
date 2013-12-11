@@ -57,6 +57,8 @@ package core.ui
 					trace(healthbar.getState());
 					inventory.pause();
 					trace(inventory.getState());
+					vitalitybar.pause();
+					trace(vitalitybar.getState());
 		}
 		
 		/**
@@ -67,6 +69,8 @@ package core.ui
 				trace(healthbar.getState());
 				inventory.resume();
 				trace(inventory.getState());
+				vitalitybar.resume();
+				trace(vitalitybar.getState());
 		}
 		
 		/**
@@ -77,6 +81,8 @@ package core.ui
 			trace(healthbar.getMaxHealth());
 			inventory.reset();
 			trace(inventory.showInventoryItems);
+			vitalitybar.reset();
+			trace(vitalitybar.curVitality);
 		}
 		
 		/**

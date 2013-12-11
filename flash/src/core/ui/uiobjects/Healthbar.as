@@ -137,7 +137,7 @@ package core.ui.uiobjects
 		public function reset():void {
 			if (curHealth != maxHealth) {
 				curHealth = maxHealth;
-				healthBar.scaleX += curHealth / 100;
+				healthBar.scaleX = maxHealth / 100;
 			}
 			
 		}

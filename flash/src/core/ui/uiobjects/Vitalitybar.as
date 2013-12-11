@@ -3,7 +3,6 @@ package core.ui.uiobjects
 	import starling.display.Sprite;
 	import starling.display.Shape;
 
-	
 	/**
 	 * ...
 	 * @author Henderikus
@@ -96,21 +95,60 @@ package core.ui.uiobjects
 		}
 		
 		/**
-		 * 
+		 * decrease vitality
 		 * @param	dec
 		 */
 		public function decreaseVitality(dec:Number):void {
 			if (active) {
-				var deg:Number;
-				if (curVitality > 0 && curVitality - dec >= 0) {
-					curVitality -= dec;
-					deg = (maxVitality - curVitality) * arc / 100;
-					drawWedge(deg);
-					trace(deg);
+				if (play) {
+					var deg:Number;
+					var perc:Number;
+					if (curVitality > 0 && curVitality - dec >= 0) {
+						curVitality -= dec;
+						perc = 100 - (curVitality / maxVitality * 100);
+						trace(perc);
+						deg = perc * arc / 100;
+						drawWedge(deg);
+						trace(deg);
+					}
 				}
 			}
 		}
 		
+		/**
+		 * increase vitality
+		 * @param	inc
+		 */
+		public function increaseVitality(inc:Number):void {
+			if (active) {
+				if (play) {
+					var deg:Number;
+					if (curVitality > 0  && curVitality < maxVitality) {
+						if (curVitality + inc >= maxVitality) {
+							curVitality = maxVitality;
+							deg = 0;
+						}else {
+							curVitality += inc;
+							var perc:Number = 100 - (curVitality / maxVitality * 100);
+							deg = perc * arc / 100;
+						}
+						drawWedge(deg);
+					}
+				}
+			}
+		}
+		
+		/**
+		* reset the vitalitybar
+		*/
+		public function reset():void {
+			curVitality = maxVitality;
+			var deg:Number = 0;
+			drawWedge(deg);
+		}
+		
 	}
+	
+	
 
 }
