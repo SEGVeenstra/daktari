@@ -25,7 +25,7 @@ package game.screens
 		private function Build():void 
 		{
 			AddMenuObject(playButton, 300, 100);
-			addChild(new TextField(800, 50, 'Test Menu', 'Arial', 30, 0, true));
+			addChild(new TextField(800, 50, 'Main Menu', 'Arial', 30, 0, true));
 		}
 		
 		override public function Control(e:KeyboardEvent):void 

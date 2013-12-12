@@ -1,5 +1,6 @@
 package core.gameobject 
 {
+	import core.gameobject.collectable.Item;
 	import core.level.Level;
 	import flash.geom.Rectangle;
 	import starling.display.Shape;
@@ -7,12 +8,17 @@ package core.gameobject
 	 * ...
 	 * @author SEG.Veenstra
 	 */
-	public class Finish extends GameObject 
+	public class Enemy extends GameObject 
 	{
+		public var requiredItem:Item;
+		public var damage:int;
+		public var points:int;
 		
-		public function Finish(id:String, x:Number,y:Number, width:Number,height:Number) 
+		public function Enemy(id:String, x:Number,y:Number, width:Number,height:Number, damage:int, points:int) 
 		{
 			super(id, x, y);
+			this.damage = damage;
+			this.points = points;
 			solid = false;
 			width *= Level.GRIDSIZE;
 			height *= Level.GRIDSIZE;
@@ -25,12 +31,13 @@ package core.gameobject
 		private function Draw(width:Number, height:Number):void
 		{
 			shape = new Shape();
-			shape.graphics.beginFill(0xFF7DD4, 0.6);
+			shape.graphics.beginFill(0xFF0000, 0.6);
 			shape.graphics.drawRect(0, 0, width, height);
 			shape.graphics.endFill();
 			
 			addChild(shape);
 		}
+		
 	}
 
 }

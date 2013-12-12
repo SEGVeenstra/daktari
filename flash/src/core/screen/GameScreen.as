@@ -106,6 +106,8 @@ package core.screen
 			}
 			if (_pauseScreen.active)
 				_pauseScreen.Control(e);
+			else if (_gameOverScreen.active)
+				_gameOverScreen.Control(e);
 		}
 		
 		/**
@@ -116,6 +118,7 @@ package core.screen
 			super.Pause();
 			level.Pause();
 			_pauseScreen.active = true;
+			_gameOverScreen.active = false;
 			_pauseScreen.activeItemPosition = 0;
 			setChildIndex(_pauseScreen, numChildren -1);
 			_pause = true;
@@ -129,6 +132,7 @@ package core.screen
 			super.Play();
 			level.Play();
 			_pauseScreen.active = false;
+			_gameOverScreen.active = false;
 			setChildIndex(level, numChildren -2);
 			setChildIndex(userInterface, numChildren -1);
 			_pause = false;
@@ -139,6 +143,7 @@ package core.screen
 			super.Reset();
 			var c:Class = Class(getDefinitionByName(getQualifiedClassName(Game.gameScreen.level)));
 			loadLevel(new c);
+			Game.gameScreen._userInterface.reset();
 			Play();
 		}
 		
@@ -147,9 +152,10 @@ package core.screen
 		 */
 		public function GameOver():void
 		{
-			super.Pause();
 			level.Pause();
+			setChildIndex(_gameOverScreen, numChildren -1);
 			_gameOverScreen.active = true;
+			_gameOverScreen.activeItemPosition = 0;
 			_pause = true;
 		}
 	}

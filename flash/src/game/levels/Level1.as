@@ -3,9 +3,13 @@ package game.levels
 	import core.gameobject.Character;
 	import core.gameobject.Climbable;
 	import core.gameobject.collectable.Collectable;
+	import core.gameobject.collectable.Item;
 	import core.gameobject.collectable.Key;
 	import core.gameobject.collectable.PowerUp;
 	import core.gameobject.Door;
+	import core.gameobject.Enemy;
+	import core.gameobject.Finish;
+	import core.gameobject.Npc;
 	import core.gameobject.Platform;
 	import core.level.Level;
 	
@@ -46,8 +50,23 @@ package game.levels
 		private var building2Door2:Door = new Door('building2_door2',   51 ,  8);
 		
 		// Items
-		private var testItem:Key =  new Key('key1', 16, 20);
-		private var testPowerUp:PowerUp =  new PowerUp('fruit', 21, 20, 100, 5);
+		private var key:Key =  new Key('key1', 16, 40);
+		private var bone:Key = new Key('bone', 16, 20);
+		private var kite:Key = new Key('kite', 60, 10);
+		private var testPowerUp1:PowerUp =  new PowerUp('fruit1', 40, 20, 100, 10);
+		private var testPowerUp2:PowerUp =  new PowerUp('fruit2', 44, 20, 100, 10);
+		private var testPowerUp3:PowerUp =  new PowerUp('fruit3', 48, 20, 100, 10);
+		private var testPowerUp4:PowerUp =  new PowerUp('fruit4', 52, 20, 100, 10);
+		
+		
+		// Finish
+		private var finish:Finish = new Finish('finish', 95, 54, 5, 1);
+		
+		// Enemies
+		private var dog:Enemy = new Enemy('dog', 91, 51, 4, 4, 20, 100);
+		
+		// NPCs
+		private var girl:Npc = new Npc('girl', 37, 51, 3, 4, 1000);
 		
 		public function Level1() 
 		{
@@ -85,12 +104,27 @@ package game.levels
 			AddGameObject(building2Floor1);
 			AddGameObject(building2Door1);
 			building2Door1.SetExits(null, null, building2Door2, null);
+			building2Door1.requiredKey = key;
 			AddGameObject(building2Door2);
 			building2Door2.SetExits(null, null, null, building2Door1);
 
 			
-			AddGameObject(testItem);
-			AddGameObject(testPowerUp);
+			AddGameObject(key);
+			AddGameObject(bone);
+			AddGameObject(testPowerUp1);
+			AddGameObject(testPowerUp2);
+			AddGameObject(testPowerUp3);
+			AddGameObject(testPowerUp4);
+			
+			AddGameObject(finish);
+			
+			AddGameObject(dog);
+			dog.requiredItem = bone;
+			
+			AddGameObject(girl);
+			girl.AddQuestItem(kite);
+
+			AddGameObject(kite);
 		}
 	}
 

@@ -5,6 +5,7 @@ package core.gameobject
 	import starling.display.Shape;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.text.TextField;
 	
 	/**
 	 * Is an object that can be placed into a level
@@ -13,6 +14,7 @@ package core.gameobject
 	public class GameObject extends Sprite 
 	{
 		protected var shape:Shape;
+		private var debugId:TextField = new TextField(100, 24, '' , 'Ariel', 12, 0 , false);
 		
 		public var id:String;
 		public var collider:Rectangle = new Rectangle(0, 0, 10, 10);;
@@ -25,6 +27,10 @@ package core.gameobject
 		public function GameObject(id:String, gridX:Number, gridY:Number)
 		{
 			this.id = id;
+			debugId.text = id;
+			addChild(debugId);
+			debugId.y -= 16;
+			debugId.hAlign = 'left';
 			_startX = gridX;
 			_startY = gridY;
 			x = _startX * Level.GRIDSIZE;

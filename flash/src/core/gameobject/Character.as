@@ -22,21 +22,23 @@ package core.gameobject
 		
 		protected const MAX_RUN_SPEED:Number = 5;
 		protected const MAX_JUMP_SPEED:Number = 12;
-		protected const JUMP_HEIGHT:Number = 10;
+		protected const MAX_JUMP_HEIGHT:Number = 150;
 		protected const MAX_HEALTH:int = 100;
 		protected const MAX_VITALITY:int = 120;
+		protected const ILLNESS_INTENSITIE:Number = 0.25;
 		
 		protected var climbable:GameObject;
 		protected var door:Door;
 		
-		protected var runSpd:Number = 0;
-		protected var jumpSpd:Number = 0.1;
+		private var _runSpd:Number = 0;
+		private var _jumpSpd:Number = 0.1;
+		private var _currentJump:Number = 150;
 		protected var pressedJmp:Boolean = false;
 		protected var switchedDoors:Boolean = false;
 		
 		private var _health:int = 100;
 		private var _points:int = 0;
-		private var _vitality:int = 120;
+		private var _vitality:Number = 120;
 		
 		public function Character(id:String, x:Number, y:Number) 
 		{
@@ -45,6 +47,42 @@ package core.gameobject
 			Draw();
 			mode = MODE_AIRBOURNE;
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+		}
+		
+		/**
+		 * Returns the running speed
+		 */
+		public function get runSpd():Number
+		{
+			return _runSpd * vitalityRatio;
+		}
+		
+		/**
+		 * Set the running speed
+		 */
+		public function set runSpd(speed:Number):void
+		{
+			_runSpd = speed;
+		}
+		
+		public function set jumpSpd(speed:Number):void
+		{
+			_jumpSpd = speed;
+		}
+		
+		public function get jumpSpd():Number
+		{
+			return _jumpSpd;
+		}
+		
+		public function get currentJump():Number
+		{
+			return _currentJump;
+		}
+		
+		public function set currentJump(jump:Number):void
+		{
+			_currentJump = jump;
 		}
 		
 		/**
@@ -62,9 +100,16 @@ package core.gameobject
 		public function TakeHit(damage:int):void
 		{
 			if (health - damage <= 0)
+			{
 				_health = 0;
+				Game.gameScreen.userInterface.healthbar.looseHealth(Game.gameScreen.userInterface.healthbar.getCurrentHealth());
+				Game.gameScreen.GameOver();
+			}
 			else
+			{
+				Game.gameScreen.userInterface.healthbar.looseHealth(damage);
 				_health -= damage;
+			}
 		}
 		
 		/**
@@ -74,9 +119,16 @@ package core.gameobject
 		public function RestoreHealth(health:int):void
 		{
 			if (this.health + health >= MAX_HEALTH)
+			{
+				var rest:int = Game.gameScreen.userInterface.healthbar.getMaxHealth() - Game.gameScreen.userInterface.healthbar.getCurrentHealth();
+				Game.gameScreen.userInterface.healthbar.reset();
 				_health = MAX_HEALTH;
+			}
 			else
+			{
+				Game.gameScreen.userInterface.healthbar.restoreHealth(health);
 				_health += health;
+			}
 		}
 		
 		/**
@@ -85,6 +137,32 @@ package core.gameobject
 		protected function get points():int
 		{
 			return _points;
+		}
+		
+		/**
+		 * And an amount of points
+		 * @param	points
+		 */
+		protected function AddPoints(points:int):void
+		{
+			_points += points;
+			Game.gameScreen.userInterface.highscore.addScore(points);
+		}
+		
+		/**
+		 * Returns the ratio for the vitality
+		 */
+		protected function get vitalityRatio():Number
+		{
+			var perc:int = _vitality / MAX_VITALITY * 100;
+			if (perc > 30)
+				return 1;
+			else if (perc > 15)
+				return 0.8;
+			else if (perc > 5)
+				return 0.6;
+			else
+				return 0.4;
 		}
 		
 		private function Draw():void
@@ -107,6 +185,7 @@ package core.gameobject
 		{
 			if (!paused)
 			{
+				//_vitality -= ILLNESS_INTENSITIE;
 				Control();
 				UpdateCollisions();
 				SetBlocks();
@@ -226,6 +305,8 @@ package core.gameobject
 		 */
 		private function ControlAir():void 
 		{
+			if(blockedBottom)
+			trace(blockedBottom.id);
 			// If it touches the ground switch mode to grounded
 			if (blockedBottom)
 			{
@@ -244,7 +325,7 @@ package core.gameobject
 					runSpd = -1.6;
 				else if (runSpd > 0)
 					runSpd *= 1 - MAX_RUN_SPEED / 60;
-				else if(runSpd < -MAX_RUN_SPEED)
+				else if(runSpd > -MAX_RUN_SPEED)
 					runSpd *= 1 + MAX_RUN_SPEED / 60;
 			}
 			if (Key.isDown(Key.ARROW_RIGHT) && !blockedRight && !Key.isDown(Key.ARROW_LEFT))
@@ -253,7 +334,7 @@ package core.gameobject
 					runSpd = 1.6;
 				else if (runSpd < 0)
 					runSpd *= 1 - MAX_RUN_SPEED / 60;
-				else if(runSpd > MAX_RUN_SPEED)
+				else if(runSpd < MAX_RUN_SPEED)
 					runSpd *= 1 + MAX_RUN_SPEED / 60;
 			}
 			
@@ -269,18 +350,16 @@ package core.gameobject
 			collider.x += runSpd;
 			
 			if (jumpSpd == 0) jumpSpd = 1;
-			
-			var jumpRatio:int = 150;
 			if (!Key.isDown(Key.CTRL_LEFT) || !pressedJmp)
 			{
-				jumpRatio = 40;
 				pressedJmp = false;
+				currentJump = 40;
 			}
 
 			if (jumpSpd < 0)
 			{
 				if(!blockedTop)
-					jumpSpd *= 1 - MAX_JUMP_SPEED / jumpRatio;
+					jumpSpd *= 1 - MAX_JUMP_SPEED / currentJump;
 				else
 					jumpSpd = -0.5;
 					
@@ -326,6 +405,7 @@ package core.gameobject
 				collider.y -= 1;
 				mode = MODE_AIRBOURNE;
 				pressedJmp = true;
+				currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
 				jumpSpd = MAX_JUMP_SPEED * -1;
 				return;
 			}
@@ -386,7 +466,13 @@ package core.gameobject
 			{
 				if (o.active)
 				{
-					if (o.solid)
+					if (o is Finish)
+					{
+						Game.gameScreen.GameOver();
+						return;
+					}
+					
+					else if (o.solid)
 					{
 						var intersect:Rectangle = collider.intersection(o.collider);
 						if (intersect.height > intersect.width)
@@ -414,6 +500,63 @@ package core.gameobject
 					{
 						CollectItem(o as Collectable);
 					}
+					else if (o is Enemy)
+					{
+						interactWithEnemy(o as Enemy);
+					}
+					else if (o is Npc)
+					{
+						interactWithNpc(o as Npc);
+					}
+				}
+			}
+		}
+		
+		private function interactWithNpc(npc:Npc):void 
+		{
+			if (npc.questItems.length > 0)
+			{
+				for each(var i:Item in npc.questItems)
+				{
+					if (Game.gameScreen.userInterface.inventory.containsItem(i))
+					{
+						Game.gameScreen.userInterface.inventory.useInventoryItem(i);
+						npc.RemoveQuestItem(i);
+					}
+				}
+				if (npc.questItems.length == 0)
+				{
+					AddPoints(npc.points);
+				}
+			}
+		}
+		
+		/**
+		 * Interact with enemie objects
+		 * @param	o
+		 */
+		private function interactWithEnemy(enemy:Enemy):void 
+		{
+			if (enemy.requiredItem)
+			{
+				if (Game.gameScreen.userInterface.inventory.containsItem(enemy.requiredItem))
+				{
+					Game.gameScreen.userInterface.inventory.useInventoryItem(enemy.requiredItem);
+					enemy.requiredItem = null;
+				}
+				else 
+				{
+					TakeHit(enemy.damage);
+					collider.y -= 1;
+					
+					pressedJmp = true;
+					currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
+					jumpSpd = MAX_JUMP_SPEED * -1;
+					runSpd = -MAX_RUN_SPEED;
+					mode = MODE_AIRBOURNE;
+					blockedBottom = null;
+					trace(collider.y, jumpSpd,runSpd, currentJump);
+					return;
 				}
 			}
 		}
@@ -424,10 +567,22 @@ package core.gameobject
 		 */
 		private function interactWithDoor(door:Door):void 
 		{
-			if (door.collider.containsPoint(new Point(collider.x+collider.width/2,collider.y)))
+			if (door.requiredKey)
+			{
+				if (Game.gameScreen.userInterface.inventory.containsItem(door.requiredKey))
+				{
+					Game.gameScreen.userInterface.inventory.useInventoryItem(door.requiredKey);
+					door.requiredKey = null;
+				}
+			}
+			else if (door.collider.containsPoint(new Point(collider.x+collider.width/2,collider.y)))
 				this.door = door;
 		}
 		
+		/**
+		 * Make the character collect an Item
+		 * @param	o
+		 */
 		private function CollectItem(o:Collectable):void 
 		{
 			if (o is PowerUp)
@@ -435,12 +590,16 @@ package core.gameobject
 				var p:PowerUp = o as PowerUp;
 				Game.gameScreen.level.RemoveGameObject(o);
 				trace('points +' + p.points, 'health +' + p.health);
+				AddPoints(p.points);
+				RestoreHealth(p.health);
+				
 			}
 			else if (o is Item)
 			{
 				var i:Item = o as Item;
 				Game.gameScreen.level.RemoveGameObject(o);
 				trace('Added item:' + i.id + ' to inventory!');
+				Game.gameScreen.userInterface.inventory.addToInventory(i);
 			}
 			
 		}
