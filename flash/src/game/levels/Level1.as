@@ -34,7 +34,7 @@ package game.levels
 		private var building1Floor1:Platform = new Platform('building1_floor1',   8, 45  , 26 , 1);
 			// Doors
 		private var building1Door1:Door = new Door('building1_door1',   12 ,  48);
-		private var building1Door2:Door = new Door('building1_door2',   12 ,  38);
+		private var building1Door2:Door = new Door('building1_door2(LOCKED)',   12 ,  38);
 		private var building1Door3:Door = new Door('building1_door3',   12 ,   28);
 			// Climbables
 		private var building1Ladder1:Climbable = new Climbable('building1_ladder1',   29,   35,   3,   10);
@@ -46,7 +46,7 @@ package game.levels
 		private var building2Floor2:Platform = new Platform('building2_floor2',   40, 35 , 26 , 1);
 		private var building2Floor1:Platform = new Platform('building2_floor1',   40, 45 , 26 , 1);
 			// Doors
-		private var building2Door1:Door = new Door('building2_door1',   51 ,  48);
+		private var building2Door1:Door = new Door('building2_door1(LOCKED)',   51 ,  48);
 		private var building2Door2:Door = new Door('building2_door2',   51 ,  8);
 		
 		// Items
