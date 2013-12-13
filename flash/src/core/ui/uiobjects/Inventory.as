@@ -22,7 +22,8 @@ package core.ui.uiobjects
 		 */
 		public function Inventory() 
 		{
-			inventoryItems = new Array();
+			inventoryItems = new Array(inventorySize);
+			trace(inventoryItems.length);
 		}
 		
 		/**
@@ -33,24 +34,15 @@ package core.ui.uiobjects
 			var added:Boolean = false;
 			var indexItem:Number;
 			if (this.play) {
-				if (inventoryItems.length < inventorySize) {
-					if (inventoryItems.length != 0) {
-						for (var i:Number = 0; i <= inventoryItems.length; i++ ) {
-							var invItem:Item = inventoryItems[i];
-							if (invItem == null && added == false) {
-								inventoryItems[i] = item;
-								added = true;
-							}
-						}
-					}
-					if (added == false) {
-						inventoryItems.push(item);
-						added = true;
-					}
-					indexItem = inventoryItems.indexOf(item);
-					addChild(item);
-					item.x = indexItem * 65;
-					item.y = 0;	
+				for (var i:Number = 0; i <= inventoryItems.length; i++ ) {
+					var invItem:Item = inventoryItems[i];
+					if (invItem == null && added == false) {
+							inventoryItems[i] = item;
+							addChild(item);
+							item.x = i * 65;
+							item.y = 0;	
+							added = true;
+					}	
 				}
 			}
 			return added;
