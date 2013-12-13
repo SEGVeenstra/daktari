@@ -88,6 +88,7 @@ package core.screen
 			if (this.level)
 				removeChild(this.level);
 			addChild(level);
+			_userInterface.reset();
 			this._level = level;
 		}
 		

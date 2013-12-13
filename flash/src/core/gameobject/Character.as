@@ -306,7 +306,6 @@ package core.gameobject
 		private function ControlAir():void 
 		{
 			if(blockedBottom)
-			trace(blockedBottom.id);
 			// If it touches the ground switch mode to grounded
 			if (blockedBottom)
 			{
@@ -555,7 +554,6 @@ package core.gameobject
 					runSpd = -MAX_RUN_SPEED;
 					mode = MODE_AIRBOURNE;
 					blockedBottom = null;
-					trace(collider.y, jumpSpd,runSpd, currentJump);
 					return;
 				}
 			}
@@ -589,7 +587,6 @@ package core.gameobject
 			{
 				var p:PowerUp = o as PowerUp;
 				Game.gameScreen.level.RemoveGameObject(o);
-				trace('points +' + p.points, 'health +' + p.health);
 				AddPoints(p.points);
 				RestoreHealth(p.health);
 				
@@ -598,7 +595,6 @@ package core.gameobject
 			{
 				var i:Item = o as Item;
 				Game.gameScreen.level.RemoveGameObject(o);
-				trace('Added item:' + i.id + ' to inventory!');
 				Game.gameScreen.userInterface.inventory.addToInventory(i);
 			}
 			

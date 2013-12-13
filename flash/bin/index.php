@@ -41,7 +41,7 @@
 <body>
     <div id="game">
     <h1><b>Daktari Msaidizi</b> Character control prototype</h1>
-    <span>v0.04 : Collectables_and_ingame_menu</span>
+    <span>v0.05 : working_prototype</span>
     
 	<div id="altContent">
 		<h1>Daktari</h1>
