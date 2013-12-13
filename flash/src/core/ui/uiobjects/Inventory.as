@@ -13,9 +13,9 @@ package core.ui.uiobjects
 	{
 		private var inventoryItems:Array;
 		private var inventorySprite:Sprite;
-		private var inventorySize:Number = 5;
+		public const inventorySize:Number = 5;
 		private var defaultX:Number = 600;
-		private var defaultY:Number = -200;
+	
 		
 		/**
 		 * constructor
@@ -23,31 +23,24 @@ package core.ui.uiobjects
 		public function Inventory() 
 		{
 			inventoryItems = new Array();
-			inventorySprite = new Sprite();
-			inventorySprite.x = defaultX;
-			inventorySprite.y = defaultY;
-			addChild(inventorySprite);
-			
 		}
 		
 		/**
 		 * add item to inventory when inventory still has room
 		 * @param	item
 		 */
-		public function addToInventory(item:Item):void {
+		public function addToInventory(item:Item):Boolean {
+			var added:Boolean = false;
 			if (this.play) {
 				if (inventoryItems.length < inventorySize) {
-					if (item is Item) {
 						inventoryItems.push(item);
-						inventorySprite.addChild(item);
-						if (inventoryItems.length > 3) {
-							inventorySprite.x -= 65;
-						}
+						addChild(item);
 						item.x = (inventoryItems.length - 1) * 65;
-					}	
+						item.y = 0;
+						added = true;
 				}
-				//showInventoryItems();
-			}	
+			}
+			return added;
 		}
 		
 		/**
@@ -56,60 +49,25 @@ package core.ui.uiobjects
 		 * 
 		 * @param	item
 		 */
-		public function useInventoryItem(item:Item):void {
+		public function useInventoryItem(item:Item):void{
+			var added:Boolean = false;
 			if (this.play) {
 				var indexItem:Number = inventoryItems.indexOf(item);
 				inventoryItems.splice(indexItem, 1);
-				inventorySprite.removeChild(item);
-				showInventoryItems();
-				redrawInventory();
+				removeChild(item);
 			}
 		}
 		
-		/**
-		 * function that traces the items in the inventoryItems array
-		 */
-		public function showInventoryItems():void {
-			for each(var i:Item in inventoryItems) {
-				trace(inventoryItems.indexOf(i) + " " + i.id);
-			}
-		}
-		
-		/**
-		 * this function redraws the inventorySprite and it's items
-		 */
-		private function redrawInventory():void {
-			var position:Number = 0;
-			resetInventorySprite();
-			for each(var i:Item in inventoryItems) {
-				position += 1;
-				inventorySprite.addChild(i);
-				if (inventoryItems.length > 3 && inventorySprite.x == defaultX) {
-					inventorySprite.x -= 65;
-				}
-				i.x = (position - 1) * 65;
-			}
-		}
 		/**
 		 * reset the players inventory by removing every item in the inventory
 		 * and rebuilding the sprite
 		 */
 		public function reset():void {
-			resetInventorySprite();
 			var size:Number = inventoryItems.length;
 			inventoryItems.splice(0, size);
+			removeChildren();
 		}
 		
-		/**
-		 * removes the old inventorySprite and replaces it with a new inventory sprite 
-		 */
-		private function resetInventorySprite():void {
-			removeChild(inventorySprite);
-			inventorySprite = new Sprite();
-			inventorySprite.x = defaultX;	
-			inventorySprite.y = defaultY;
-			addChild(inventorySprite);
-		}
 		
 		/**
 		 * check if item is in inventory

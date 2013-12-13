@@ -13,24 +13,22 @@ package core.ui.uiobjects
 		private var _maxVitality:Number = 100;
 		private var _curVitality:Number;
 		private var _active:Boolean = false;
-		private var arc:Number = 360
+		private var arc:Number = 360;
 		private var bar:Shape;
 		
-		public function Vitalitybar(centerX:Number, centerY:Number) 
+		public function Vitalitybar() 
 		{
 			_curVitality = maxVitality;
-			draw(centerX, centerY);
+			draw();
 		}
 		
 		/**
 		 * draws to actual indicator
 		 */
-		private function draw(centerX:Number, centerY:Number):void {
+		private function draw():void {
 			var deg:Number = 0;
 			bar = new Shape();
 			addChild(bar);
-			bar.x = centerX;
-			bar.y = centerY;
 			drawWedge(deg);
 		}
 		

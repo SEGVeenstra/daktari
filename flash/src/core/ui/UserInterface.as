@@ -22,7 +22,7 @@ package core.ui
 		{
 			setupHealthBar();
 			setupInventory();
-			setupVitalitybar(20, healthbar.height + 21);
+			setupVitalitybar();
 			setupHighScore();
 			
 		}
@@ -41,14 +41,17 @@ package core.ui
 		private function setupInventory():void {
 			inventory = new Inventory();
 			this.addChild(inventory);
+			inventory.x = 800 - inventory.inventorySize * 65;
 		}
 		
 		/**
 		 * setting up vatalitybar
 		 */
-		private function setupVitalitybar(centerX:Number, centerY:Number):void {
-			vitalitybar = new Vitalitybar(centerX, centerY);
+		private function setupVitalitybar():void {
+			vitalitybar = new Vitalitybar();
 			this.addChild(vitalitybar);
+			vitalitybar.y = healthbar.height + 21;
+			vitalitybar.x = 20;
 			vitalitybar.visible = vitalitybar.active;
 		}
 		/**
@@ -98,7 +101,6 @@ package core.ui
 			healthbar.reset();
 			trace(healthbar.getMaxHealth());
 			inventory.reset();
-			trace(inventory.showInventoryItems);
 			vitalitybar.reset();
 			trace(vitalitybar.curVitality);
 			highscore.reset();
