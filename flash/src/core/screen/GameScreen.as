@@ -55,7 +55,7 @@ package core.screen
 					cameraPoint.x = level.width -stage.stageWidth / 2;
 				if (cameraPoint.y < stage.stageHeight / 2)
 					cameraPoint.y = stage.stageHeight / 2;
-				else if (cameraPoint.y > level.height -stage.stageHeight / 2)
+				else if (cameraPoint.y > level.height-stage.stageHeight / 2)
 					cameraPoint.y = level.height -stage.stageHeight / 2;
 					
 				level.x -= ((level.x - stage.stageWidth / 2) + cameraPoint.x) / CAMERA_SPEED;

@@ -2,6 +2,7 @@ package core.gameobject
 {
 	import core.level.Level;
 	import flash.geom.Rectangle;
+	import starling.display.Image;
 	import starling.display.Shape;
 	/**
 	 * Creates a basic GameObject representing a platform
@@ -9,6 +10,7 @@ package core.gameobject
 	 */
 	public class Platform extends GameObject 
 	{
+		protected var art:Image;
 		
 		public function Platform(id:String, x:Number, y:Number, width:Number, height:Number) 
 		{

@@ -1,9 +1,11 @@
 package game.levels 
 {
+	import core.asset.Assets;
 	import core.gameobject.Character;
 	import core.gameobject.Climbable;
 	import core.gameobject.collectable.Collectable;
 	import core.gameobject.collectable.Item;
+	import core.gameobject.GameObject;
 	import game.objects.*;
 	import core.gameobject.collectable.PowerUp;
 	import core.gameobject.Door;
@@ -12,6 +14,12 @@ package game.levels
 	import core.gameobject.Npc;
 	import core.gameobject.Platform;
 	import core.level.Level;
+	import game.objects.level1.BlueDoor;
+	import game.objects.level1.Bone;
+	import game.objects.level1.Key;
+	import game.objects.level1.Kite;
+	import game.objects.level1.PlatformBuilding1;
+	import starling.display.Image;
 	
 	/**
 	 * ...
@@ -29,13 +37,13 @@ package game.levels
 		private var barierTop:Platform = new Platform('barrier_top', 0, 0,   100, 1);
 		// Building 1
 			// Platforms
-		private var building1Roof:Platform = new Platform('building1_roof',   8, 25 , 26 , 1);
-		private var building1Floor2:Platform = new Platform('building1_floor2',   3, 35  , 31 , 1);
-		private var building1Floor1:Platform = new Platform('building1_floor1',   8, 45  , 26 , 1);
+		private var building1Roof:Platform = new PlatformBuilding1('building1_roof',   8, 25);
+		private var building1Floor2:Platform = new Platform('building1_floor2',   3, 35 ,31,1);
+		private var building1Floor1:Platform = new PlatformBuilding1('building1_floor1',   8, 45 );
 			// Doors
-		private var building1Door1:Door = new Door('building1_door1',   12 ,  48);
-		private var building1Door2:Door = new Door('building1_door2(LOCKED)',   12 ,  38);
-		private var building1Door3:Door = new Door('building1_door3',   12 ,   28);
+		private var building1Door1:BlueDoor = new BlueDoor('building1_door1',   12 ,  48);
+		private var building1Door2:BlueDoor = new BlueDoor('building1_door2(LOCKED)',   12 ,  38);
+		private var building1Door3:BlueDoor = new BlueDoor('building1_door3',   12 ,   28);
 			// Climbables
 		private var building1Ladder1:Climbable = new Climbable('building1_ladder1',   29,   35,   3,   10);
 		
@@ -51,8 +59,8 @@ package game.levels
 		
 		// Items
 		private var key:Key =  new Key('key1', 16, 40);
-		private var bone:Key = new Key('bone', 16, 20);
-		private var kite:Key = new Key('kite', 60, 10);
+		private var bone:Bone = new Bone('bone', 16, 20);
+		private var kite:Kite = new Kite('kite', 60, 10);
 		private var testPowerUp1:PowerUp =  new PowerUp('fruit1', 40, 20, 100, 10);
 		private var testPowerUp2:PowerUp =  new PowerUp('fruit2', 44, 20, 100, 10);
 		private var testPowerUp3:PowerUp =  new PowerUp('fruit3', 48, 20, 100, 10);
@@ -70,7 +78,7 @@ package game.levels
 		
 		public function Level1() 
 		{
-			super();
+			super(100,60);
 			trace('Level 1 geladen');
 		}
 		
@@ -79,7 +87,9 @@ package game.levels
 		 */
 		override protected function Build():void
 		{
-			SetPlayer(character);
+			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background-buildings')));
+			BuildBackground();
+			
 			// Level
 			AddGameObject(ground);
 			AddGameObject(barierLeft);
@@ -125,6 +135,20 @@ package game.levels
 			girl.AddQuestItem(kite);
 
 			AddGameObject(kite);
+			
+			SetPlayer(character);
+			
+		}
+		
+		/**
+		 * Build the background from the level
+		 */
+		private function BuildBackground():void 
+		{
+			var i:Image = new Image(Assets.GetAtlas('level_1').getTexture('wall-building-1'));
+			i.x = Level.GRIDSIZE * 8;
+			i.y = Level.GRIDSIZE * 46;
+			//addChild(i);
 		}
 	}
 

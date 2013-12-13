@@ -3,7 +3,9 @@ package core.level
 	import core.gameobject.Character;
 	import core.gameobject.GameObject;
 	import flash.utils.getDefinitionByName;
+	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.EnterFrameEvent;
 	import starling.events.Event;
 	
 	/**
@@ -16,12 +18,18 @@ package core.level
 		
 		public var gameObjects:Vector.<GameObject> = new Vector.<GameObject>();
 		public var player:Character;
+		public var background:Image;
 		
 		private var _active:Boolean = true;
 		private var _paused:Boolean = false;
 		
-		public function Level() 
+		public var levelWidth:Number;
+		public var levelHeight:Number;
+		
+		public function Level(width:Number, height:Number) 
 		{
+			levelWidth = width * GRIDSIZE;
+			levelHeight = height * GRIDSIZE;
 			Build();
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
 		}
@@ -29,8 +37,28 @@ package core.level
 		private function OnAddedToStage(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+			addEventListener(EnterFrameEvent.ENTER_FRAME, OnEnterFrame);
 		}
 		
+		private function OnEnterFrame(e:EnterFrameEvent):void 
+		{
+			if (_active && background)
+			{
+				var perWidth:Number =  (background.width-stage.stageWidth) / (width-stage.stageWidth);
+				var perHeight:Number =  (background.height - stage.stageHeight) / (height - stage.stageHeight);
+				background.x = x * perWidth;
+				background.y = y * perHeight;
+			}
+		}
+		
+		protected function SetBackground(image:Image):void
+		{
+			if (background)
+				Game.gameScreen.removeChild(background);
+			background = image;
+			Game.gameScreen.addChild(background);
+			Game.gameScreen.setChildIndex(background, -1);
+		}
 		/**
 		 * Build the level by creating and adding GameObjects, Backgrounds etc
 		 */

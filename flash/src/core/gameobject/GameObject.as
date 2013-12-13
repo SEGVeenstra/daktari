@@ -13,7 +13,7 @@ package core.gameobject
 	 */
 	public class GameObject extends Sprite 
 	{
-		protected var debugShape:Shape;
+		public var debugShape:Shape;
 		private var debugId:TextField = new TextField(150, 24, '' , 'Ariel', 12, 0 , false);
 		
 		public var id:String;
@@ -28,7 +28,7 @@ package core.gameobject
 		{
 			this.id = id;
 			debugId.text = id;
-			addChild(debugId);
+		//	addChild(debugId);
 			debugId.y -= 16;
 			debugId.hAlign = 'left';
 			_startX = gridX;

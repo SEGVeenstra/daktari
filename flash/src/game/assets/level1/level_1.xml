@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:0ea73ec8b5090a8abc36357bd544b265:87a516e9023abf3007cbfaeec7300201:d4de073e4d7edc0134f4d08fc54bf414$ -->
+<TextureAtlas imagePath="level 1 sheets.png">
+    <SubTexture name="background-buildings" x="2" y="2" width="1479" height="931"/>
+    <SubTexture name="blue-door-building-1" x="1919" y="137" width="77" height="108" frameX="-8" frameY="-4" frameWidth="85" frameHeight="112"/>
+    <SubTexture name="door-building-2" x="1919" y="247" width="64" height="112"/>
+    <SubTexture name="floor-building-1-and-2" x="2" y="986" width="1389" height="35" frameX="0" frameY="-4" frameWidth="1389" frameHeight="39"/>
+    <SubTexture name="green-door-building-1" x="1840" y="137" width="77" height="112"/>
+    <SubTexture name="railing-building-1" x="2" y="935" width="87" height="49"/>
+    <SubTexture name="roof-building-1" x="487" y="935" width="390" height="25"/>
+    <SubTexture name="roof-building-2" x="91" y="935" width="394" height="33" frameX="0" frameY="-8" frameWidth="394" frameHeight="41"/>
+    <SubTexture name="stairs-building-1" x="1998" y="137" width="43" height="185"/>
+    <SubTexture name="top-floor-building-2" x="1840" y="2" width="197" height="133"/>
+    <SubTexture name="wall-building-1" x="1483" y="2" width="355" height="137"/>
+    <SubTexture name="wall-building-2" x="1483" y="141" width="345" height="151"/>
+    <SubTexture name="window-building-1" x="1483" y="294" width="63" height="89"/>
+    <SubTexture name="window-building-2" x="1830" y="251" width="63" height="91"/>
+</TextureAtlas>

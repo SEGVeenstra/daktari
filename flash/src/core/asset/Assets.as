@@ -14,9 +14,13 @@ package core.asset
 		
 		[Embed(source = "/game/assets/level1/items_level_1.png")]
 		public static const items_level_1_TEXTURE:Class;
-		
 		[Embed(source = "/game/assets/level1/items_level_1.xml", mimeType="application/octet-stream")]
 		public static const items_level_1_XML:Class;
+		
+		[Embed(source = "/game/assets/level1/level_1.png")]
+		public static const level_1_TEXTURE:Class;
+		[Embed(source = "/game/assets/level1/level_1.xml", mimeType="application/octet-stream")]
+		public static const level_1_XML:Class;
 		
 		
 		public function Assets() 

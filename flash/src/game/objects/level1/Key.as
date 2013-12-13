@@ -1,4 +1,4 @@
-package game.objects 
+package game.objects.level1 
 {
 	import core.asset.Assets;
 	import core.gameobject.collectable.Item;
@@ -12,7 +12,6 @@ package game.objects
 	 */
 	public class Key extends Item 
 	{
-		private var art:Image;
 		
 		public function Key(id:String, x:Number, y:Number) 
 		{

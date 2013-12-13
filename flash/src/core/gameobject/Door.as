@@ -1,8 +1,8 @@
 package core.gameobject 
 {
-	import game.objects.Key;
 	import core.level.Level;
 	import flash.geom.Rectangle;
+	import game.objects.level1.Key;
 	import starling.display.Shape;
 	/**
 	 * ...

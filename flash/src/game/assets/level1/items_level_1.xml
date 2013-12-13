@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
 <!-- $TexturePacker:SmartUpdate:b3b547993b7632548ac363f403cca8f7:4eea241e671ba2a0ea3f1e7125a8b58e:82cb3bf15ffffdc9f73a7a649d8df116$ -->
-<TextureAtlas imagePath="items level 1.png">
+<TextureAtlas imagePath="items_level_1.png">
     <SubTexture name="banana" x="2" y="100" width="40" height="48" frameX="-6" frameY="0" frameWidth="48" frameHeight="48"/>
     <SubTexture name="bone" x="52" y="2" width="48" height="46" frameX="0" frameY="0" frameWidth="48" frameHeight="48"/>
-    <SubTexture name="comet" x="2" y="2" width="48" height="48"/>
-    <SubTexture name="green apple" x="2" y="52" width="42" height="46" frameX="-2" frameY="0" frameWidth="48" frameHeight="48"/>
+    <SubTexture name="kite" x="2" y="2" width="48" height="48"/>
+    <SubTexture name="green_apple" x="2" y="52" width="42" height="46" frameX="-2" frameY="0" frameWidth="48" frameHeight="48"/>
     <SubTexture name="key" x="44" y="100" width="32" height="46" frameX="-7" frameY="-1" frameWidth="48" frameHeight="48"/>
     <SubTexture name="medicines" x="78" y="100" width="30" height="48" frameX="-9" frameY="0" frameWidth="48" frameHeight="48"/>
-    <SubTexture name="red apple" x="52" y="50" width="44" height="48" frameX="-1" frameY="0" frameWidth="48" frameHeight="48"/>
+    <SubTexture name="red_apple" x="52" y="50" width="44" height="48" frameX="-1" frameY="0" frameWidth="48" frameHeight="48"/>
 </TextureAtlas>
