@@ -12,7 +12,6 @@ package core.ui.uiobjects
 	public class Inventory extends UiObject 
 	{
 		private var inventoryItems:Array;
-		private var inventorySprite:Sprite;
 		public const inventorySize:Number = 5;
 
 	
@@ -23,7 +22,6 @@ package core.ui.uiobjects
 		public function Inventory() 
 		{
 			inventoryItems = new Array(inventorySize);
-			trace(inventoryItems.length);
 		}
 		
 		/**
