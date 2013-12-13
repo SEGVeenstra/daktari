@@ -13,7 +13,9 @@ package core.ui.uiobjects
 	{
 		private var inventoryItems:Array;
 		private var inventorySprite:Sprite;
-		public const inventorySize:Number = 5;	
+		public const inventorySize:Number = 5;
+
+	
 		
 		/**
 		 * constructor
@@ -29,13 +31,26 @@ package core.ui.uiobjects
 		 */
 		public function addToInventory(item:Item):Boolean {
 			var added:Boolean = false;
+			var indexItem:Number;
 			if (this.play) {
 				if (inventoryItems.length < inventorySize) {
+					if (inventoryItems.length != 0) {
+						for (var i:Number = 0; i <= inventoryItems.length; i++ ) {
+							var invItem:Item = inventoryItems[i];
+							if (invItem == null && added == false) {
+								inventoryItems[i] = item;
+								added = true;
+							}
+						}
+					}
+					if (added == false) {
 						inventoryItems.push(item);
-						addChild(item);
-						item.x = (inventoryItems.length - 1) * 65;
-						item.y = 0;
 						added = true;
+					}
+					indexItem = inventoryItems.indexOf(item);
+					addChild(item);
+					item.x = indexItem * 65;
+					item.y = 0;	
 				}
 			}
 			return added;
@@ -51,7 +66,7 @@ package core.ui.uiobjects
 			var added:Boolean = false;
 			if (this.play) {
 				var indexItem:Number = inventoryItems.indexOf(item);
-				inventoryItems.splice(indexItem, 1);
+				inventoryItems[indexItem] = null;
 				removeChild(item);
 			}
 		}
