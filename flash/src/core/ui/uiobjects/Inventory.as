@@ -13,9 +13,7 @@ package core.ui.uiobjects
 	{
 		private var inventoryItems:Array;
 		private var inventorySprite:Sprite;
-		public const inventorySize:Number = 5;
-		private var defaultX:Number = 600;
-	
+		public const inventorySize:Number = 5;	
 		
 		/**
 		 * constructor
