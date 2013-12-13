@@ -4,7 +4,7 @@ package game.levels
 	import core.gameobject.Climbable;
 	import core.gameobject.collectable.Collectable;
 	import core.gameobject.collectable.Item;
-	import core.gameobject.collectable.Key;
+	import game.objects.*;
 	import core.gameobject.collectable.PowerUp;
 	import core.gameobject.Door;
 	import core.gameobject.Enemy;

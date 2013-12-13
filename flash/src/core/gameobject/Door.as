@@ -1,6 +1,6 @@
 package core.gameobject 
 {
-	import core.gameobject.collectable.Key;
+	import game.objects.Key;
 	import core.level.Level;
 	import flash.geom.Rectangle;
 	import starling.display.Shape;
@@ -29,12 +29,12 @@ package core.gameobject
 		
 		protected function Draw(width:Number,height:Number):void 
 		{	
-			shape = new Shape();
-			shape.graphics.beginFill(0x990099, 0.6);
-			shape.graphics.drawRect(0, 0, width, height);
-			shape.graphics.endFill();
+			debugShape = new Shape();
+			debugShape.graphics.beginFill(0x990099, 0.6);
+			debugShape.graphics.drawRect(0, 0, width, height);
+			debugShape.graphics.endFill();
 			
-			addChild(shape);
+			addChild(debugShape);
 		}
 		
 		public function SetExits(exitLeft:Door = null, exitRight:Door = null, exitUp:Door = null,exitDown:Door = null):void 

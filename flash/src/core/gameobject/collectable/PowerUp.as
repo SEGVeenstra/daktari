@@ -41,12 +41,12 @@ package core.gameobject.collectable
 			collider.width = 3 * Level.GRIDSIZE;
 			collider.height = 3 * Level.GRIDSIZE;
 			
-			shape = new Shape();
-			shape.graphics.beginFill(0xFFFF00, 0.6);
-			shape.graphics.drawRect(0, 0, 3 * Level.GRIDSIZE, 3 * Level.GRIDSIZE);
-			shape.graphics.endFill();
+			debugShape = new Shape();
+			debugShape.graphics.beginFill(0xFFFF00, 0.6);
+			debugShape.graphics.drawRect(0, 0, 3 * Level.GRIDSIZE, 3 * Level.GRIDSIZE);
+			debugShape.graphics.endFill();
 			
-			addChild(shape);
+			addChild(debugShape);
 		}
 	}
 

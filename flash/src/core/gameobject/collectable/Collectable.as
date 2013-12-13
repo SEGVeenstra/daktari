@@ -28,12 +28,12 @@ package core.gameobject.collectable
 		
 		protected function Draw(width:Number,height:Number):void 
 		{	
-			shape = new Shape();
-			shape.graphics.beginFill(0xFFB300, 0.6);
-			shape.graphics.drawRect(0, 0, width * Level.GRIDSIZE, height * Level.GRIDSIZE);
-			shape.graphics.endFill();
+			debugShape = new Shape();
+			debugShape.graphics.beginFill(0xFFB300, 0.6);
+			debugShape.graphics.drawRect(0, 0, width * Level.GRIDSIZE, height * Level.GRIDSIZE);
+			debugShape.graphics.endFill();
 			
-			addChild(shape);
+			addChild(debugShape);
 		}
 	}
 

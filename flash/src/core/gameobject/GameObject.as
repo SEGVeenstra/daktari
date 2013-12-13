@@ -13,7 +13,7 @@ package core.gameobject
 	 */
 	public class GameObject extends Sprite 
 	{
-		protected var shape:Shape;
+		protected var debugShape:Shape;
 		private var debugId:TextField = new TextField(150, 24, '' , 'Ariel', 12, 0 , false);
 		
 		public var id:String;

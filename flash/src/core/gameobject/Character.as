@@ -167,12 +167,12 @@ package core.gameobject
 		
 		private function Draw():void
 		{
-			shape = new Shape();
-			shape.graphics.beginFill(0x00FF00, 0.6);
-			shape.graphics.drawRect(0, 0, Level.GRIDSIZE * 3, Level.GRIDSIZE * 5);
-			shape.graphics.endFill();
+			debugShape = new Shape();
+			debugShape.graphics.beginFill(0x00FF00, 0.6);
+			debugShape.graphics.drawRect(0, 0, Level.GRIDSIZE * 3, Level.GRIDSIZE * 5);
+			debugShape.graphics.endFill();
 			
-			addChild(shape);
+			addChild(debugShape);
 		}
 		
 		private function OnAddedToStage(e:Event):void 

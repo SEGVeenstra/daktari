@@ -30,12 +30,12 @@ package core.gameobject
 		
 		private function Draw(width:Number, height:Number):void
 		{
-			shape = new Shape();
-			shape.graphics.beginFill(0xFF0000, 0.6);
-			shape.graphics.drawRect(0, 0, width, height);
-			shape.graphics.endFill();
+			debugShape = new Shape();
+			debugShape.graphics.beginFill(0xFF0000, 0.6);
+			debugShape.graphics.drawRect(0, 0, width, height);
+			debugShape.graphics.endFill();
 			
-			addChild(shape);
+			addChild(debugShape);
 		}
 		
 	}
