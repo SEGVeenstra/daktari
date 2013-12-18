@@ -523,20 +523,22 @@ package core.gameobject
 		
 		private function interactWithNpc(npc:Npc):void 
 		{
-			if (npc.questItems.length > 0)
+			if (npc.GetReferencedItems(false).length > 0)
 			{
-				for each(var i:Item in npc.questItems)
+				for each(var i:Item in npc.GetReferencedItems(false))
 				{
 					if (Game.gameScreen.userInterface.inventory.containsItem(i))
 					{
 						Game.gameScreen.userInterface.inventory.useInventoryItem(i);
-						npc.RemoveQuestItem(i);
+						npc.Collect(i);
 					}
 				}
-				if (npc.questItems.length == 0)
+				if (npc.GetReferencedItems(false).length == 0)
 				{
 					AddPoints(npc.points);
+				
 				}
+				trace(npc.GetReferencedItems(false).length);
 			}
 		}
 		

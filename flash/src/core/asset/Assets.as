@@ -12,15 +12,20 @@ package core.asset
 	{
 		private static var atlases:Dictionary = new Dictionary();
 		
-		[Embed(source = "/game/assets/level1/items_level_1.png")]
-		public static const items_level_1_TEXTURE:Class;
-		[Embed(source = "/game/assets/level1/items_level_1.xml", mimeType="application/octet-stream")]
-		public static const items_level_1_XML:Class;
+		[Embed(source = "/game/assets/level1/collectables.png")]
+		public static const collectables_TEXTURE:Class;
+		[Embed(source = "/game/assets/level1/collectables.xml", mimeType="application/octet-stream")]
+		public static const collectables_XML:Class;
 		
 		[Embed(source = "/game/assets/level1/level_1.png")]
 		public static const level_1_TEXTURE:Class;
 		[Embed(source = "/game/assets/level1/level_1.xml", mimeType="application/octet-stream")]
 		public static const level_1_XML:Class;
+		
+		[Embed(source = "/game/assets/level1/npc.png")]
+		public static const npc_TEXTURE:Class;
+		[Embed(source = "/game/assets/level1/npc.xml", mimeType="application/octet-stream")]
+		public static const npc_XML:Class;
 		
 		
 		public function Assets() 
@@ -53,6 +58,11 @@ package core.asset
 		public static function GetXML(name:String):XML
 		{
 			return XML(new Assets[name]);
+		}
+		
+		public static function GetCollectableTexture(name:String):Texture
+		{
+			return GetAtlas('collectables').getTexture(name);
 		}
 	}
 

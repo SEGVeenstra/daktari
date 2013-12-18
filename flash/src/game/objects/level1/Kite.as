@@ -14,7 +14,7 @@ package game.objects.level1
 		public function Kite(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
-			art = new Image(Assets.GetAtlas('items_level_1').getTexture('kite'));
+			art = new Image(Assets.GetCollectableTexture('kite'));
 			addChild(art);
 		}
 	}

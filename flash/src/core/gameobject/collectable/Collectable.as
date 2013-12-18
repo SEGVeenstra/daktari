@@ -11,7 +11,7 @@ package core.gameobject.collectable
 	 */
 	public class Collectable extends GameObject 
 	{
-		protected var art:Image;
+		public var art:Image;
 		
 		public function Collectable(id:String, x:Number, y:Number) 
 		{

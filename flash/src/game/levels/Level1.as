@@ -6,6 +6,7 @@ package game.levels
 	import core.gameobject.collectable.Collectable;
 	import core.gameobject.collectable.Item;
 	import core.gameobject.GameObject;
+	import core.quest.QuestItem;
 	import core.visualobject.VisualObject;
 	import game.objects.*;
 	import core.gameobject.collectable.PowerUp;
@@ -138,7 +139,7 @@ package game.levels
 			dog.requiredItem = bone;
 			
 			AddGameObject(girl);
-			girl.AddQuestItem(kite);
+			girl.AddQuestItem(new QuestItem(kite,new Image(Assets.GetCollectableTexture('kite'))));
 
 			AddGameObject(kite);
 			

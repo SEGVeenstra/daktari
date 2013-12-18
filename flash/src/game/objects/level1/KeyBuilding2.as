@@ -16,7 +16,7 @@ package game.objects.level1
 		public function KeyBuilding2(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
-			art = new Image(Assets.GetAtlas('items_level_1').getTexture('key'));
+			art = new Image(Assets.GetCollectableTexture('key'));
 			addChild(art);
 		}
 		

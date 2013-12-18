@@ -41,7 +41,7 @@
 <body>
     <div id="game">
     <h1><b>Daktari Msaidizi</b> Character control prototype</h1>
-    <span>v0.05 : working_prototype</span>
+    <span>v0.06 : NPC feedback and Graphics</span>
     
 	<div id="altContent">
 		<h1>Daktari</h1>

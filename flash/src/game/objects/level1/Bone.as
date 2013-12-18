@@ -14,7 +14,7 @@ package game.objects.level1
 		public function Bone(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
-			art = new Image(Assets.GetAtlas('items_level_1').getTexture('bone'));
+			art = new Image(Assets.GetCollectableTexture('bone'));
 			addChild(art);
 		}
 	}
