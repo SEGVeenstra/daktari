@@ -18,6 +18,7 @@ package game.levels
 	import core.level.Level;
 	import game.objects.level1.BlueDoor;
 	import game.objects.level1.Bone;
+	import game.objects.level1.Dog;
 	import game.objects.level1.KeyBuilding2;
 	import game.objects.level1.Kite;
 	import game.objects.level1.PlatformBuilding1;
@@ -74,7 +75,7 @@ package game.levels
 		private var finish:Finish = new Finish('finish', 95, 54, 5, 1);
 		
 		// Enemies
-		private var dog:Enemy = new Enemy('dog', 91, 51, 4, 4, 20, 100);
+		private var dog:Enemy = new Dog('dog', 91, 51, 4, 4, 20, 100);
 		
 		// NPCs
 		private var girl:Npc = new Npc('girl', 37, 51, 3, 4, 1000);
