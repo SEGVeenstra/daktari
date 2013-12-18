@@ -16,7 +16,6 @@ package game.objects.level1
 		{
 			super(id, x, y, 26, 1);
 			art = new Image(Assets.GetAtlas('level_1').getTexture('roof-building-1'));
-			addChild(art);
 		}
 		
 	}

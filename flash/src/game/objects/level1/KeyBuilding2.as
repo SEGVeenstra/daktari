@@ -1,7 +1,7 @@
 package game.objects.level1 
 {
 	import core.asset.Assets;
-	import core.gameobject.collectable.Item;
+	import core.gameobject.collectable.Key;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.textures.Texture;
@@ -10,10 +10,10 @@ package game.objects.level1
 	 * ...
 	 * @author SEG.Veenstra
 	 */
-	public class Key extends Item 
+	public class KeyBuilding2 extends Key 
 	{
 		
-		public function Key(id:String, x:Number, y:Number) 
+		public function KeyBuilding2(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y);
 			art = new Image(Assets.GetAtlas('items_level_1').getTexture('key'));

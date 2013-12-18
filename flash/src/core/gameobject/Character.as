@@ -231,6 +231,7 @@ package core.gameobject
 			if (Key.isDown(Key.CTRL_LEFT))
 			{
 				pressedJmp = true;
+				door.open = false;
 				mode = MODE_GROUNDED;
 				return;
 			}
@@ -239,24 +240,32 @@ package core.gameobject
 				if (Key.isDown(Key.ARROW_DOWN) && door.exitDown)
 				{
 					switchedDoors = true;
+					door.open = false;
+					door.exitDown.open = true;
 					collider.x = (door.exitDown.collider.left + (door.exitDown.collider.width / 2) - collider.width / 2);
 					collider.y = (door.exitDown.collider.bottom - collider.height);
 				}
 				if (Key.isDown(Key.ARROW_UP) && door.exitUp)
 				{
 					switchedDoors = true;
+					door.open = false;
+					door.exitUp.open = true;
 					collider.x = (door.exitUp.collider.left + (door.exitUp.collider.width / 2) - collider.width / 2);
 					collider.y = (door.exitUp.collider.bottom - collider.height);
 				}
 				if (Key.isDown(Key.ARROW_LEFT) && door.exitLeft)
 				{
 					switchedDoors = true;
+					door.open = false;
+					door.exitLeft.open = true;
 					collider.x = (door.exitLeft.collider.left + (door.exitLeft.collider.width / 2) - collider.width / 2);
 					collider.y = (door.exitLeft.collider.bottom - collider.height);
 				}
 				if (Key.isDown(Key.ARROW_RIGHT) && door.exitRight)
 				{
 					switchedDoors = true;
+					door.open = false;
+					door.exitRight.open = true;
 					collider.x = (door.exitRight.collider.left + (door.exitRight.collider.width / 2) - collider.width / 2);
 					collider.y = (door.exitRight.collider.bottom - collider.height);
 				}
@@ -427,6 +436,7 @@ package core.gameobject
 				{
 					collider.x = (door.collider.left + (door.collider.width / 2) - collider.width / 2);
 					mode = MODE_INDOOR;
+					door.open = true;
 					switchedDoors = true;
 					return;
 				}
@@ -565,16 +575,21 @@ package core.gameobject
 		 */
 		private function interactWithDoor(door:Door):void 
 		{
-			if (door.requiredKey)
+			if (door.locked)
 			{
-				if (Game.gameScreen.userInterface.inventory.containsItem(door.requiredKey))
+				if (door.requiredKey)
 				{
-					Game.gameScreen.userInterface.inventory.useInventoryItem(door.requiredKey);
-					door.requiredKey = null;
+					if (Game.gameScreen.userInterface.inventory.containsItem(door.requiredKey))
+					{
+						Game.gameScreen.userInterface.inventory.useInventoryItem(door.requiredKey);
+						door.Unlock(door.requiredKey);
+					}
 				}
 			}
-			else if (door.collider.containsPoint(new Point(collider.x+collider.width/2,collider.y)))
+			else if (door.collider.containsPoint(new Point(collider.x + collider.width / 2, collider.y)))
+			{
 				this.door = door;
+			}
 		}
 		
 		/**

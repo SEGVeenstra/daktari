@@ -2,6 +2,7 @@ package game.objects.level1
 {
 	import core.asset.Assets;
 	import core.gameobject.Door;
+	import core.gameobject.collectable.Key;
 	import starling.display.Image;
 	
 	/**
@@ -10,13 +11,12 @@ package game.objects.level1
 	 */
 	public class BlueDoor extends Door 
 	{
-		private var art:Image;
 		
-		public function BlueDoor(id:String,x:Number,y:Number) 
+		public function BlueDoor(id:String,x:Number,y:Number, locked:Boolean = false, requiredKey:Key = null) 
 		{
-			super(id, x, y);
-			art = new Image(Assets.GetAtlas('level_1').getTexture('blue-door-building-1'));
-			addChild(art);
+			super(id, x, y, locked, requiredKey);
+			openImage = new Image(Assets.GetAtlas('level_1').getTexture('blue-door-building-1'));
+			closedImage = new Image(Assets.GetAtlas('level_1').getTexture('green-door-building-1'));
 		}
 		
 	}

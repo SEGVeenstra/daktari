@@ -10,7 +10,7 @@ package core.gameobject
 	 */
 	public class Platform extends GameObject 
 	{
-		protected var art:Image;
+		private var _art:Image;
 		
 		public function Platform(id:String, x:Number, y:Number, width:Number, height:Number) 
 		{
@@ -22,6 +22,12 @@ package core.gameobject
 			Draw(width, height);
 			collider = new Rectangle(x,y,width,height);
 			solid = true;
+		}
+		
+		public function set art(image:Image):void
+		{
+			_art = image;
+			addChild(image);
 		}
 		
 		protected function Draw(width:Number,height:Number):void 

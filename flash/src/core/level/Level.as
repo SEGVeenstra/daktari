@@ -2,6 +2,7 @@ package core.level
 {
 	import core.gameobject.Character;
 	import core.gameobject.GameObject;
+	import core.visualobject.VisualObject;
 	import flash.utils.getDefinitionByName;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -87,6 +88,17 @@ package core.level
 				gameObjects.push(gameObject);
 				addChild(gameObject);
 			}
+		}
+		
+		/**
+		 * Add the given VisualObject to the level at the given grid x and y
+		 * @param	visualObject
+		 */
+		public function AddVisualObject(visualObject:VisualObject, gridX:int, gridY:int):void
+		{
+			visualObject.x = gridX * GRIDSIZE;
+			visualObject.y = gridY * GRIDSIZE;
+			addChild(visualObject);
 		}
 		
 		/**
