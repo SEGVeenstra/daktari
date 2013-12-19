@@ -2,10 +2,9 @@ package game.objects.level1
 {
 	import core.asset.Assets;
 	import core.gameobject.Enemy;
-	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.events.Event;
-	import starling.core.Starling;
+	import starling.core.Starling; 
 	
 	/**
 	 * http://www.youtube.com/watch?v=Qhq4COk_QyU
@@ -15,6 +14,7 @@ package game.objects.level1
 	{
 		private var def:MovieClip;
 		private var art:MovieClip;
+		
 		public function Dog(id:String, x:Number,y:Number, width:Number,height:Number, damage:int, points:int) 
 		{
 			super(id, x, y, width, height, damage, points);	
