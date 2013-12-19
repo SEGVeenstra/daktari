@@ -38,6 +38,10 @@ package core.gameobject
 			addChild(debugShape);
 		}
 		
+		public function showAnimation():void {
+			
+		}
+		
 	}
 
 }
