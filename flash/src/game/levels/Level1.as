@@ -6,6 +6,7 @@ package game.levels
 	import core.gameobject.collectable.Collectable;
 	import core.gameobject.collectable.Item;
 	import core.gameobject.GameObject;
+	import core.gameobject.TutorialObject;
 	import core.quest.QuestItem;
 	import core.visualobject.VisualObject;
 	import game.objects.*;
@@ -22,6 +23,7 @@ package game.levels
 	import game.objects.level1.KeyBuilding2;
 	import game.objects.level1.Kite;
 	import game.objects.level1.PlatformBuilding1;
+	import game.objects.level1.tutorial.TutorialMove;
 	import game.objects.level1.WallBuilding1;
 	import starling.display.Image;
 	
@@ -85,6 +87,9 @@ package game.levels
 		private var wall2Building1:VisualObject = new WallBuilding1();
 		private var wall3Building1:VisualObject = new WallBuilding1();
 		
+		// Tutorial
+		private var tutorialMove:TutorialMove = new TutorialMove('tutorial_move', 1, 54);
+		
 		public function Level1() 
 		{
 			super(100,60);
@@ -146,6 +151,7 @@ package game.levels
 			
 			SetPlayer(character);
 			
+			AddGameObject(tutorialMove);
 		}
 		
 		/**

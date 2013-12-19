@@ -228,7 +228,7 @@ package core.gameobject
 		
 		private function ControlIndoor():void 
 		{
-			if (Key.isDown(Key.CTRL_LEFT))
+			if (Key.isDown(Key.SPACEBAR))
 			{
 				pressedJmp = true;
 				door.open = false;
@@ -358,7 +358,7 @@ package core.gameobject
 			collider.x += runSpd;
 			
 			if (jumpSpd == 0) jumpSpd = 1;
-			if (!Key.isDown(Key.CTRL_LEFT) || !pressedJmp)
+			if (!Key.isDown(Key.SPACEBAR) || !pressedJmp)
 			{
 				pressedJmp = false;
 				currentJump = 40;
@@ -408,7 +408,7 @@ package core.gameobject
 				runSpd = 0;
 			else if (Key.isDown(Key.ARROW_RIGHT) && Key.isDown(Key.ARROW_LEFT))
 				runSpd = 0;
-			if (Key.isDown(Key.CTRL_LEFT) && !blockedTop && !pressedJmp)
+			if (Key.isDown(Key.SPACEBAR) && !blockedTop && !pressedJmp)
 			{
 				collider.y -= 1;
 				mode = MODE_AIRBOURNE;
@@ -417,7 +417,7 @@ package core.gameobject
 				jumpSpd = MAX_JUMP_SPEED * -1;
 				return;
 			}
-			else if (!Key.isDown(Key.CTRL_LEFT))
+			else if (!Key.isDown(Key.SPACEBAR))
 			{
 				pressedJmp = false;
 			}
