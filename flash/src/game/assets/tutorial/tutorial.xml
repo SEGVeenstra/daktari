@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:1af8e7321e26154386763ed249de736a:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:5757726a8506358b7a65b0421865e0f1:1/1$ -->
 <TextureAtlas imagePath="tutorial.png">
     <SubTexture name="climb" x="2" y="2" width="224" height="160"/>
     <SubTexture name="door" x="228" y="2" width="224" height="160"/>
     <SubTexture name="door_exit" x="2" y="164" width="224" height="160"/>
     <SubTexture name="door_locked" x="228" y="164" width="224" height="160"/>
     <SubTexture name="door_movement" x="2" y="326" width="224" height="160"/>
-    <SubTexture name="jump" x="228" y="326" width="224" height="160"/>
-    <SubTexture name="movement" x="2" y="488" width="224" height="160"/>
-    <SubTexture name="quest" x="228" y="488" width="224" height="160"/>
+    <SubTexture name="enemy" x="228" y="326" width="224" height="160"/>
+    <SubTexture name="jump" x="2" y="488" width="224" height="160"/>
+    <SubTexture name="movement" x="228" y="488" width="224" height="160"/>
+    <SubTexture name="quest" x="2" y="650" width="224" height="160"/>
 </TextureAtlas>

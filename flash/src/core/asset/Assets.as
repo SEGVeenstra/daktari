@@ -12,9 +12,9 @@ package core.asset
 	{
 		private static var atlases:Dictionary = new Dictionary();
 		
-		[Embed(source = "/game/assets/level1/collectables.png")]
+		[Embed(source = "/game/assets/collectables/collectables.png")]
 		public static const collectables_TEXTURE:Class;
-		[Embed(source = "/game/assets/level1/collectables.xml", mimeType="application/octet-stream")]
+		[Embed(source = "/game/assets/collectables/collectables.xml", mimeType="application/octet-stream")]
 		public static const collectables_XML:Class;
 		
 		[Embed(source = "/game/assets/level1/level_1.png")]

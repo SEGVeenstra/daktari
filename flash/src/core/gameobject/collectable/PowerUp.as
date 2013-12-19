@@ -1,6 +1,7 @@
 package core.gameobject.collectable 
 {
 	import core.level.Level;
+	import starling.display.Image;
 	import starling.display.Shape;
 	/**
 	 * A power up can be collected by the player and takes effect immidetly
@@ -8,6 +9,7 @@ package core.gameobject.collectable
 	 */
 	public class PowerUp extends Collectable 
 	{
+		protected var image:Image;
 		private var _health:int;
 		private var _points:int;
 		

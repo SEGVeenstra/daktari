@@ -17,6 +17,7 @@ package game.levels
 	import core.gameobject.Npc;
 	import core.gameobject.Platform;
 	import core.level.Level;
+	import game.objects.items.powerups.Apple;
 	import game.objects.level1.BlueDoor;
 	import game.objects.level1.Bone;
 	import game.objects.level1.Dog;
@@ -27,6 +28,7 @@ package game.levels
 	import game.objects.level1.tutorial.TutorialDoor;
 	import game.objects.level1.tutorial.TutorialDoorExit;
 	import game.objects.level1.tutorial.TutorialDoorLocked;
+	import game.objects.level1.tutorial.TutorialEnemy;
 	import game.objects.level1.tutorial.TutorialJump;
 	import game.objects.level1.tutorial.TutorialMove;
 	import game.objects.level1.tutorial.TutorialNPC;
@@ -73,10 +75,10 @@ package game.levels
 		private var key:KeyBuilding2 =  new KeyBuilding2('key1', 16, 40);
 		private var bone:Bone = new Bone('bone', 16, 20);
 		private var kite:Kite = new Kite('kite', 60, 10);
-		private var testPowerUp1:PowerUp =  new PowerUp('fruit1', 40, 20, 100, 10);
-		private var testPowerUp2:PowerUp =  new PowerUp('fruit2', 44, 20, 100, 10);
-		private var testPowerUp3:PowerUp =  new PowerUp('fruit3', 48, 20, 100, 10);
-		private var testPowerUp4:PowerUp =  new PowerUp('fruit4', 52, 20, 100, 10);
+		private var testPowerUp1:PowerUp =  new Apple('fruit1', 40, 20);
+		private var testPowerUp2:PowerUp =  new Apple('fruit2', 44, 20);
+		private var testPowerUp3:PowerUp =  new Apple('fruit3', 48, 20);
+		private var testPowerUp4:PowerUp =  new Apple('fruit4', 52, 20);
 		
 		
 		// Finish
@@ -101,6 +103,7 @@ package game.levels
 		private var tutorialJump:TutorialJump = new TutorialJump('tutorial_jump', 17, 34);
 		private var tutorialClimb:TutorialClimb = new TutorialClimb('tutorial_climb', 28, 34);
 		private var tutorialNPC:TutorialNPC = new TutorialNPC('tutorial_npc',33, 54);
+		private var tutorialEnemy:TutorialEnemy = new TutorialEnemy('tutorial_enemy',86, 54);
 		
 		public function Level1() 
 		{
@@ -170,6 +173,7 @@ package game.levels
 			AddGameObject(tutorialClimb);
 			AddGameObject(tutorialDoorLocked);
 			AddGameObject(tutorialNPC);
+			AddGameObject(tutorialEnemy);
 		}
 		
 		/**
