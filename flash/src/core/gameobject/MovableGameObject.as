@@ -18,7 +18,7 @@ package core.gameobject
 		
 		protected var collisions:Vector.<GameObject> = new Vector.<GameObject>();
 		
-		protected var mode:int;
+		public var mode:int;
 		
 		public function MovableGameObject(id:String, x:Number, y:Number) 
 		{

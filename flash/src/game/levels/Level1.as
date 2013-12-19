@@ -23,7 +23,13 @@ package game.levels
 	import game.objects.level1.KeyBuilding2;
 	import game.objects.level1.Kite;
 	import game.objects.level1.PlatformBuilding1;
+	import game.objects.level1.tutorial.TutorialClimb;
+	import game.objects.level1.tutorial.TutorialDoor;
+	import game.objects.level1.tutorial.TutorialDoorExit;
+	import game.objects.level1.tutorial.TutorialDoorLocked;
+	import game.objects.level1.tutorial.TutorialJump;
 	import game.objects.level1.tutorial.TutorialMove;
+	import game.objects.level1.tutorial.TutorialNPC;
 	import game.objects.level1.WallBuilding1;
 	import starling.display.Image;
 	
@@ -89,6 +95,12 @@ package game.levels
 		
 		// Tutorial
 		private var tutorialMove:TutorialMove = new TutorialMove('tutorial_move', 1, 54);
+		private var tutorialDoorUse:TutorialDoor = new TutorialDoor('tutorial_door', 12, 54);
+		private var tutorialDoorLocked:TutorialDoorLocked = new TutorialDoorLocked('tutorial_door_locked', 12, 44);
+		private var tutorialDoorExit:TutorialDoorExit = new TutorialDoorExit('tutorial_door_exit', 12, 34);
+		private var tutorialJump:TutorialJump = new TutorialJump('tutorial_jump', 17, 34);
+		private var tutorialClimb:TutorialClimb = new TutorialClimb('tutorial_climb', 28, 34);
+		private var tutorialNPC:TutorialNPC = new TutorialNPC('tutorial_npc',33, 54);
 		
 		public function Level1() 
 		{
@@ -152,6 +164,12 @@ package game.levels
 			SetPlayer(character);
 			
 			AddGameObject(tutorialMove);
+			AddGameObject(tutorialDoorUse);
+			AddGameObject(tutorialDoorExit);
+			AddGameObject(tutorialJump);
+			AddGameObject(tutorialClimb);
+			AddGameObject(tutorialDoorLocked);
+			AddGameObject(tutorialNPC);
 		}
 		
 		/**

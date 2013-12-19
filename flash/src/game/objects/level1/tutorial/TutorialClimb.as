@@ -3,17 +3,16 @@ package game.objects.level1.tutorial
 	import core.asset.Assets;
 	import core.gameobject.TutorialObject;
 	import starling.display.Image;
-	import starling.text.TextField;
 	
 	/**
 	 * ...
 	 * @author SEG.Veenstra
 	 */
-	public class TutorialMove extends TutorialObject 
+	public class TutorialClimb extends TutorialObject 
 	{
-		private var image:Image = new Image(Assets.GetAtlas('tutorial').getTexture('movement'));
+		private var image:Image = new Image(Assets.GetAtlas('tutorial').getTexture('climb'));
 		
-		public function TutorialMove(id:String,x:Number,y:Number) 
+		public function TutorialClimb(id:String,x:Number,y:Number) 
 		{
 			super(id, x, y, 5, 1);
 			addChild(image);
@@ -24,11 +23,11 @@ package game.objects.level1.tutorial
 		{
 			if (Game.gameScreen.level.player)
 			{
-				if (collider.intersects(Game.gameScreen.level.player.collider) && !image.visible)
+				if (collider.intersects(Game.gameScreen.level.player.collider))
 				{
 					image.visible = true;
 				}
-				else if (!collider.intersects(Game.gameScreen.level.player.collider) && image.visible)
+				else
 				{
 					image.visible = false;
 				}
