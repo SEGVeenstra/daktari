@@ -37,6 +37,11 @@ package core.asset
 		[Embed(source = "/game/assets/level1/dog.xml", mimeType="application/octet-stream")]
 		public static const dog_XML:Class;
 		
+		[Embed(source = "/game/assets/characters/teenager.png")]
+		public static const teenager_TEXTURE:Class;
+		[Embed(source = "/game/assets/characters/teenager.xml", mimeType="application/octet-stream")]
+		public static const teenager_XML:Class;
+		
 		public function Assets() 
 		{
 			

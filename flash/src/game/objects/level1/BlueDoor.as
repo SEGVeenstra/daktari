@@ -15,8 +15,8 @@ package game.objects.level1
 		public function BlueDoor(id:String,x:Number,y:Number, locked:Boolean = false, requiredKey:Key = null) 
 		{
 			super(id, x, y, locked, requiredKey);
-			openImage = new Image(Assets.GetAtlas('level_1').getTexture('blue-door-building-1'));
-			closedImage = new Image(Assets.GetAtlas('level_1').getTexture('green-door-building-1'));
+			openImage = new Image(Assets.GetAtlas('level_1').getTexture('door_b1_open'));
+			closedImage = new Image(Assets.GetAtlas('level_1').getTexture('door_b1_closed'));
 		}
 		
 	}

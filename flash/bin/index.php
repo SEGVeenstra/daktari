@@ -40,8 +40,8 @@
 </head>
 <body>
     <div id="game">
-    <h1><b>Daktari Msaidizi</b> Character control prototype</h1>
-    <span>v0.06 : NPC feedback and Graphics</span>
+    <h1><b>Daktari Msaidizi</b> Game for Kenya prototype</h1>
+    <span>v0.07 : Tutorial & more art!</span>
     
 	<div id="altContent">
 		<h1>Daktari</h1>

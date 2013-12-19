@@ -15,7 +15,7 @@ package game.objects.level1
 		public function PlatformBuilding1(id:String, x:Number, y:Number) 
 		{
 			super(id, x, y, 26, 1);
-			art = new Image(Assets.GetAtlas('level_1').getTexture('roof-building-1'));
+			art = new Image(Assets.GetAtlas('level_1').getTexture('platform_b1_small'));
 		}
 		
 	}

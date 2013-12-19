@@ -12,7 +12,7 @@ package game.objects.level1
 		
 		public function WallBuilding1() 
 		{
-			super(Assets.GetAtlas('level_1').getTexture('wall-building-1'));
+			super(Assets.GetAtlas('level_1').getTexture('wall_b1'));
 		}
 		
 	}

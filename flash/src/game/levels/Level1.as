@@ -17,12 +17,15 @@ package game.levels
 	import core.gameobject.Npc;
 	import core.gameobject.Platform;
 	import core.level.Level;
+	import game.objects.characters.Teenager;
 	import game.objects.items.powerups.Apple;
 	import game.objects.level1.BlueDoor;
 	import game.objects.level1.Bone;
 	import game.objects.level1.Dog;
+	import game.objects.level1.Ground;
 	import game.objects.level1.KeyBuilding2;
 	import game.objects.level1.Kite;
+	import game.objects.level1.Ladder;
 	import game.objects.level1.PlatformBuilding1;
 	import game.objects.level1.tutorial.TutorialClimb;
 	import game.objects.level1.tutorial.TutorialDoor;
@@ -32,6 +35,7 @@ package game.levels
 	import game.objects.level1.tutorial.TutorialJump;
 	import game.objects.level1.tutorial.TutorialMove;
 	import game.objects.level1.tutorial.TutorialNPC;
+	import game.objects.level1.visual.Railing;
 	import game.objects.level1.WallBuilding1;
 	import starling.display.Image;
 	
@@ -42,9 +46,9 @@ package game.levels
 	public class Level1 extends Level 
 	{
 		//Character
-		private var character:Character = new Character('player', 1, 48);
+		private var character:Character = new Teenager('player', 1, 48);
 		//Grounds
-		private var ground:Platform = new Platform('ground', 0, 55 , 100 , 5 );
+		private var ground:Ground = new Ground('ground', 0, 55);
 		//Bounds
 		private var barierLeft:Platform = new Platform('barrier_left', 0, 0, 1, 60 );
 		private var barierRight:Platform = new Platform('barrier_right',   100 - 1, 0, 1, 60 );
@@ -52,14 +56,14 @@ package game.levels
 		// Building 1
 			// Platforms
 		private var building1Roof:Platform = new PlatformBuilding1('building1_roof',   8, 25);
-		private var building1Floor2:Platform = new Platform('building1_floor2',   3, 35 ,31,1);
+		private var building1Floor2:Platform = new PlatformBuilding1('building1_floor2',   8, 35);
 		private var building1Floor1:Platform = new PlatformBuilding1('building1_floor1',   8, 45 );
 			// Doors
 		private var building1Door1:BlueDoor = new BlueDoor('building1_door1',   12 ,  48);
 		private var building1Door2:BlueDoor = new BlueDoor('building1_door2(LOCKED)',   12 ,  38, true);
 		private var building1Door3:BlueDoor = new BlueDoor('building1_door3',   12 ,   28);
 			// Climbables
-		private var building1Ladder1:Climbable = new Climbable('building1_ladder1',   29,   35,   3,   10);
+		private var building1Ladder1:Climbable = new Ladder('building1_ladder1',   29,   35);
 		
 		// Building 2
 			// Platforms
@@ -116,7 +120,7 @@ package game.levels
 		 */
 		override protected function Build():void
 		{
-			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background-buildings')));
+			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background')));
 			BuildBackground();
 			
 			// Level
@@ -125,9 +129,7 @@ package game.levels
 			AddGameObject(barierRight);
 			AddGameObject(barierTop);
 			// Building 1
-			AddGameObject(building1Roof);
-			AddGameObject(building1Floor2);
-			AddGameObject(building1Floor1);
+			
 			AddGameObject(building1Door1);
 			building1Door1.SetExits(null,null,building1Door3,null);
 			AddGameObject(building1Door2);
@@ -166,6 +168,17 @@ package game.levels
 			
 			SetPlayer(character);
 			
+			AddVisualObject(new VisualObject(Assets.GetAtlas('level_1').getTexture('railing')),9,31);
+			AddVisualObject(new VisualObject(Assets.GetAtlas('level_1').getTexture('railing')),13,31);
+			AddVisualObject(new VisualObject(Assets.GetAtlas('level_1').getTexture('railing')),17,31);
+			AddVisualObject(new VisualObject(Assets.GetAtlas('level_1').getTexture('railing')),21,31);
+			AddVisualObject(new VisualObject(Assets.GetAtlas('level_1').getTexture('railing')),25,31);
+			AddVisualObject(new VisualObject(Assets.GetAtlas('level_1').getTexture('railing')),29,31);
+			
+			AddGameObject(building1Roof);
+			AddGameObject(building1Floor2);
+			AddGameObject(building1Floor1);
+			
 			AddGameObject(tutorialMove);
 			AddGameObject(tutorialDoorUse);
 			AddGameObject(tutorialDoorExit);
@@ -174,6 +187,7 @@ package game.levels
 			AddGameObject(tutorialDoorLocked);
 			AddGameObject(tutorialNPC);
 			AddGameObject(tutorialEnemy);
+			
 		}
 		
 		/**
