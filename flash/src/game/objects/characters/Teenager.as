@@ -38,12 +38,10 @@ package game.objects.characters
 		{
 			lastX = x;
 			super.OnEnterFrame(e);
-			trace(lastX,x);
 			if (!paused)
 			{
 				if (lastX == x)
 				{
-					trace('idle');
 					aniIdle.visible = true;
 					aniWalk.visible = false;
 				}
@@ -64,7 +62,7 @@ package game.objects.characters
 					aniWalk.scaleX = -1;
 					aniIdle.scaleX = -1;
 					aniWalk.x = aniWalk.width;
-					aniIdle.x = aniWalk.width;
+					aniIdle.x = aniIdle.width;
 				}
 			}
 			
