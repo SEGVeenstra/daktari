@@ -2,39 +2,48 @@ package game.objects.level1
 {
 	import core.asset.Assets;
 	import core.gameobject.Enemy;
+	import starling.animation.DelayedCall;
 	import starling.display.MovieClip;
 	import starling.events.Event;
-	import starling.core.Starling; 
+	import starling.core.Starling;
 	
 	/**
-	 * http://www.youtube.com/watch?v=Qhq4COk_QyU
+	 * 
 	 * @author Henderikus
 	 */
 	public class Dog extends Enemy 
 	{
-		private var def:MovieClip;
-		private var art:MovieClip;
+		private var aniIdle:MovieClip;
+		private var ani:MovieClip;
+		private var timer:DelayedCall;
 		
 		public function Dog(id:String, x:Number,y:Number, width:Number,height:Number, damage:int, points:int) 
 		{
 			super(id, x, y, width, height, damage, points);	
-			def = new MovieClip(Assets.GetAtlas('dog').getTextures('dog_2'));
-			addChild(def);
+			aniIdle = new MovieClip(Assets.GetAtlas('dog').getTextures('dog_2'));
+			ani = new MovieClip(Assets.GetAtlas('dog').getTextures('dog_'), 10);
+			addChild(aniIdle);
+			addChild(ani);
+			Starling.juggler.add(aniIdle);
+			Starling.juggler.add(ani);
+			 
+			aniIdle.visible = true;
+			ani.visible = false;
+		
 		}
 		
 		override public function startAnimation():void {
-			removeChild(def);
-			art = new MovieClip(Assets.GetAtlas('dog').getTextures('dog_'), 10);
-			Starling.juggler.add(art);
-			addChild(art);
+			timer = new DelayedCall(stopAnimation, 1.0);
+			aniIdle.visible = false;
+			ani.visible = true;
+			Starling.juggler.add(timer);
 		}
 		
-		override public function stopAnimation():void {
-			Starling.juggler.remove(art);
-			removeChild(art);
-			addChild(def);
+		private function stopAnimation():void {
+			ani.visible = false;
+			aniIdle.visible = true;
+			Starling.juggler.remove(timer);
 		}
-		
 		
 	}
 

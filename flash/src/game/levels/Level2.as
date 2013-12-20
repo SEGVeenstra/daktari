@@ -54,7 +54,7 @@ package game.levels
 			
 			AddGameObject(new Climbable('ladder_1', 20, 0, 3, 50));
 			
-			AddGameObject(new Door('door_1', 35, 48);
+			AddGameObject(new Door('door_1', 35, 48));
 			AddGameObject(new Door('door_2', 55, 48));
 			(GetGameObjectByID('door_1') as Door).SetExits(null, GetGameObjectByID('door_2') as Door, null, null);
 			(GetGameObjectByID('door_2') as Door).SetExits(GetGameObjectByID('door_1') as Door, null, null, null);

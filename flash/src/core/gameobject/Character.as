@@ -558,7 +558,7 @@ package core.gameobject
 				else 
 				{
 					TakeHit(enemy.damage);
-					//enemy.showAnimation();
+					enemy.startAnimation();
 					collider.y -= 1;
 					
 					pressedJmp = true;

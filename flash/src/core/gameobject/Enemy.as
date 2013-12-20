@@ -42,9 +42,6 @@ package core.gameobject
 			
 		}
 		
-		public function stopAnimation():void {
-			
-		}
 		
 	}
 
