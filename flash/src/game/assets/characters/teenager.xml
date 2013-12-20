@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:b1d7dfc842312194f022e9c47f518a74:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:d29b0cf590533abdd15b97ebeb57684f:1/1$ -->
 <TextureAtlas imagePath="teenager.png">
-    <SubTexture name="teenager_1" x="2" y="2" width="48" height="80"/>
+    <SubTexture name="idle_1" x="2" y="2" width="48" height="80"/>
+    <SubTexture name="idle_2" x="52" y="2" width="48" height="80"/>
+    <SubTexture name="walk_01" x="102" y="2" width="48" height="80"/>
+    <SubTexture name="walk_02" x="152" y="2" width="48" height="80"/>
+    <SubTexture name="walk_03" x="202" y="2" width="48" height="80"/>
+    <SubTexture name="walk_04" x="2" y="84" width="48" height="80"/>
+    <SubTexture name="walk_05" x="52" y="84" width="48" height="80"/>
 </TextureAtlas>

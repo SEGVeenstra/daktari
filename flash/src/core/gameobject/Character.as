@@ -181,7 +181,7 @@ package core.gameobject
 			addEventListener(EnterFrameEvent.ENTER_FRAME, OnEnterFrame);
 		}
 		
-		private function OnEnterFrame(e:EnterFrameEvent):void 
+		protected function OnEnterFrame(e:EnterFrameEvent):void 
 		{
 			if (!paused)
 			{
@@ -558,7 +558,7 @@ package core.gameobject
 				else 
 				{
 					TakeHit(enemy.damage);
-					enemy.showAnimation();
+					//enemy.showAnimation();
 					collider.y -= 1;
 					
 					pressedJmp = true;
