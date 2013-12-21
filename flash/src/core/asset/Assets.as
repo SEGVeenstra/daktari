@@ -69,6 +69,11 @@ package core.asset
 			return Texture.fromBitmap(bitmap);
 		}
 		
+		public static function GetTextureFromAtlas(atlas:String, texture:String):Texture
+		{
+			return GetAtlas(atlas).getTexture(texture);
+		}
+		
 		public static function GetXML(name:String):XML
 		{
 			return XML(new Assets[name]);

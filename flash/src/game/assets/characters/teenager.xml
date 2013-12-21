@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:d29b0cf590533abdd15b97ebeb57684f:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:9c41922446e42502af7f141f1aa72fe6:1/1$ -->
 <TextureAtlas imagePath="teenager.png">
-    <SubTexture name="idle_1" x="2" y="2" width="48" height="80"/>
-    <SubTexture name="idle_2" x="52" y="2" width="48" height="80"/>
-    <SubTexture name="walk_01" x="102" y="2" width="48" height="80"/>
-    <SubTexture name="walk_02" x="152" y="2" width="48" height="80"/>
-    <SubTexture name="walk_03" x="202" y="2" width="48" height="80"/>
-    <SubTexture name="walk_04" x="2" y="84" width="48" height="80"/>
-    <SubTexture name="walk_05" x="52" y="84" width="48" height="80"/>
+    <SubTexture name="climb_01" x="2" y="2" width="48" height="80"/>
+    <SubTexture name="climb_02" x="52" y="2" width="48" height="80"/>
+    <SubTexture name="climb_03" x="102" y="2" width="48" height="80"/>
+    <SubTexture name="climb_04" x="152" y="2" width="48" height="80"/>
+    <SubTexture name="door_01" x="202" y="2" width="48" height="80"/>
+    <SubTexture name="idle_1" x="2" y="84" width="48" height="80"/>
+    <SubTexture name="idle_2" x="52" y="84" width="48" height="80"/>
+    <SubTexture name="jump_01" x="102" y="84" width="48" height="80"/>
+    <SubTexture name="walk_01" x="152" y="84" width="48" height="80"/>
+    <SubTexture name="walk_02" x="202" y="84" width="48" height="80"/>
+    <SubTexture name="walk_03" x="2" y="166" width="48" height="80"/>
+    <SubTexture name="walk_04" x="52" y="166" width="48" height="80"/>
+    <SubTexture name="walk_05" x="102" y="166" width="48" height="80"/>
 </TextureAtlas>

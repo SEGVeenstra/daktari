@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:13d1e1af3450722839043d5d39475e96:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:e675c1e482fe7f5aa8be30260de33192:1/1$ -->
 <TextureAtlas imagePath="npc.png">
     <SubTexture name="bubble" x="2" y="2" width="80" height="80"/>
     <SubTexture name="finished" x="2" y="84" width="64" height="64"/>
+    <SubTexture name="girl" x="68" y="84" width="48" height="64"/>
 </TextureAtlas>

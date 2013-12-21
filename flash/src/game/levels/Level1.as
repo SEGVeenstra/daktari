@@ -123,6 +123,18 @@ package game.levels
 			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background')));
 			BuildBackground();
 			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'wall_b2')),41,46);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'wall_b2')),41,36);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'wall_b2')),41,26);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'wall_b2')),41,16);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'wall_b2_small')), 48, 6);
+			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'platform_b2')),40,45);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'platform_b2')),40,35);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'platform_b2')),40,25);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'platform_b2')),40,15);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_1', 'platform_b2_small')),48,5);
+			
 			// Level
 			AddGameObject(ground);
 			AddGameObject(barierLeft);
@@ -143,9 +155,14 @@ package game.levels
 			AddGameObject(building2Floor2);
 			AddGameObject(building2Floor1);
 			AddGameObject(building2Door1);
+			AddGameObject(new Platform('platform_b2_top', 48, 5, 10, 1));
 			building2Door1.SetExits(null, null, building2Door2, null);
+			building2Door1.openImage = new Image(Assets.GetTextureFromAtlas('level_1', 'door_b2_open'));
+			building2Door1.closedImage = new Image(Assets.GetTextureFromAtlas('level_1', 'door_b2_closed'));
 			building2Door1.requiredKey = key;
 			AddGameObject(building2Door2);
+			building2Door2.openImage = new Image(Assets.GetTextureFromAtlas('level_1', 'door_b2_open'));
+			building2Door2.closedImage = new Image(Assets.GetTextureFromAtlas('level_1', 'door_b2_closed'));
 			building2Door2.SetExits(null, null, null, building2Door1);
 
 			
@@ -162,6 +179,7 @@ package game.levels
 			dog.requiredItem = bone;
 			
 			AddGameObject(girl);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('npc', 'girl')),37,51);
 			girl.AddQuestItem(new QuestItem(kite,new Image(Assets.GetCollectableTexture('kite'))));
 
 			AddGameObject(kite);
@@ -188,6 +206,7 @@ package game.levels
 			AddGameObject(tutorialNPC);
 			AddGameObject(tutorialEnemy);
 			
+			debug = false;
 		}
 		
 		/**

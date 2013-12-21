@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:fd77042b44b90dcc96a8c315008db532:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:a61abc9bd6ba519f1667397593c9b770:1/1$ -->
 <TextureAtlas imagePath="level_1.png">
-    <SubTexture name="background" x="2" y="196" width="1024" height="720"/>
-    <SubTexture name="door_b1_closed" x="184" y="2" width="64" height="112"/>
-    <SubTexture name="door_b1_open" x="118" y="2" width="64" height="112"/>
+    <SubTexture name="background" x="838" y="196" width="1024" height="720"/>
+    <SubTexture name="door_b1_closed" x="250" y="2" width="64" height="112"/>
+    <SubTexture name="door_b1_open" x="316" y="2" width="64" height="112"/>
+    <SubTexture name="door_b2_closed" x="184" y="2" width="64" height="112"/>
+    <SubTexture name="door_b2_open" x="52" y="2" width="64" height="112"/>
     <SubTexture name="ground" x="2" y="918" width="1600" height="80"/>
     <SubTexture name="ladder" x="2" y="2" width="48" height="192"/>
-    <SubTexture name="platform_b1_small" x="1022" y="2" width="416" height="16"/>
-    <SubTexture name="railing" x="52" y="2" width="64" height="64"/>
-    <SubTexture name="wall_b1" x="250" y="2" width="384" height="144"/>
-    <SubTexture name="wall_b1_old" x="636" y="2" width="384" height="144"/>
+    <SubTexture name="platform_b1_small" x="2" y="196" width="416" height="16"/>
+    <SubTexture name="platform_b2" x="420" y="196" width="416" height="16"/>
+    <SubTexture name="platform_b2_small" x="382" y="2" width="160" height="16"/>
+    <SubTexture name="railing" x="118" y="2" width="64" height="64"/>
+    <SubTexture name="wall_b1" x="706" y="2" width="384" height="144"/>
+    <SubTexture name="wall_b1_old" x="1478" y="2" width="384" height="144"/>
+    <SubTexture name="wall_b2" x="1092" y="2" width="384" height="144"/>
+    <SubTexture name="wall_b2_small" x="544" y="2" width="160" height="144"/>
 </TextureAtlas>

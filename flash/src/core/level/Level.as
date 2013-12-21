@@ -27,6 +27,8 @@ package core.level
 		public var levelWidth:Number;
 		public var levelHeight:Number;
 		
+		private var _debug:Boolean =  true;
+		
 		public function Level(width:Number, height:Number) 
 		{
 			levelWidth = width * GRIDSIZE;
@@ -50,6 +52,24 @@ package core.level
 				background.x = x * perWidth;
 				background.y = y * perHeight;
 			}
+		}
+		
+		public function set debug(setting:Boolean):void
+		{
+			if (_debug != setting)
+			{
+
+					for each(var g:GameObject in gameObjects)
+					{
+						g.debugShape.visible = setting;
+					}
+					player.debugShape.visible = setting;
+			}
+		}
+		
+		public function get debug():Boolean
+		{
+			return _debug;
 		}
 		
 		protected function SetBackground(image:Image):void
