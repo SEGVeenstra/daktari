@@ -134,7 +134,7 @@ package core.gameobject
 		/**
 		 * Returns the current amount of points
 		 */
-		protected function get points():int
+		public function get points():int
 		{
 			return _points;
 		}
@@ -452,8 +452,8 @@ package core.gameobject
 				else if (door)
 				{
 					collider.x = (door.collider.left + (door.collider.width / 2) - collider.width / 2);
-					mode = MODE_INDOOR;
-					switchedDoors = true;
+					//mode = MODE_INDOOR;
+					//switchedDoors = true;
 					return;
 				}
 			}
@@ -477,7 +477,7 @@ package core.gameobject
 				{
 					if (o is Finish)
 					{
-						Game.gameScreen.GameOver();
+						Game.gameScreen.GameOver(true);
 						return;
 					}
 					

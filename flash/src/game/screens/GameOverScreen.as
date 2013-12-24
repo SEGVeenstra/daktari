@@ -43,6 +43,14 @@ package game.screens
 			
 		}
 		
+		public function Finished(didFinish:Boolean):void
+		{
+			if (didFinish)
+				titleText.text = 'Finished with: ' + Game.gameScreen.level.player.points + ' points!';
+			else
+				titleText.text = 'Game Over';
+		}
+		
 		override public function Control(e:KeyboardEvent):void 
 		{
 			super.Control(e);

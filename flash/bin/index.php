@@ -41,43 +41,12 @@
 <body>
     <div id="game">
     <h1><b>Daktari Msaidizi</b> Game for Kenya prototype</h1>
-    <span>v0.07 : Tutorial & more art!</span>
+    <span>v0.08 : Prototype Finished for testing</span>
     
 	<div id="altContent">
 		<h1>Daktari</h1>
 		<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
 	</div>
-    <table>
-        <thead><tr><th>Controls:</th><th>Obstacles:</th></tr></thead>
-        <tbody><tr><td>
-        
-                    <ul>
-                        <li><b>Menu</b>
-                        <ul>
-                            <li>Arrow Keys: Control menu</li>
-                            <li>Esc: Back</li>
-                            <li>Enter: Select Item</li>
-                        </ul></li>
-                        <li><b>Game</b>
-                        <ul>
-                            <li>Arrow Keys: Control Character</li>
-                            <li>CTRL(left): Jump</li>
-                            <li>P: Pause</li>
-                            <li>Enter: Continue</li>
-                            
-                        </ul></li>
-                    </ul>
-                    
-                </td><td>
-                    
-                    <ul>
-                        <li>Blue: Climbable</li>
-                        <li>Grey: Platform (Solid)</li>
-                    </ul>
-                    
-                </td></tr>
-        </tbody>
-    </table>
     </div>
     <div id="release_notes">
         <?php include_once 'release_notes.html' ?>

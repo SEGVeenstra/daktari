@@ -117,7 +117,12 @@ package game.objects.characters
 		
 		private function animateJump():void 
 		{
-			SetAnimation(aniJump, lastX < x ? false :true);
+			if (lastX < x)
+				SetAnimation(aniJump);
+			else if (lastX == 0)
+				SetAnimation(aniJump, _currentAnimation.scaleX == 1 ? false :true);
+			else if(lastX > x)
+				SetAnimation(aniJump, true);
 		}
 		
 		private function animateDoor():void 

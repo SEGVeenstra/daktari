@@ -45,6 +45,7 @@ package game.levels
 	 */
 	public class Level1 extends Level 
 	{
+		
 		//Character
 		private var character:Character = new Teenager('player', 1, 48);
 		//Grounds
@@ -78,11 +79,11 @@ package game.levels
 		// Items
 		private var key:KeyBuilding2 =  new KeyBuilding2('key1', 16, 40);
 		private var bone:Bone = new Bone('bone', 16, 20);
-		private var kite:Kite = new Kite('kite', 60, 10);
-		private var testPowerUp1:PowerUp =  new Apple('fruit1', 40, 20);
-		private var testPowerUp2:PowerUp =  new Apple('fruit2', 44, 20);
-		private var testPowerUp3:PowerUp =  new Apple('fruit3', 48, 20);
-		private var testPowerUp4:PowerUp =  new Apple('fruit4', 52, 20);
+		private var kite:Kite = new Kite('kite', 61, 20);
+		private var testPowerUp1:PowerUp =  new Apple('fruit1', 41, 20);
+		private var testPowerUp2:PowerUp =  new Apple('fruit2', 46, 20);
+		private var testPowerUp3:PowerUp =  new Apple('fruit3', 51, 20);
+		private var testPowerUp4:PowerUp =  new Apple('fruit4', 56, 20);
 		
 		
 		// Finish
@@ -172,6 +173,17 @@ package game.levels
 			AddGameObject(testPowerUp2);
 			AddGameObject(testPowerUp3);
 			AddGameObject(testPowerUp4);
+			AddGameObject(new Apple('apple_1', 41, 30));
+			AddGameObject(new Apple('apple_2', 46, 30));
+			AddGameObject(new Apple('apple_3', 51, 30));
+			AddGameObject(new Apple('apple_4', 56, 30));
+			AddGameObject(new Apple('apple_5', 61, 30));
+			
+			AddGameObject(new Apple('apple_6', 41, 10));
+			AddGameObject(new Apple('apple_7', 36, 5));
+			AddGameObject(new Apple('apple_8', 31, 10));
+			AddGameObject(new Apple('apple_9', 28, 15));
+			AddGameObject(new Apple('apple_10', 26, 20));
 			
 			AddGameObject(finish);
 			

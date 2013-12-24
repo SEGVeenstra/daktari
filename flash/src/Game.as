@@ -5,6 +5,8 @@ package
 	import core.screen.MenuScreen;
 	import core.screen.MovieScreen;
 	import core.screen.Screen;
+	import core.sound.SoundManager;
+	import flash.media.Sound;
 	import game.screens.IntroScreen;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -16,6 +18,12 @@ package
 	 */
 	public class Game extends Sprite 
 	{	
+		// Sound
+		[Embed(source="game/assets/sounds/Level_1_background.mp3")]
+		private const backgroundMusic:Class;
+		[Embed(source="game/assets/sounds/Menu.mp3")]
+		private const menuMusic:Class;
+		
 		private static var instance:Game;
 		
 		private var _focus:Screen;
@@ -27,6 +35,11 @@ package
 		public function Game() 
 		{
 			instance = this;
+			
+			SoundManager.getInstance().addSound('background_level_1', new backgroundMusic() as Sound);
+			SoundManager.getInstance().addSound('menu', new menuMusic() as Sound);
+			SoundManager.getInstance().playSound('menu');
+			
 			addChild(new Key());
 			
 			CreateScreens();
@@ -35,6 +48,8 @@ package
 			Game.focus = Game.menuScreen;
 			
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+			
+			
 		}
 		
 		/**
@@ -48,7 +63,8 @@ package
 			
 			addChild(_gameScreen);
 			addChild(_menuScreen);
-			addChild(_movieScreen);	
+			addChild(_movieScreen);
+			
 		}
 		
 		private function OnAddedToStage(e:Event):void 
@@ -56,7 +72,7 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, Control);
 		}
-		
+
 		/**
 		 * Send the keyboard event to the current focussed screen
 		 * @param	e
@@ -101,6 +117,12 @@ package
 					instance._focus.active = false
 				instance._focus = screen;
 				instance._focus.active = true;
+				if (screen is GameScreen)
+				{
+					SoundManager.getInstance().crossFade('menu', 'background_level_1', 3);
+				}
+				else if (screen is MenuScreen  && SoundManager.getInstance().soundIsPlaying('background_level_1'))
+					SoundManager.getInstance().crossFade('background_level_1', 'menu', 3);
 			}
 			else
 				trace('tried to focus the already focussed screen!');

@@ -151,13 +151,14 @@ package core.screen
 		/**
 		 * Show game over screen
 		 */
-		public function GameOver():void
+		public function GameOver(won:Boolean = false):void
 		{
 			level.Pause();
 			setChildIndex(_gameOverScreen, numChildren -1);
 			_gameOverScreen.active = true;
 			_gameOverScreen.activeItemPosition = 0;
 			_pause = true;
+			_gameOverScreen.Finished(won);
 		}
 	}
 
