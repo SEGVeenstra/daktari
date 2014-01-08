@@ -19,10 +19,8 @@ package
 	public class Game extends Sprite 
 	{	
 		// Sound
-		[Embed(source="game/assets/sounds/Level_1_background.mp3")]
+		[Embed(source="game/assets/sounds/Level 1 - Sweet Sunshine Final.mp3")]
 		private const backgroundMusic:Class;
-		[Embed(source="game/assets/sounds/Menu.mp3")]
-		private const menuMusic:Class;
 		
 		private static var instance:Game;
 		
@@ -36,9 +34,8 @@ package
 		{
 			instance = this;
 			
-			SoundManager.getInstance().addSound('background_level_1', new backgroundMusic() as Sound);
-			SoundManager.getInstance().addSound('menu', new menuMusic() as Sound);
-			SoundManager.getInstance().playSound('menu');
+			var sound:Sound = new backgroundMusic as Sound;
+			sound.play(0,999);
 			
 			addChild(new Key());
 			
@@ -117,12 +114,6 @@ package
 					instance._focus.active = false
 				instance._focus = screen;
 				instance._focus.active = true;
-				if (screen is GameScreen)
-				{
-					SoundManager.getInstance().crossFade('menu', 'background_level_1', 3);
-				}
-				else if (screen is MenuScreen  && SoundManager.getInstance().soundIsPlaying('background_level_1'))
-					SoundManager.getInstance().crossFade('background_level_1', 'menu', 3);
 			}
 			else
 				trace('tried to focus the already focussed screen!');
