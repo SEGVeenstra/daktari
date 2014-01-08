@@ -222,13 +222,7 @@ package game.levels
 			AddGameObject(tutorialNPC);
 			AddGameObject(tutorialEnemy);
 			
-			AddGameObject(new Gate('gate', 80, 48, 1, 7,new Image(Assets.GetAtlas('level_1').getTexture('door_b1_open')),new Image(Assets.GetAtlas('level_1').getTexture('door_b1_closed'))));
-			AddGameObject(new Switch('switch', 75, 45,new Image(Assets.GetCollectableTexture('green_apple')),new Image(Assets.GetCollectableTexture('red_apple'))));
-			(GetGameObjectByID('switch') as Switch).target = GetGameObjectByID('gate') as Gate;
-			(GetGameObjectByID('switch') as Switch).keyID = 'gate_key';
-			AddGameObject(new Key('gate_key', 70, 43,new Image(Assets.GetCollectableTexture('key'))));
-			
-			//debug = false;
+			debug = false;
 		}
 		
 		/**

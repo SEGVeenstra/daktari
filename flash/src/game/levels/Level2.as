@@ -3,11 +3,14 @@ package game.levels
 	import core.asset.Assets;
 	import core.gameobject.Climbable;
 	import core.gameobject.collectable.Item;
+	import core.gameobject.collectable.Key;
 	import core.gameobject.collectable.PowerUp;
 	import core.gameobject.Door;
 	import core.gameobject.Enemy;
+	import core.gameobject.Gate;
 	import core.gameobject.Npc;
 	import core.gameobject.Platform;
+	import core.gameobject.Switch;
 	import core.level.Level;
 	import core.quest.QuestItem;
 	import game.objects.characters.Teenager;
@@ -121,6 +124,13 @@ package game.levels
 			(GetGameObjectByID('door_3') as Door).SetExits(null, null, null, GetGameObjectByID('door_2') as Door);
 			(GetGameObjectByID('door_4') as Door).SetExits(null, null, GetGameObjectByID('door_5') as Door, null);
 			(GetGameObjectByID('door_5') as Door).SetExits(null, null, null, GetGameObjectByID('door_4') as Door);
+			
+			// GATE & SWITCH TESTING! (Stephan)
+			AddGameObject(new Gate('gate', 100, 83, 1, 7,new Image(Assets.GetAtlas('level_1').getTexture('door_b1_open')),new Image(Assets.GetAtlas('level_1').getTexture('door_b1_closed'))));
+			AddGameObject(new Switch('switch', 95, 80,new Image(Assets.GetCollectableTexture('green_apple')),new Image(Assets.GetCollectableTexture('red_apple'))));
+			(GetGameObjectByID('switch') as Switch).target = GetGameObjectByID('gate') as Gate;
+			(GetGameObjectByID('switch') as Switch).keyID = 'gate_key';
+			AddGameObject(new Key('gate_key', 90, 78,new Image(Assets.GetCollectableTexture('key'))));
 		}
 		
 	}
