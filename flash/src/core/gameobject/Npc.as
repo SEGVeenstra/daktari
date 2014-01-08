@@ -1,6 +1,7 @@
 package core.gameobject 
 {
 	import core.asset.Assets;
+	import core.gameobject.collectable.Collectable;
 	import core.gameobject.collectable.Item;
 	import core.level.Level;
 	import core.quest.QuestItem;
@@ -23,9 +24,10 @@ package core.gameobject
 		
 		protected var bubble:Image = new Image(Assets.GetAtlas('npc').getTexture('bubble'));
 		protected var check:Image = new Image(Assets.GetAtlas('npc').getTexture('finished'));
+		public var reward:Item;
 		
 		
-		public function Npc(id:String, x:Number,y:Number, width:Number,height:Number, points:int) 
+		public function Npc(id:String, x:Number, y:Number, width:Number, height:Number, points:int, reward:Item = null) 
 		{
 			super(id, x, y);
 			this.points = points;
@@ -44,6 +46,7 @@ package core.gameobject
 			check.y = bubble.y + Level.GRIDSIZE/2;
 			check.x = bubble.x + Level.GRIDSIZE / 2;
 			check.visible = false;
+			this.reward = reward;
 			
 		}
 		
@@ -73,6 +76,7 @@ package core.gameobject
 				}
 			}
 		}
+		
 		
 		private function ShowNextQuestItem():void
 		{
@@ -164,6 +168,10 @@ package core.gameobject
 			{
 				setChildIndex(check, getChildIndex(currentQuestItem.image) +1);
 				check.visible = true;
+				if (GetReferencedItems(false).length == 0 && reward)
+				{
+					Game.gameScreen.userInterface.inventory.addToInventory(reward);
+				}
 			}
 		}
 		

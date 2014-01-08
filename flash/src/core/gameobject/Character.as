@@ -536,7 +536,6 @@ package core.gameobject
 				if (npc.GetReferencedItems(false).length == 0)
 				{
 					AddPoints(npc.points);
-				
 				}
 				trace(npc.GetReferencedItems(false).length);
 			}
@@ -564,7 +563,7 @@ package core.gameobject
 					pressedJmp = true;
 					currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
 					jumpSpd = MAX_JUMP_SPEED * -1;
-					runSpd = -MAX_RUN_SPEED;
+					runSpd = runSpd * -1;
 					mode = MODE_AIRBOURNE;
 					blockedBottom = null;
 					return;

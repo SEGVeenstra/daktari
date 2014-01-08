@@ -192,7 +192,7 @@ package game.levels
 			
 			AddGameObject(girl);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('npc', 'girl')),37,51);
-			girl.AddQuestItem(new QuestItem(kite,new Image(Assets.GetCollectableTexture('kite'))));
+			girl.AddQuestItem(new QuestItem(kite, new Image(Assets.GetCollectableTexture('kite'))));
 
 			AddGameObject(kite);
 			
