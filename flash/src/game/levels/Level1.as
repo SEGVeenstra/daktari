@@ -5,7 +5,11 @@ package game.levels
 	import core.gameobject.Climbable;
 	import core.gameobject.collectable.Collectable;
 	import core.gameobject.collectable.Item;
+	import core.gameobject.collectable.Key;
 	import core.gameobject.GameObject;
+	import core.gameobject.Gate;
+	import core.gameobject.Obstacle;
+	import core.gameobject.Switch;
 	import core.gameobject.TutorialObject;
 	import core.quest.QuestItem;
 	import core.visualobject.VisualObject;
@@ -218,7 +222,13 @@ package game.levels
 			AddGameObject(tutorialNPC);
 			AddGameObject(tutorialEnemy);
 			
-			debug = false;
+			AddGameObject(new Gate('gate', 80, 48, 1, 7,new Image(Assets.GetAtlas('level_1').getTexture('door_b1_open')),new Image(Assets.GetAtlas('level_1').getTexture('door_b1_closed'))));
+			AddGameObject(new Switch('switch', 75, 45,new Image(Assets.GetCollectableTexture('green_apple')),new Image(Assets.GetCollectableTexture('red_apple'))));
+			(GetGameObjectByID('switch') as Switch).target = GetGameObjectByID('gate') as Gate;
+			(GetGameObjectByID('switch') as Switch).keyID = 'gate_key';
+			AddGameObject(new Key('gate_key', 70, 43,new Image(Assets.GetCollectableTexture('key'))));
+			
+			//debug = false;
 		}
 		
 		/**

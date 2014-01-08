@@ -104,6 +104,14 @@ package core.gameobject
 			
 		}
 		
+		/**
+		 * A function that gets called on interaction
+		 */
+		public function Interact():void
+		{
+			
+		}
+		
 	}
 
 }

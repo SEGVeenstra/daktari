@@ -86,6 +86,30 @@ package core.ui.uiobjects
 			}
 			return check;
 		}
+		
+		/**
+		 * Check if an item with the give ID is in the inventory
+		 * @param	id
+		 * @return
+		 */
+		public function GetItemWithID(id:String):Item
+		{
+			for each( var i:Item in inventoryItems)
+			{
+				if (i.id == id)
+					return i;
+			}
+			return null;
+		}
+		
+		/**
+		 * Return the array of items
+		 * @return
+		 */
+		public function GetItems():Array 
+		{
+			return this.inventoryItems;
+		}
 	}
 
 }

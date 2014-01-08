@@ -11,7 +11,7 @@ package core.gameobject.collectable
 	 */
 	public class Collectable extends GameObject 
 	{
-		public var art:Image;
+		public var _art:Image;
 		
 		public function Collectable(id:String, x:Number, y:Number) 
 		{
@@ -36,6 +36,21 @@ package core.gameobject.collectable
 			debugShape.graphics.endFill();
 			
 			addChild(debugShape);
+		}
+		
+		public function set art(image:Image):void
+		{
+			if (_art)
+				removeChild(_art);
+			this._art = image;
+			addChild(image);
+			
+			
+		}
+		
+		public function get art():Image
+		{
+			return _art;
 		}
 	}
 
