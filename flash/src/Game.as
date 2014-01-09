@@ -1,6 +1,8 @@
 package  
 {
+	import core.comic.Comic;
 	import core.key.Key;
+	import core.menu.Menu;
 	import core.screen.GameScreen;
 	import core.screen.MenuScreen;
 	import core.screen.MovieScreen;
@@ -101,6 +103,43 @@ package
 		static public function get movieScreen():MovieScreen
 		{
 			return instance._movieScreen;
+		}
+		
+		/**
+		 * Load a comic
+		 */
+		static public function LoadComic(comic:Comic):void
+		{
+			instance._gameScreen.active = false;
+			instance._menuScreen.active = false;
+			instance._movieScreen.active = true;
+			instance._movieScreen.LoadComic(comic);
+			instance._focus = instance._movieScreen;
+		}
+		
+		/**
+		 * Load a level
+		 */
+		static public function LoadLevel(level:Class):void
+		{
+			instance._gameScreen.active = true;
+			instance._menuScreen.active = false;
+			instance._movieScreen.active = false;
+			instance._focus = instance._gameScreen;
+			instance._gameScreen.loadLevel(new level);
+			instance._focus.active = true;
+		}
+		
+		/**
+		 * Load menu
+		 */
+		static public function LoadMenu(menu:Menu):void
+		{
+			instance._gameScreen.active = false;
+			instance._menuScreen.active = true;
+			instance._movieScreen.active = false;
+			instance._focus = instance._menuScreen;
+			instance._menuScreen.loadMenu(menu);
 		}
 		
 		/**

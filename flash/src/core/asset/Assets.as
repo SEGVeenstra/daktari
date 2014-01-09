@@ -42,6 +42,11 @@ package core.asset
 		[Embed(source = "/game/assets/characters/teenager.xml", mimeType="application/octet-stream")]
 		public static const teenager_XML:Class;
 		
+		[Embed(source = "/game/assets/comics/intro_1.png")]
+		public static const intro_1_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/intro_1.xml", mimeType="application/octet-stream")]
+		public static const intro_1_XML:Class;
+		
 		public function Assets() 
 		{
 			

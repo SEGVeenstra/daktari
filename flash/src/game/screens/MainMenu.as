@@ -1,5 +1,6 @@
 package game.screens 
 {
+	import core.comic.Comic;
 	import core.key.Key;
 	import core.menu.Menu;
 	import core.menu.menuobject.Button;
@@ -16,6 +17,7 @@ package game.screens
 	{
 		private var playButton:Button = new Button('play_button', 200, 30, 'Play');
 		private var level2Button:Button = new Button('level2_button', 200, 30, 'Level 2 (Pim)');
+		private var comicTestButton:Button = new Button('comic_test', 200, 30, 'comic test');
 		
 		public function MainMenu() 
 		{
@@ -28,6 +30,7 @@ package game.screens
 		{
 			AddMenuObject(playButton, 300, 100);
 			AddMenuObject(level2Button, 300, 200);
+			AddMenuObject(comicTestButton, 300, 300);
 			addChild(new TextField(800, 50, 'Main Menu', 'Arial', 30, 0, true));
 		}
 		
@@ -47,6 +50,10 @@ package game.screens
 					Game.gameScreen.loadLevel(new Level2());
 					Game.focus = Game.gameScreen;
 					Game.gameScreen.Play();
+				}
+				else if (activeItem == comicTestButton)
+				{
+					Game.LoadComic(new Comic());
 				}
 				
 			}
