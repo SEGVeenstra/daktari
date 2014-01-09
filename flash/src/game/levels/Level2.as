@@ -11,6 +11,7 @@ package game.levels
 	import core.gameobject.Npc;
 	import core.gameobject.Platform;
 	import core.gameobject.Switch;
+	import core.gameobject.MovableEnemy;
 	import core.level.Level;
 	import core.quest.QuestItem;
 	import game.objects.characters.Teenager;
@@ -103,7 +104,7 @@ package game.levels
 			
 			AddGameObject(new PowerUp('powerup_1', 1, 87, 250, 20));
 			
-			AddGameObject(new Enemy('enemy_1', 27, 87, 4, 3, 0, 0));
+			AddGameObject(new MovableEnemy('enemy_1', 27, 87, 4, 3, 0, 0, 37, 2));
 			(GetGameObjectByID('enemy_1') as Enemy).requiredItem = item1;
 			AddGameObject(new Enemy('enemy_2', 75, 87, 4, 3, 0, 0));
 			(GetGameObjectByID('enemy_2') as Enemy).requiredItem = item2;
