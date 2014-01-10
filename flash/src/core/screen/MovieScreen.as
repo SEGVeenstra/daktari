@@ -2,6 +2,7 @@ package core.screen
 {
 	import core.comic.Comic;
 	import core.key.Key;
+	import game.screens.LevelMenu;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Shape;
@@ -65,12 +66,14 @@ package core.screen
 		override public function Control(e:KeyboardEvent):void 
 		{
 			super.Control(e);
+			if (e.keyCode == Key.ESCAPE)
+				Game.LoadMenu(LevelMenu);
 			if (e.keyCode == Key.ARROW_RIGHT)
 				NextPage();
 			if (e.keyCode == Key.ARROW_LEFT)
 				PreviousPage();
 			if (e.keyCode == Key.SPACEBAR)
-				Game.LoadLevel(comic.level);
+				LoadNext();
 		}
 		
 		/**
@@ -84,7 +87,7 @@ package core.screen
 				LoadPage(_currentPageNumber + 1);
 			}
 			else if (_currentPageNumber + 1 > comic.count)
-				Game.LoadLevel(comic.level);
+				LoadNext();
 		}
 		
 		/**
@@ -97,6 +100,16 @@ package core.screen
 			{
 				LoadPage(_currentPageNumber-1);
 			}
+		}
+		
+		private function LoadNext():void
+		{
+			if (comic.level)
+				Game.LoadLevel(comic.level);
+			else if (comic.comic)
+				Game.LoadComic(comic.comic);
+			else if (comic.menu)
+				Game.LoadMenu(comic.menu);
 		}
 		
 		override public function Reset():void 

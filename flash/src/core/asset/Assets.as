@@ -47,6 +47,11 @@ package core.asset
 		[Embed(source = "/game/assets/comics/intro_1.xml", mimeType="application/octet-stream")]
 		public static const intro_1_XML:Class;
 		
+		[Embed(source = "/game/assets/menu/menu.png")]
+		public static const menu_TEXTURE:Class;
+		[Embed(source = "/game/assets/menu/menu.xml", mimeType="application/octet-stream")]
+		public static const menu_XML:Class;
+		
 		public function Assets() 
 		{
 			

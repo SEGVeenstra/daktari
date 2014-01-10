@@ -108,12 +108,12 @@ package
 		/**
 		 * Load a comic
 		 */
-		static public function LoadComic(comic:Comic):void
+		static public function LoadComic(comic:Class):void
 		{
 			instance._gameScreen.active = false;
 			instance._menuScreen.active = false;
 			instance._movieScreen.active = true;
-			instance._movieScreen.LoadComic(comic);
+			instance._movieScreen.LoadComic(new comic);
 			instance._focus = instance._movieScreen;
 		}
 		
@@ -133,13 +133,13 @@ package
 		/**
 		 * Load menu
 		 */
-		static public function LoadMenu(menu:Menu):void
+		static public function LoadMenu(menu:Class):void
 		{
 			instance._gameScreen.active = false;
 			instance._menuScreen.active = true;
 			instance._movieScreen.active = false;
 			instance._focus = instance._menuScreen;
-			instance._menuScreen.loadMenu(menu);
+			instance._menuScreen.loadMenu(new menu);
 		}
 		
 		/**

@@ -90,6 +90,7 @@ package core.screen
 			addChild(level);
 			_userInterface.reset();
 			this._level = level;
+			Play();
 		}
 		
 		/**

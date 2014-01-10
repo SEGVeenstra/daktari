@@ -1,9 +1,11 @@
 package game.screens 
 {
+	import core.asset.Assets;
 	import core.comic.Comic;
 	import core.key.Key;
 	import core.menu.Menu;
 	import core.menu.menuobject.Button;
+	import game.comics.ComicIntro1;
 	import game.levels.Level1;
 	import game.levels.Level2;
 	import starling.events.KeyboardEvent;
@@ -15,9 +17,7 @@ package game.screens
 	 */
 	public class MainMenu extends Menu 
 	{
-		private var playButton:Button = new Button('play_button', 200, 30, 'Play');
-		private var level2Button:Button = new Button('level2_button', 200, 30, 'Level 2 (Pim)');
-		private var comicTestButton:Button = new Button('comic_test', 200, 30, 'comic test');
+		private var playButton:Button = new Button('play_button', 300, 100, 'Play',Assets.GetTextureFromAtlas('menu','main-menu'),Assets.GetTextureFromAtlas('menu','main-menu-active'));
 		
 		public function MainMenu() 
 		{
@@ -28,9 +28,7 @@ package game.screens
 		
 		private function Build():void 
 		{
-			AddMenuObject(playButton, 300, 100);
-			AddMenuObject(level2Button, 300, 200);
-			AddMenuObject(comicTestButton, 300, 300);
+			AddMenuObject(playButton, 250, 100);
 			addChild(new TextField(800, 50, 'Main Menu', 'Arial', 30, 0, true));
 		}
 		
@@ -41,21 +39,8 @@ package game.screens
 			{
 				if (activeItem == playButton)
 				{
-					Game.gameScreen.loadLevel(new Level1());
-					Game.focus = Game.gameScreen;
-					Game.gameScreen.Play();
-				}
-				else if (activeItem == level2Button)
-				{
-					Game.gameScreen.loadLevel(new Level2());
-					Game.focus = Game.gameScreen;
-					Game.gameScreen.Play();
-				}
-				else if (activeItem == comicTestButton)
-				{
-					Game.LoadComic(new Comic());
-				}
-				
+					Game.LoadMenu(LevelMenu);
+				}				
 			}
 		}
 	}

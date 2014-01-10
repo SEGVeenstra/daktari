@@ -2,6 +2,7 @@ package core.comic
 {
 	import core.asset.Assets;
 	import core.level.Level;
+	import core.menu.Menu;
 	import feathers.controls.ImageLoader;
 	import game.levels.Level1;
 	import starling.display.DisplayObject;
@@ -14,13 +15,12 @@ package core.comic
 	{
 		private var _pages:Vector.<Image> = new Vector.<Image>();
 		private var _level:Class;
+		private var _menu:Class;
+		private var _comic:Class;
 		
 		public function Comic() 
 		{
-			AddPage(new Image(Assets.GetTextureFromAtlas('intro_1', 'page_1')));
-			AddPage(new Image(Assets.GetTextureFromAtlas('intro_1', 'page_2')));
-			AddPage(new Image(Assets.GetTextureFromAtlas('intro_1', 'page_3')));
-			SetLevel(Level1);
+			
 		}
 		
 		protected function AddPage(image:Image):void
@@ -31,11 +31,37 @@ package core.comic
 		protected function SetLevel(level:Class):void
 		{
 			_level = level;
+			_comic = null;
+			_menu = null
+		}
+		
+		protected function SetMenu(menu:Class):void
+		{
+			_menu = menu;
+			_comic = null;
+			_level = null;
+		}
+		
+		protected function SetComic(comic:Class):void
+		{
+			_comic = comic;
+			_level = null;
+			_menu = null;
 		}
 		
 		public function get level():Class
 		{
 			return _level;
+		}
+		
+		public function get menu():Class
+		{
+			return _menu;
+		}
+		
+		public function get comic():Class
+		{
+			return _comic;
 		}
 		
 		public function get pages():Vector.<Image>
