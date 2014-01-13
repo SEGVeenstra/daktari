@@ -557,17 +557,20 @@ package core.gameobject
 				}
 				else 
 				{
-					TakeHit(enemy.damage);
-					enemy.startAnimation();
-					collider.y -= 1;
-					
-					pressedJmp = true;
-					currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
-					jumpSpd = MAX_JUMP_SPEED * -1;
-					runSpd = runSpd > 0 ? -MAX_RUN_SPEED*2 : MAX_RUN_SPEED*2;
-					mode = MODE_AIRBOURNE;
-					blockedBottom = null;
-					return;
+					if (mode != MODE_INDOOR)
+					{
+						TakeHit(enemy.damage);
+						enemy.startAnimation();
+						collider.y -= 1;
+						
+						pressedJmp = true;
+						currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
+						jumpSpd = MAX_JUMP_SPEED * -1;
+						runSpd = runSpd > 0 ? -MAX_RUN_SPEED*2 : MAX_RUN_SPEED*2;
+						mode = MODE_AIRBOURNE;
+						blockedBottom = null;
+						return;
+					}
 				}
 			}
 		}

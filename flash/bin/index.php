@@ -41,7 +41,7 @@
 <body>
     <div id="game">
     <h1><b>Daktari Msaidizi</b> Game for Kenya prototype</h1>
-    <span>v0.08 : Prototype Finished for testing</span>
+    <span>v0.09 : expension of functions</span>
     
 	<div id="altContent">
 		<h1>Daktari</h1>
