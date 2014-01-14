@@ -65,7 +65,8 @@ package game.levels
 			
 			AddGameObject(new Platform('platform_3', 15, 39, 100, 1));
 			AddGameObject(new Platform('platform_discount', 37, 29, 10, 4));
-			AddGameObject(new Platform('platform_NEW', 28, 33, 3, 3));
+			AddGameObject(new Platform('platform_NEW', 28, 30, 3, 3));
+			AddGameObject(new Platform('platform_crate', 17, 36, 4, 3));
 			AddGameObject(new Apple('apple_13', 51, 30));
 			AddGameObject(new Apple('apple_14', 38, 33));
 			AddGameObject(new Apple('apple_15', 73, 36));
@@ -110,8 +111,8 @@ package game.levels
 			(GetGameObjectByID('enemy_2') as Enemy).requiredItem = item2;
 			AddGameObject(new Enemy('enemy_3', 87, 68, 12, 5, 0, 0));
 			(GetGameObjectByID('enemy_3') as Enemy).requiredItem = item2;
-			AddGameObject(new Enemy('enemy_4', 44, 50, 3, 6, 0, 0));
-			(GetGameObjectByID('enemy_4') as Enemy).requiredItem = item2;
+			//AddGameObject(new Enemy('enemy_4', 44, 50, 3, 6, 0, 0));
+			//(GetGameObjectByID('enemy_4') as Enemy).requiredItem = item2;
 			
 			AddGameObject(new Climbable('ladder_1', 115, 16, 3, 74));
 			
