@@ -26,7 +26,7 @@ package core.gameobject
 		protected const MAX_JUMP_HEIGHT:Number = 150;
 		protected const MAX_HEALTH:int = 100;
 		protected const MAX_VITALITY:int = 120;
-		protected const ILLNESS_INTENSITIE:Number = 0.125;
+		protected const ILLNESS_INTENSITIE:Number = 0.05;
 		
 		protected var climbable:GameObject;
 		protected var door:Door;
@@ -193,7 +193,7 @@ package core.gameobject
 				if(isSick)
 					_vitality -= ILLNESS_INTENSITIE;
 					
-					trace(vitalityRatio, runSpd);
+					trace(vitalityRatio, runSpd,mode);
 				Control();
 				UpdateCollisions();
 				SetBlocks();
@@ -335,23 +335,23 @@ package core.gameobject
 				runSpd = 0;
 			}
 			
-			  /*if (Key.isDown(Key.ARROW_LEFT) && !blockedLeft && !Key.isDown(Key.ARROW_RIGHT))
+			if (Key.isDown(Key.ARROW_LEFT) && !blockedLeft && !Key.isDown(Key.ARROW_RIGHT))
 			{
 				if (runSpd == 0)
 					runSpd = -1.6;
 				else if (runSpd > 0)
-					runSpd *= 1 - MAX_RUN_SPEED / 60;
-				else if(runSpd > -MAX_RUN_SPEED)
-					runSpd *= 1 + MAX_RUN_SPEED / 60;
-			}*/
+					runSpd = runSpd * 0.9;
+				else if(runSpd > (-MAX_RUN_SPEED * vitalityRatio))
+					runSpd = runSpd * 1.1;
+			}
 			if (Key.isDown(Key.ARROW_RIGHT) && !blockedRight && !Key.isDown(Key.ARROW_LEFT))
 			{
 				if (runSpd == 0)
 					runSpd = 1.6;
 				else if (runSpd < 0)
-					runSpd = runSpd;
-				else if(runSpd < MAX_RUN_SPEED)
-					runSpd = runSpd;
+					runSpd = runSpd * 0.9;
+				else if(runSpd < (MAX_RUN_SPEED * vitalityRatio))
+					runSpd = runSpd * 1.1;
 			}
 			
 			if (climbable && (Key.isDown(Key.ARROW_UP) || Key.isDown(Key.ARROW_DOWN)))
