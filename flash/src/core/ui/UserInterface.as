@@ -24,11 +24,8 @@ package core.ui
 			setupHealthBar();
 			setupInventory();
 			setupVitalitybar();
-			vitalitybar.visible = true;
 			setupHighScore();
 			setupMedicinindicator();
-			//medicinindicator.active = true;
-			
 		}
 
 		/**
@@ -67,7 +64,7 @@ package core.ui
 			this.addChild(medicinindicator);
 			medicinindicator.y = healthbar.height;
 			medicinindicator.x = vitalitybar.x + 30;
-			//medicinindicator.visible = medicinindicator.active;
+			medicinindicator.visible = medicinindicator.active;
 		}
 		/**
 		 * set up highscore
@@ -119,6 +116,7 @@ package core.ui
 			vitalitybar.reset();
 			trace(vitalitybar.curVitality);
 			highscore.reset();
+			medicinindicator.reset();
 		}
 		
 		/**
@@ -135,6 +133,15 @@ package core.ui
 		public function activateVitalitybar(active:Boolean):void {
 			vitalitybar.active = active;
 			vitalitybar.visible = active;
+		}
+		
+		/**
+		 * regulate visibilty of the medicinindicator
+		 * @param	active
+		 */
+		public function activateMedicationindicator(active:Boolean) {
+			medicinindicator.active = active;
+			medicinindicator.visible = active;
 		}
 		
 	}

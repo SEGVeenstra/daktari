@@ -38,8 +38,10 @@ package core.ui.uiobjects
 		}
 		
 		public function addMedication(item:Item):void {
-			medication.push(item);
-			updateIndicator();
+			if (active) {
+				medication.push(item);
+				updateIndicator();
+			}
 		}
 		
 		public function useMedication():void {
@@ -52,6 +54,10 @@ package core.ui.uiobjects
 		
 		public function get active():Boolean {
 			return _active;
+		}
+		
+		public function reset():Boolean {
+			
 		}
 		
 		
