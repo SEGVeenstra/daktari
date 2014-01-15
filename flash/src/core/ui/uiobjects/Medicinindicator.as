@@ -15,6 +15,7 @@ package core.ui.uiobjects
 		private var indicator:TextField;
 		private var _active:Boolean;
 		private var text:String;
+		
 		public function Medicinindicator() 
 		{
 			medication = new Array();
@@ -44,8 +45,20 @@ package core.ui.uiobjects
 			}
 		}
 		
-		public function useMedication():void {
-			
+		public function checkMedication():Boolean {
+			if (medication.length > 0) {
+				return true;
+			}else {
+				return false;
+			}
+		}
+		
+		public function useMedication():Item {
+			if (checkMedication()) {
+				return medication.pop();
+			}else {
+				return null;
+			}
 		}
 		
 		public function set active(setting:Boolean):void {
@@ -59,7 +72,6 @@ package core.ui.uiobjects
 		public function reset():void {
 			medication.splice(); 
 		}
-		
 		
 	}
 
