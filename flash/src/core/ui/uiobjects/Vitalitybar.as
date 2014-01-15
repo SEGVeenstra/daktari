@@ -26,10 +26,9 @@ package core.ui.uiobjects
 		 * draws to actual indicator
 		 */
 		private function draw():void {
-			var deg:Number = 0;
 			bar = new Shape();
 			addChild(bar);
-			drawWedge(deg);
+			drawWedge(arc);
 		}
 		
 		/**
@@ -98,9 +97,12 @@ package core.ui.uiobjects
 		 */
 		public function setVitality(dec:Number):void {
 			trace(dec);
+			var deg:Number;
 			if (active) {
 				if (play) {
-					drawWedge(dec);
+					curVitality = dec;
+					deg = arc - (dec * arc / 100);
+					drawWedge(deg);
 				}
 			}
 		}

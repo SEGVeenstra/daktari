@@ -40,7 +40,7 @@ package core.gameobject
 		
 		private var _health:int = 100;
 		private var _points:int = 0;
-		private var _vitality:Number = 120;
+		private var _vitality:Number = 100;
 		
 		public var isSick:Boolean;
 		
