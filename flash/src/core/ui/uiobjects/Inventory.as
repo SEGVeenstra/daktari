@@ -96,8 +96,13 @@ package core.ui.uiobjects
 		{
 			for each( var i:Item in inventoryItems)
 			{
-				if (i.id == id)
+				trace(inventoryItems.length);
+				if (i != null)
+				{
+					if (i.id == id)
 					return i;
+				}
+				
 			}
 			return null;
 		}
