@@ -26,10 +26,9 @@ package core.ui.uiobjects
 		 * draws to actual indicator
 		 */
 		private function draw():void {
-			var deg:Number = 0;
 			bar = new Shape();
 			addChild(bar);
-			drawWedge(deg);
+			drawWedge(arc);
 		}
 		
 		/**
@@ -96,32 +95,14 @@ package core.ui.uiobjects
 		 * decrease vitality
 		 * @param	dec
 		 */
-		public function setVitality(dec:Number):void {
-			trace(dec);
+		public function setVitality(vitality:Number):void {
+			var deg:Number;
 			if (active) {
 				if (play) {
-					drawWedge(dec);
-				}
-			}
-		}
-		
-		/**
-		 * increase vitality
-		 * @param	inc
-		 */
-		public function increaseVitality(inc:Number):void {
-			if (active) {
-				if (play) {
-					var deg:Number;
-					if (curVitality > 0  && curVitality < maxVitality) {
-						if (curVitality + inc >= maxVitality) {
-							curVitality = maxVitality;
-							deg = 0;
-						}else {
-							curVitality += inc;
-							var perc:Number = 100 - (curVitality / maxVitality * 100);
-							deg = perc * arc / 100;
-						}
+					if (vitality >= 0 && vitality <= maxVitality && vitality != curVitality) {
+						trace(curVitality);
+						curVitality = vitality;
+						deg = arc - (curVitality * arc / 100);
 						drawWedge(deg);
 					}
 				}
