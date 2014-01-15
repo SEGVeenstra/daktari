@@ -108,29 +108,6 @@ package core.ui.uiobjects
 		}
 		
 		/**
-		 * increase vitality
-		 * @param	inc
-		 */
-		public function increaseVitality(inc:Number):void {
-			if (active) {
-				if (play) {
-					var deg:Number;
-					if (curVitality > 0  && curVitality < maxVitality) {
-						if (curVitality + inc >= maxVitality) {
-							curVitality = maxVitality;
-							deg = 0;
-						}else {
-							curVitality += inc;
-							var perc:Number = 100 - (curVitality / maxVitality * 100);
-							deg = perc * arc / 100;
-						}
-						drawWedge(deg);
-					}
-				}
-			}
-		}
-		
-		/**
 		* reset the vitalitybar
 		*/
 		public function reset():void {
