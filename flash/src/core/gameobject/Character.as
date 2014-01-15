@@ -193,7 +193,7 @@ package core.gameobject
 				if(isSick)
 					_vitality -= ILLNESS_INTENSITIE;
 					
-					trace(vitalityRatio, runSpd,mode);
+					trace(vitalityRatio);
 				Control();
 				UpdateCollisions();
 				SetBlocks();
@@ -340,7 +340,7 @@ package core.gameobject
 				if (runSpd == 0)
 					runSpd = -1.6;
 				else if (runSpd > 0)
-					runSpd = runSpd * 0.9;
+					runSpd = runSpd * 0.8;
 				else if(runSpd > (-MAX_RUN_SPEED * vitalityRatio))
 					runSpd = runSpd * 1.1;
 			}
@@ -349,7 +349,7 @@ package core.gameobject
 				if (runSpd == 0)
 					runSpd = 1.6;
 				else if (runSpd < 0)
-					runSpd = runSpd * 0.9;
+					runSpd = runSpd * 0.8;
 				else if(runSpd < (MAX_RUN_SPEED * vitalityRatio))
 					runSpd = runSpd * 1.1;
 			}
@@ -360,8 +360,8 @@ package core.gameobject
 				mode = MODE_CLIMBING;
 				return;
 			}
-			//if(!Key.isDown(Key.ARROW_LEFT) && !Key.isDown(Key.ARROW_RIGHT))
-			//	runSpd *= 1 - MAX_RUN_SPEED / 60;
+			if(!Key.isDown(Key.ARROW_LEFT) && !Key.isDown(Key.ARROW_RIGHT))
+				runSpd *= 0.9;
 				
 			collider.x += runSpd;
 			
