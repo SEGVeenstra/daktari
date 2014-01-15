@@ -139,7 +139,7 @@ package core.ui
 		 * regulate visibilty of the medicinindicator
 		 * @param	active
 		 */
-		public function activateMedicationindicator(active:Boolean) {
+		public function activateMedicationindicator(active:Boolean):void {
 			medicinindicator.active = active;
 			medicinindicator.visible = active;
 		}

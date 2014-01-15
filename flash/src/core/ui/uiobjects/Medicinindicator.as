@@ -56,8 +56,8 @@ package core.ui.uiobjects
 			return _active;
 		}
 		
-		public function reset():Boolean {
-			
+		public function reset():void {
+			medication.splice(); 
 		}
 		
 		
