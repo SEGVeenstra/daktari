@@ -10,17 +10,16 @@ package core.ui.uiobjects
 	 */
 	public class Medicinindicator extends UiObject 
 	{
-		private var medication:Array;
 		private var image:Image; 
 		private var indicator:TextField;
 		private var _active:Boolean;
-		private var text:String;
+		
+		private var _medicationCount:int;
 		
 		public function Medicinindicator() 
 		{
-			medication = new Array();
 			image = new Image(Assets.GetAtlas('collectables').getTexture('medicines'));
-			indicator = new TextField(70, 40, text,'arial', 20, 0, true);
+			indicator = new TextField(70, 40, '0','arial', 20, 0, true);
 			draw();
 		}
 		
@@ -30,35 +29,30 @@ package core.ui.uiobjects
 			image.width = image.width - 5;
 			addChild(indicator);
 			indicator.x = 25;
-			updateIndicator();
 		}
 		
-		private function updateIndicator():void {
-			text ="x " + medication.length.toString();
-			indicator.text = text;
-		}
-		
-		public function addMedication(item:Item):void {
-			if (active) {
-				medication.push(item);
-				updateIndicator();
-			}
-		}
-		
-		public function checkMedication():Boolean {
-			if (medication.length > 0) {
+		public function addMedication(amount:int = 1):Boolean {
+			trace(_medicationCount);
+			if (active) 
+			{
+				_medicationCount += amount;
+				indicator.text = _medicationCount + '';
+				
 				return true;
-			}else {
-				return false;
 			}
+			else
+				return false;
 		}
 		
-		public function useMedication():Item {
-			if (checkMedication()) {
-				return medication.pop();
-			}else {
-				return null;
+		public function removeMedication(amount:int = 1):Boolean {
+			if (active && (_medicationCount - amount ) >= 0)
+			{
+				_medicationCount -= amount;
+				indicator.text = _medicationCount + '';
+				return true;
 			}
+			else
+				return false;
 		}
 		
 		public function set active(setting:Boolean):void {
@@ -70,7 +64,7 @@ package core.ui.uiobjects
 		}
 		
 		public function reset():void {
-			medication.splice(); 
+			_medicationCount = 0;
 		}
 		
 	}

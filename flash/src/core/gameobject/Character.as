@@ -2,6 +2,7 @@ package core.gameobject
 {
 	import core.gameobject.collectable.Collectable;
 	import core.gameobject.collectable.Item;
+	import core.gameobject.collectable.Medication;
 	import core.gameobject.collectable.PowerUp;
 	import core.key.Key;
 	import core.level.Level;
@@ -25,7 +26,7 @@ package core.gameobject
 		protected const MAX_JUMP_HEIGHT:Number = 150;
 		protected const MAX_HEALTH:int = 100;
 		protected const MAX_VITALITY:int = 120;
-		protected const ILLNESS_INTENSITIE:Number = 0.25;
+		protected const ILLNESS_INTENSITIE:Number = 0.125;
 		
 		protected var climbable:GameObject;
 		protected var door:Door;
@@ -34,15 +35,19 @@ package core.gameobject
 		private var _jumpSpd:Number = 0.1;
 		private var _currentJump:Number = 150;
 		protected var pressedJmp:Boolean = false;
+		protected var pressedMedication:Boolean = false;
 		protected var switchedDoors:Boolean = false;
 		
 		private var _health:int = 100;
 		private var _points:int = 0;
 		private var _vitality:Number = 120;
 		
-		public function Character(id:String, x:Number, y:Number) 
+		public var isSick:Boolean;
+		
+		public function Character(id:String, x:Number, y:Number, isSick:Boolean = false) 
 		{
 			super(id, x, y);
+			this.isSick = isSick;
 			collider = new Rectangle(x * Level.GRIDSIZE, y * Level.GRIDSIZE, Level.GRIDSIZE * 3, Level.GRIDSIZE * 5);
 			Draw();
 			mode = MODE_AIRBOURNE;
@@ -185,7 +190,10 @@ package core.gameobject
 		{
 			if (!paused)
 			{
-				//_vitality -= ILLNESS_INTENSITIE;
+				if(isSick)
+					_vitality -= ILLNESS_INTENSITIE;
+					
+					trace(vitalityRatio, runSpd);
 				Control();
 				UpdateCollisions();
 				SetBlocks();
@@ -327,7 +335,7 @@ package core.gameobject
 				runSpd = 0;
 			}
 			
-			if (Key.isDown(Key.ARROW_LEFT) && !blockedLeft && !Key.isDown(Key.ARROW_RIGHT))
+			  /*if (Key.isDown(Key.ARROW_LEFT) && !blockedLeft && !Key.isDown(Key.ARROW_RIGHT))
 			{
 				if (runSpd == 0)
 					runSpd = -1.6;
@@ -335,15 +343,15 @@ package core.gameobject
 					runSpd *= 1 - MAX_RUN_SPEED / 60;
 				else if(runSpd > -MAX_RUN_SPEED)
 					runSpd *= 1 + MAX_RUN_SPEED / 60;
-			}
+			}*/
 			if (Key.isDown(Key.ARROW_RIGHT) && !blockedRight && !Key.isDown(Key.ARROW_LEFT))
 			{
 				if (runSpd == 0)
 					runSpd = 1.6;
 				else if (runSpd < 0)
-					runSpd *= 1 - MAX_RUN_SPEED / 60;
+					runSpd = runSpd;
 				else if(runSpd < MAX_RUN_SPEED)
-					runSpd *= 1 + MAX_RUN_SPEED / 60;
+					runSpd = runSpd;
 			}
 			
 			if (climbable && (Key.isDown(Key.ARROW_UP) || Key.isDown(Key.ARROW_DOWN)))
@@ -352,8 +360,8 @@ package core.gameobject
 				mode = MODE_CLIMBING;
 				return;
 			}
-			if(!Key.isDown(Key.ARROW_LEFT) && !Key.isDown(Key.ARROW_RIGHT))
-				runSpd *= 1 - MAX_RUN_SPEED / 60;
+			//if(!Key.isDown(Key.ARROW_LEFT) && !Key.isDown(Key.ARROW_RIGHT))
+			//	runSpd *= 1 - MAX_RUN_SPEED / 60;
 				
 			collider.x += runSpd;
 			
@@ -387,6 +395,15 @@ package core.gameobject
 		 */
 		private function ControlGround():void 
 		{
+			if (Key.isDown(Key.ENTER) && !pressedMedication)
+			{
+				pressedMedication = true;
+				if (Game.gameScreen.userInterface.medicinindicator.removeMedication())
+					_vitality = MAX_VITALITY;
+			}
+			if (!Key.isDown(Key.ENTER) && pressedMedication)
+				pressedMedication = false;
+			
 			if (!blockedBottom)
 			{
 				mode = MODE_AIRBOURNE;
@@ -414,7 +431,8 @@ package core.gameobject
 				mode = MODE_AIRBOURNE;
 				pressedJmp = true;
 				currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
-				jumpSpd = MAX_JUMP_SPEED * -1;
+				jumpSpd = -MAX_JUMP_SPEED;
+				trace('JUMP');
 				return;
 			}
 			else if (!Key.isDown(Key.SPACEBAR))
@@ -604,7 +622,13 @@ package core.gameobject
 		 */
 		private function CollectItem(o:Collectable):void 
 		{
-			if (o is PowerUp)
+			if (o is Medication)
+			{
+				var m:Medication = o as Medication;
+				Game.gameScreen.level.RemoveGameObject(o);
+				Game.gameScreen.userInterface.medicinindicator.addMedication();
+			}
+			else if (o is PowerUp)
 			{
 				var p:PowerUp = o as PowerUp;
 				Game.gameScreen.level.RemoveGameObject(o);

@@ -25,9 +25,9 @@ package game.objects.characters
 		
 		private var _currentAnimation:MovieClip;
 		
-		public function Teenager(id:String,x:Number,y:Number) 
+		public function Teenager(id:String,x:Number,y:Number,isSick:Boolean = false) 
 		{
-			super(id, x, y);
+			super(id, x, y,isSick);
 			aniIdle = new MovieClip(Assets.GetAtlas('teenager').getTextures('idle_'),2);
 			aniWalk = new MovieClip(Assets.GetAtlas('teenager').getTextures('walk_'),8);
 			aniDoor = new MovieClip(Assets.GetAtlas('teenager').getTextures('door_'),8);
