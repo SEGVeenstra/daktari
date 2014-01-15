@@ -190,16 +190,27 @@ package core.gameobject
 		{
 			if (!paused)
 			{
-				if(isSick)
-					_vitality -= ILLNESS_INTENSITIE;
-					
-					trace(vitalityRatio);
+				HandleIllnes();
 				Control();
 				UpdateCollisions();
 				SetBlocks();
 				if(mode != MODE_CLIMBING)
 					CorrectAll();
 				Move();
+			}
+		}
+		
+		private function HandleIllnes():void 
+		{
+			if (isSick)
+			{
+				_vitality -= ILLNESS_INTENSITIE;
+				var v:int = _vitality;
+				if (Game.gameScreen.userInterface.vitalitybar.curVitality != v)
+				{
+					trace('Update vitalitybar');
+					Game.gameScreen.userInterface.vitalitybar.setVitality(v);
+				}
 			}
 		}
 		
