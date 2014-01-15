@@ -22,7 +22,7 @@ package game.levels
 		
 		override protected function Build():void 
 		{
-			Game.gameScreen.userInterface.activateMedicationindicator(true);
+			Game.gameScreen.userInterface.activateDisease(true);
 			
 			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background')));
 			SetPlayer(new Teenager('player', 2, 30,true));

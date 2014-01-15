@@ -130,19 +130,13 @@ package core.ui
 		/**
 		 * regulate visibilty of vatilitybar
 		 */
-		public function activateVitalitybar(active:Boolean):void {
+		public function activateDisease(active:Boolean):void {
 			vitalitybar.active = active;
 			vitalitybar.visible = active;
-		}
-		
-		/**
-		 * regulate visibilty of the medicinindicator
-		 * @param	active
-		 */
-		public function activateMedicationindicator(active:Boolean):void {
 			medicinindicator.active = active;
 			medicinindicator.visible = active;
 		}
+		
 		
 	}
 }
