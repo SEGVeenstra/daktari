@@ -95,14 +95,16 @@ package core.ui.uiobjects
 		 * decrease vitality
 		 * @param	dec
 		 */
-		public function setVitality(dec:Number):void {
-			trace(dec);
+		public function setVitality(vitality:Number):void {
 			var deg:Number;
 			if (active) {
 				if (play) {
-					curVitality = dec;
-					deg = arc - (dec * arc / 100);
-					drawWedge(deg);
+					if (vitality >= 0 && vitality <= maxVitality && vitality != curVitality) {
+						trace(curVitality);
+						curVitality = vitality;
+						deg = arc - (curVitality * arc / 100);
+						drawWedge(deg);
+					}
 				}
 			}
 		}
