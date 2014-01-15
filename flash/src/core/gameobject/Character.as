@@ -25,7 +25,7 @@ package core.gameobject
 		protected const MAX_JUMP_SPEED:Number = 12;
 		protected const MAX_JUMP_HEIGHT:Number = 150;
 		protected const MAX_HEALTH:int = 100;
-		protected const MAX_VITALITY:int = 120;
+		protected const MAX_VITALITY:int = 100;
 		protected const ILLNESS_INTENSITIE:Number = 0.05;
 		
 		protected var climbable:GameObject;
@@ -40,7 +40,7 @@ package core.gameobject
 		
 		private var _health:int = 100;
 		private var _points:int = 0;
-		private var _vitality:Number = 120;
+		private var _vitality:Number = 100;
 		
 		public var isSick:Boolean;
 		
@@ -200,13 +200,17 @@ package core.gameobject
 			}
 		}
 		
+		/**
+		 * Handles the decease
+		 */
 		private function HandleIllnes():void 
 		{
 			if (isSick)
 			{
 				_vitality -= ILLNESS_INTENSITIE;
 				var v:int = _vitality;
-				if (Game.gameScreen.userInterface.vitalitybar.curVitality != v)
+				trace(Game.gameScreen.userInterface.vitalitybar.curVitality, v);
+				if (int(Game.gameScreen.userInterface.vitalitybar.curVitality) != v)
 				{
 					trace('Update vitalitybar');
 					Game.gameScreen.userInterface.vitalitybar.setVitality(v);
