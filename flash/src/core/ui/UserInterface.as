@@ -14,6 +14,7 @@ package core.ui
 		public var inventory:Inventory;
 		public var vitalitybar:Vitalitybar;
 		public var highscore:HighScore;
+		public var medicinindicator:Medicinindicator;
 		
 		/**
 		 * constructor
@@ -23,7 +24,10 @@ package core.ui
 			setupHealthBar();
 			setupInventory();
 			setupVitalitybar();
+			vitalitybar.visible = true;
 			setupHighScore();
+			setupMedicinindicator();
+			//medicinindicator.active = true;
 			
 		}
 
@@ -53,6 +57,17 @@ package core.ui
 			vitalitybar.y = healthbar.height + 21;
 			vitalitybar.x = 20;
 			vitalitybar.visible = vitalitybar.active;
+		}
+		
+		/**
+		 * setting up medecin indicator
+		 */
+		private function setupMedicinindicator():void {
+			medicinindicator = new Medicinindicator();
+			this.addChild(medicinindicator);
+			medicinindicator.y = healthbar.height;
+			medicinindicator.x = vitalitybar.x + 30;
+			//medicinindicator.visible = medicinindicator.active;
 		}
 		/**
 		 * set up highscore
