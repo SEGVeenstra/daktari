@@ -29,7 +29,7 @@ package game.objects.characters
 		{
 			super(id, x, y,isSick);
 			aniIdle = new MovieClip(Assets.GetAtlas('teenager').getTextures('idle_'),2);
-			aniWalk = new MovieClip(Assets.GetAtlas('teenager').getTextures('walk_'),8);
+			aniWalk = new MovieClip(Assets.GetAtlas('teenager').getTextures('walk_'),12);
 			aniDoor = new MovieClip(Assets.GetAtlas('teenager').getTextures('door_'),8);
 			aniJump = new MovieClip(Assets.GetAtlas('teenager').getTextures('jump_'),8);
 			aniClimb = new MovieClip(Assets.GetAtlas('teenager').getTextures('climb_'),8);

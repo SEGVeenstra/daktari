@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:ba7d58dc9489ca5a5fd37e7c324c1c57:b7a2c48e45d08e393b73a3bcf54e15ef:54ebefb7e7b2b11099c07688a7146618$ -->
+<!-- $TexturePacker:SmartUpdate:39a1e29b7c9c87a1e7055fba33b7f6d7:dc9df93b797a5b55bbd7cfbccb2b53b5:54ebefb7e7b2b11099c07688a7146618$ -->
 <TextureAtlas imagePath="teenager.png">
     <SubTexture name="climb_01" x="2" y="2" width="48" height="80"/>
     <SubTexture name="climb_02" x="52" y="2" width="48" height="80"/>
@@ -15,4 +15,5 @@
     <SubTexture name="walk_04" x="2" y="166" width="48" height="80"/>
     <SubTexture name="walk_05" x="52" y="166" width="48" height="80"/>
     <SubTexture name="walk_06" x="102" y="166" width="48" height="80"/>
+    <SubTexture name="walk_07" x="152" y="2" width="48" height="80"/>
 </TextureAtlas>

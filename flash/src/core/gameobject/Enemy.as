@@ -13,6 +13,7 @@ package core.gameobject
 		public var requiredItem:Item;
 		public var damage:int;
 		public var points:int;
+		public var rewardItem:Item;
 		
 		public function Enemy(id:String, x:Number,y:Number, width:Number,height:Number, damage:int, points:int) 
 		{
@@ -36,6 +37,19 @@ package core.gameobject
 			debugShape.graphics.endFill();
 			
 			addChild(debugShape);
+		}
+		
+		override public function Interact():void 
+		{
+			if (requiredItem)
+			{
+				if (Game.gameScreen.userInterface.inventory.containsItem(requiredItem))
+				{
+					Game.gameScreen.userInterface.inventory.useInventoryItem(requiredItem);
+					requiredItem = null;
+					if (rewardItem) Game.gameScreen.userInterface.inventory.addToInventory(rewardItem);
+				}
+			}
 		}
 		
 		public function startAnimation():void {

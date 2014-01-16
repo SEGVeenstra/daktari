@@ -1,6 +1,7 @@
 package core.gameobject.collectable 
 {
 	import core.level.Level;
+	import starling.display.Image;
 	import starling.display.Shape;
 	/**
 	 * Items can be collected by the player and are stored in the Inventory
@@ -9,9 +10,10 @@ package core.gameobject.collectable
 	public class Item extends Collectable 
 	{
 		
-		public function Item(id:String,x:Number,y:Number) 
+		public function Item(id:String,x:Number,y:Number,image:Image = null) 
 		{
 			super(id, x, y);
+			if(image) art = image;
 		}
 		
 		override protected function Create():void 

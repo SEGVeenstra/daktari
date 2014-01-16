@@ -10,10 +10,11 @@ package core.gameobject
 	public class Finish extends GameObject 
 	{
 		
-		public function Finish(id:String, x:Number,y:Number, width:Number,height:Number) 
+		public function Finish(id:String, x:Number,y:Number, width:Number,height:Number, active:Boolean = true) 
 		{
 			super(id, x, y);
 			solid = false;
+			this.active = active;
 			width *= Level.GRIDSIZE;
 			height *= Level.GRIDSIZE;
 			x *= Level.GRIDSIZE;

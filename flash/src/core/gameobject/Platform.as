@@ -11,8 +11,9 @@ package core.gameobject
 	public class Platform extends GameObject 
 	{
 		private var _art:Image;
+		public var oneWay:Boolean;
 		
-		public function Platform(id:String, x:Number, y:Number, width:Number, height:Number) 
+		public function Platform(id:String, x:Number, y:Number, width:Number, height:Number, oneWay:Boolean = false) 
 		{
 			super(id, x, y);
 			width *= Level.GRIDSIZE;
@@ -21,7 +22,8 @@ package core.gameobject
 			y *= Level.GRIDSIZE;
 			Draw(width, height);
 			collider = new Rectangle(x,y,width,height);
-			solid = true;
+			solid = !oneWay;
+			this.oneWay = oneWay;
 		}
 		
 		public function set art(image:Image):void

@@ -207,12 +207,15 @@ package core.gameobject
 		{
 			if (isSick)
 			{
+				if (_vitality < 1)
+				{
+					Game.gameScreen.GameOver(false);
+					return;
+				}
 				_vitality -= ILLNESS_INTENSITIE;
 				var v:int = _vitality;
-				trace(Game.gameScreen.userInterface.vitalitybar.curVitality, v);
 				if (int(Game.gameScreen.userInterface.vitalitybar.curVitality) != v)
 				{
-					trace('Update vitalitybar');
 					Game.gameScreen.userInterface.vitalitybar.setVitality(v);
 				}
 			}
@@ -447,7 +450,6 @@ package core.gameobject
 				pressedJmp = true;
 				currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
 				jumpSpd = -MAX_JUMP_SPEED;
-				trace('JUMP');
 				return;
 			}
 			else if (!Key.isDown(Key.SPACEBAR))
@@ -518,6 +520,7 @@ package core.gameobject
 					else if (o.solid)
 					{
 						var intersect:Rectangle = collider.intersection(o.collider);
+
 						if (intersect.height > intersect.width)
 						{
 							if (intersect.x + (intersect.width / 2) < collider.x + (collider.width / 2))
@@ -530,6 +533,15 @@ package core.gameobject
 								blockedTop = o;
 							else
 								blockedBottom = o;
+					}
+					else if (o is Platform)
+					{
+						var intersect:Rectangle = collider.intersection(o.collider);
+						if ( jumpSpd > 0 && collider.bottom > o.collider.top && collider.bottom < o.collider.bottom && !(mode == MODE_CLIMBING))
+						{
+							blockedBottom = o;
+							mode = MODE_GROUNDED;
+						}
 					}
 					else if (o is Climbable)
 					{
@@ -571,7 +583,6 @@ package core.gameobject
 				{
 					AddPoints(npc.points);
 				}
-				trace(npc.GetReferencedItems(false).length);
 			}
 		}
 		
