@@ -18,7 +18,7 @@ package game.objects.level3
 		override public function Interact():void 
 		{
 			if (GetReferencedItems(false).length == 0)
-				Game.gameScreen.level.GetGameObjectByID('finish').active = true;
+				Game.gameScreen.GameOver(true);
 		}
 	}
 

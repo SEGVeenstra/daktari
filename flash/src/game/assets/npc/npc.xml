@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:f413ff588a70f5140791e474bf4e0956:1/1$ -->
+<TextureAtlas imagePath="npc.png">
+    <SubTexture name="bubble" x="2" y="2" width="80" height="80"/>
+    <SubTexture name="client1_finished_1" x="84" y="2" width="48" height="96"/>
+    <SubTexture name="client1_finished_2" x="134" y="2" width="48" height="96"/>
+    <SubTexture name="client1_idle_1" x="184" y="2" width="48" height="96"/>
+    <SubTexture name="client1_idle_2" x="2" y="100" width="48" height="96"/>
+    <SubTexture name="finished" x="52" y="100" width="64" height="64"/>
+    <SubTexture name="girl" x="118" y="100" width="48" height="64"/>
+</TextureAtlas>

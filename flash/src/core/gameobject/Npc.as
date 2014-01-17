@@ -6,7 +6,10 @@ package core.gameobject
 	import core.level.Level;
 	import core.quest.QuestItem;
 	import flash.geom.Rectangle;
+	import starling.animation.Juggler;
+	import starling.core.Starling;
 	import starling.display.Image;
+	import starling.display.MovieClip;
 	import starling.display.Shape;
 	import starling.events.EnterFrameEvent;
 	/**
@@ -26,6 +29,8 @@ package core.gameobject
 		protected var check:Image = new Image(Assets.GetAtlas('npc').getTexture('finished'));
 		public var reward:Item;
 		
+		private var defaultAnimation:MovieClip;
+		private var finishedAnimation:MovieClip;
 		
 		public function Npc(id:String, x:Number, y:Number, width:Number, height:Number, points:int, reward:Item = null) 
 		{
@@ -48,6 +53,22 @@ package core.gameobject
 			check.visible = false;
 			this.reward = reward;
 			
+		}
+		
+		public function SetAnimations(idle:MovieClip, finished:MovieClip = null)
+		{
+			var questDone:Boolean = GetReferencedItems(false).length == 0 ? true:false;
+			this.defaultAnimation = idle;
+			Starling.juggler.add(idle);
+			addChild(idle);
+			idle.visible = !questDone;
+			if (finished)
+			{
+				this.finishedAnimation = finished;
+				Starling.juggler.add(finished);
+				addChild(finished);
+				finished.visible = questDone;
+			}
 		}
 		
 		private function OnEnterFrame(e:EnterFrameEvent):void 
@@ -168,9 +189,15 @@ package core.gameobject
 			{
 				setChildIndex(check, getChildIndex(currentQuestItem.image) +1);
 				check.visible = true;
-				if (GetReferencedItems(false).length == 0 && reward)
+				if (GetReferencedItems(false).length == 0)
 				{
-					Game.gameScreen.userInterface.inventory.addToInventory(reward);
+					if(reward)
+						Game.gameScreen.userInterface.inventory.addToInventory(reward);
+					if (defaultAnimation && finishedAnimation)
+					{
+						defaultAnimation.visible = false;
+						finishedAnimation.visible = true;
+					}
 				}
 			}
 		}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:af55273420fd726c88428bf77cd4f5ba:1/1$ -->
+<TextureAtlas imagePath="level_3.png">
+    <SubTexture name="bus" x="662" y="116" width="448" height="192"/>
+    <SubTexture name="cat_walk" x="2" y="2" width="640" height="16"/>
+    <SubTexture name="door_closed" x="1846" y="2" width="64" height="112"/>
+    <SubTexture name="door_open" x="1912" y="2" width="64" height="112"/>
+    <SubTexture name="grass_hill" x="2" y="358" width="1304" height="240"/>
+    <SubTexture name="ground" x="644" y="2" width="1200" height="80"/>
+    <SubTexture name="park_sign_back" x="644" y="116" width="16" height="176"/>
+    <SubTexture name="park_sign_front" x="1112" y="116" width="256" height="240"/>
+    <SubTexture name="tree" x="1308" y="358" width="720" height="608"/>
+    <SubTexture name="wall" x="2" y="116" width="640" height="144"/>
+</TextureAtlas>

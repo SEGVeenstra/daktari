@@ -11,9 +11,12 @@ package game.levels
 	import core.gameobject.Platform;
 	import core.level.Level;
 	import core.quest.QuestItem;
+	import core.ui.uiobjects.Vitalitybar;
+	import core.visualobject.VisualObject;
 	import game.objects.characters.Teenager;
 	import game.objects.level3.BusDriverNPC;
 	import starling.display.Image;
+	import starling.display.MovieClip;
 	
 	/**
 	 * ...
@@ -41,18 +44,8 @@ package game.levels
 			
 			var busKeys:Item = new Item('bus_keys', 0, 0,new Image(Assets.GetCollectableTexture('kite')));
 			
-			// Borders
+			
 			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background')));
-			SetPlayer(new Teenager('player', 2, 47, true));
-			
-			AddGameObject(delivery1);
-			AddGameObject(delivery2);
-			AddGameObject(delivery3);
-			
-			AddGameObject(new Platform('ground', 0, 55, 150, 5));
-			AddGameObject(new Platform('top_border', 0, 0, 150, 1));
-			AddGameObject(new Platform('left_border', 0, 0, 1, 60));
-			AddGameObject(new Platform('right_border', 149, 0, 1, 60));
 			
 			// Building platforms
 			AddGameObject(new Platform('building_f1', 10, 45, 40, 1));
@@ -61,12 +54,61 @@ package game.levels
 			AddGameObject(new Platform('building_f4', 10, 15, 40, 1));
 			AddGameObject(new Platform('building_f5', 10, 5, 40, 1));
 			
+			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'cat_walk')), 10, 45);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'cat_walk')), 10, 35);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'cat_walk')), 10, 25);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'cat_walk')), 10, 15);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'cat_walk')), 10, 5);
+			
+			// Visuals behind Player
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'wall')), 10, 46);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'wall')), 10, 36);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'wall')), 10, 26);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'wall')), 10, 16);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'wall')), 10, 6);
+			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'tree')), 90, 2);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'grass_hill')), 70, 40);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'bus')), 38, 43);
+			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'park_sign_back')), 87, 29);
+			
+			
+			
+			// Visuals infront of the player
+			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'park_sign_front')), 86, 25);
+			
+			
+			AddGameObject(delivery1);
+			AddGameObject(delivery2);
+			AddGameObject(delivery3);
+			
+			// Borders
+			AddGameObject(new Platform('ground', 0, 55, 150, 5));
+			AddGameObject(new Platform('top_border', 0, 0, 150, 1));
+			AddGameObject(new Platform('left_border', 0, 0, 1, 60));
+			AddGameObject(new Platform('right_border', 149, 0, 1, 60));
+			
+			
+			
 			// Building doors
 			var door1:Door = new Door('door_1', 23, 48);
+			door1.openImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_open'));
+			door1.closedImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_closed'));
 			var door2:Door = new Door('door_2', 23, 38);
+			door2.openImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_open'));
+			door2.closedImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_closed'));
 			var door3:Door = new Door('door_3', 23, 28);
+			door3.openImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_open'));
+			door3.closedImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_closed'));
 			var door4:Door = new Door('door_4', 23, 18);
+			door4.openImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_open'));
+			door4.closedImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_closed'));
 			var door5:Door = new Door('door_5', 23, 8);
+			door5.openImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_open'));
+			door5.closedImage = new Image(Assets.GetTextureFromAtlas('level_3', 'door_closed'));
 			
 			door1.SetExits(null, null, door2, null);
 			door2.SetExits(null, null, door3, door1);
@@ -80,25 +122,27 @@ package game.levels
 			AddGameObject(door4);
 			AddGameObject(door5);
 			
+			SetPlayer(new Teenager('player', 2, 47, true));
+			
 			// park
 			// stairs
-			AddGameObject(new Platform('stair_1', 75, 51, 10, 1, true));
-			AddGameObject(new Platform('stair_2', 78, 48, 10, 1, true));
-			AddGameObject(new Platform('stair_3', 81, 45, 10, 1, true));
-			AddGameObject(new Platform('stair_4', 84, 42, 10, 1, true));
-			AddGameObject(new Platform('park_floor', 74, 39, 75, 1, true));
+			AddGameObject(new Platform('stair_1', 77, 51, 12, 1, true));
+			AddGameObject(new Platform('stair_2', 80, 48, 12, 1, true));
+			AddGameObject(new Platform('stair_3', 83, 45, 12, 1, true));
+			AddGameObject(new Platform('stair_4', 86, 42, 12, 1, true));
+			AddGameObject(new Platform('park_floor', 84, 40, 65, 1, true));
 			
 			// tree
-			AddGameObject(new Platform('branch_1', 105, 34, 5, 1, true));
+			AddGameObject(new Platform('branch_1', 104, 34, 5, 1, true));
 			AddGameObject(new Platform('branch_2', 114, 30, 5, 1, true));
-			AddGameObject(new Platform('branch_3', 107, 25, 5, 1, true));
-			AddGameObject(new Platform('branch_4', 112, 20, 5, 1, true));
-			AddGameObject(new Platform('branch_5', 100, 19, 5, 1));
+			AddGameObject(new Platform('branch_3', 106, 25, 5, 1, true));
+			AddGameObject(new Platform('branch_4', 111, 20, 5, 1, true));
+			AddGameObject(new Platform('branch_5', 100, 18, 5, 1));
 			
 			// bus
 			
 			// Birdsnest
-			var nest:Enemy = new Enemy('nest', 100, 13, 5, 6, 0, 200);
+			var nest:Enemy = new Enemy('nest', 100, 12, 5, 6, 0, 200);
 			nest.requiredItem = birdSeed;
 			nest.rewardItem = busKeys;
 			AddGameObject(nest);
@@ -108,16 +152,21 @@ package game.levels
 			// NPC
 			var client1:Npc = new Npc('client_1', 14, 29, 3, 6, 100);
 			client1.AddQuestItem(new QuestItem(delivery1, new Image(Assets.GetCollectableTexture('green_apple'))));
+			client1.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
 			var client2:Npc = new Npc('client_2', 34, 19, 3, 6, 100);
 			client2.AddQuestItem(new QuestItem(delivery2, new Image(Assets.GetCollectableTexture('green_apple'))));
+			client2.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
 			var client3:Npc = new Npc('client_3', 44, 9, 3, 6, 0, money);
 			client3.AddQuestItem(new QuestItem(delivery3, new Image(Assets.GetCollectableTexture('green_apple'))));
-						
-			var birdFeeder:Npc = new Npc('bird_feeder', 127, 33, 3, 6, 150, birdSeed);
+			client3.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
+			
+			var birdFeeder:Npc = new Npc('bird_feeder', 127, 34, 3, 6, 150, birdSeed);
 			birdFeeder.AddQuestItem(new QuestItem(money, new Image(Assets.GetCollectableTexture('banana'))));
+			birdFeeder.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
 			
 			var busDriver:BusDriverNPC = new BusDriverNPC('bus_driver', 46, 49, 1000);
 			busDriver.AddQuestItem(new QuestItem(busKeys, new Image(Assets.GetCollectableTexture('kite'))));
+			busDriver.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
 			
 			AddGameObject(client1);
 			AddGameObject(client2);
@@ -125,7 +174,8 @@ package game.levels
 			AddGameObject(birdFeeder);
 			AddGameObject(busDriver);
 			
-			AddGameObject(new Finish('finish', 54, 51, 2, 4, false));
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'ground')), 0, 55);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'ground')), 75, 55);
 			
 			debug = true;
 		}

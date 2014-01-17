@@ -22,10 +22,20 @@ package core.asset
 		[Embed(source = "/game/assets/level1/level_1.xml", mimeType="application/octet-stream")]
 		public static const level_1_XML:Class;
 		
-		[Embed(source = "/game/assets/level1/npc.png")]
+		[Embed(source = "/game/assets/level3/level_3.png")]
+		public static const level_3_TEXTURE:Class;
+		[Embed(source = "/game/assets/level3/level_3.xml", mimeType="application/octet-stream")]
+		public static const level_3_XML:Class;
+		
+		[Embed(source = "/game/assets/npc/npc.png")]
 		public static const npc_TEXTURE:Class;
-		[Embed(source = "/game/assets/level1/npc.xml", mimeType="application/octet-stream")]
+		[Embed(source = "/game/assets/npc/npc.xml", mimeType="application/octet-stream")]
 		public static const npc_XML:Class;
+		
+		[Embed(source = "/game/assets/level1/npc.png")]
+		public static const npc1_TEXTURE:Class;
+		[Embed(source = "/game/assets/level1/npc.xml", mimeType="application/octet-stream")]
+		public static const npc1_XML:Class;
 		
 		[Embed(source = "/game/assets/tutorial/tutorial.png")]
 		public static const tutorial_TEXTURE:Class;
