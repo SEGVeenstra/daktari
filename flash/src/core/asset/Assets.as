@@ -62,6 +62,11 @@ package core.asset
 		[Embed(source = "/game/assets/menu/menu.xml", mimeType="application/octet-stream")]
 		public static const menu_XML:Class;
 		
+		[Embed(source = "/game/assets/enemy/enemy.png")]
+		public static const enemy_TEXTURE:Class;
+		[Embed(source = "/game/assets/enemy/enemy.xml", mimeType="application/octet-stream")]
+		public static const enemy_XML:Class;
+		
 		public function Assets() 
 		{
 			

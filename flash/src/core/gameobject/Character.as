@@ -601,7 +601,7 @@ package core.gameobject
 				}
 				else 
 				{
-					if (mode != MODE_INDOOR)
+					if (mode != MODE_INDOOR && enemy.damage > 0)
 					{
 						TakeHit(enemy.damage);
 						enemy.startAnimation();

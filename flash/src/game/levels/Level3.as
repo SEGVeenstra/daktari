@@ -142,7 +142,10 @@ package game.levels
 			// bus
 			
 			// Birdsnest
-			var nest:Enemy = new Enemy('nest', 100, 12, 5, 6, 0, 200);
+			var nest:Enemy = new Enemy('nest', 100, 11, 5, 7, 5, 200);
+			nest.SetAnimations(new MovieClip(Assets.GetAtlas('enemy').getTextures('bird-nest-idle-'), 2),
+				new MovieClip(Assets.GetAtlas('enemy').getTextures('bird-nest-hit-'), 6),
+				new MovieClip(Assets.GetAtlas('enemy').getTextures('bird-nest-friendly-'), 2));
 			nest.requiredItem = birdSeed;
 			nest.rewardItem = busKeys;
 			AddGameObject(nest);
@@ -177,7 +180,7 @@ package game.levels
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'ground')), 0, 55);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'ground')), 75, 55);
 			
-			debug = true;
+			debug = false;
 		}
 	}
 
