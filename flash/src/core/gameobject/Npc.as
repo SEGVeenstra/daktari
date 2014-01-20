@@ -55,7 +55,7 @@ package core.gameobject
 			
 		}
 		
-		public function SetAnimations(idle:MovieClip, finished:MovieClip = null)
+		public function SetAnimations(idle:MovieClip, finished:MovieClip = null):void
 		{
 			var questDone:Boolean = GetReferencedItems(false).length == 0 ? true:false;
 			this.defaultAnimation = idle;

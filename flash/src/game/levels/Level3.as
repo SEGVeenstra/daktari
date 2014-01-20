@@ -13,6 +13,8 @@ package game.levels
 	import core.quest.QuestItem;
 	import core.ui.uiobjects.Vitalitybar;
 	import core.visualobject.VisualObject;
+	import game.comics.ComicOutro3;
+	import game.objects.characters.Adult;
 	import game.objects.characters.Teenager;
 	import game.objects.level3.BusDriverNPC;
 	import starling.display.Image;
@@ -28,6 +30,7 @@ package game.levels
 		public function Level3() 
 		{
 			super(0, 0);
+			SetEndingComic(ComicOutro3);
 		}
 		
 		override protected function Build():void 
@@ -76,9 +79,7 @@ package game.levels
 			
 			
 			
-			// Visuals infront of the player
 			
-			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'park_sign_front')), 86, 25);
 			
 			
 			AddGameObject(delivery1);
@@ -122,7 +123,11 @@ package game.levels
 			AddGameObject(door4);
 			AddGameObject(door5);
 			
-			SetPlayer(new Teenager('player', 2, 47, true));
+			SetPlayer(new Adult('player', 2, 47, true));
+			
+			// Visuals infront of the player
+			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'park_sign_front')), 86, 25);
 			
 			// park
 			// stairs

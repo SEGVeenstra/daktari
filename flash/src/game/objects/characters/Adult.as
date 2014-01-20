@@ -12,7 +12,7 @@ package game.objects.characters
 	 * ...
 	 * @author SEG.Veenstra
 	 */
-	public class Teenager extends Character 
+	public class Adult extends Character 
 	{
 		private var aniWalk:MovieClip;
 		private var aniIdle:MovieClip;
@@ -25,14 +25,14 @@ package game.objects.characters
 		
 		private var _currentAnimation:MovieClip;
 		
-		public function Teenager(id:String,x:Number,y:Number,isSick:Boolean = false) 
+		public function Adult(id:String,x:Number,y:Number,isSick:Boolean = false) 
 		{
-			super(id, x, y,3,5,isSick);
-			aniIdle = new MovieClip(Assets.GetAtlas('teenager').getTextures('idle_'),2);
-			aniWalk = new MovieClip(Assets.GetAtlas('teenager').getTextures('walk_'),12);
-			aniDoor = new MovieClip(Assets.GetAtlas('teenager').getTextures('door_'),8);
-			aniJump = new MovieClip(Assets.GetAtlas('teenager').getTextures('jump_'),8);
-			aniClimb = new MovieClip(Assets.GetAtlas('teenager').getTextures('climb_'),8);
+			super(id, x, y,3,6,isSick);
+			aniIdle = new MovieClip(Assets.GetAtlas('adult').getTextures('idle_'),2);
+			aniWalk = new MovieClip(Assets.GetAtlas('adult').getTextures('walk_'),12);
+			aniDoor = new MovieClip(Assets.GetAtlas('adult').getTextures('door_'),8);
+			aniJump = new MovieClip(Assets.GetAtlas('adult').getTextures('jump_'),8);
+			aniClimb = new MovieClip(Assets.GetAtlas('adult').getTextures('climb_'),8);
 			addChild(aniIdle);
 			addChild(aniWalk);
 			addChild(aniDoor);

@@ -13,6 +13,7 @@ package game.levels
 	import core.gameobject.TutorialObject;
 	import core.quest.QuestItem;
 	import core.visualobject.VisualObject;
+	import game.comics.ComicOutro1;
 	import game.objects.*;
 	import core.gameobject.collectable.PowerUp;
 	import core.gameobject.Door;
@@ -118,6 +119,7 @@ package game.levels
 		{
 			super(100,60);
 			trace('Level 1 geladen');
+			SetEndingComic(ComicOutro1);
 		}
 		
 		/**

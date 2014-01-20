@@ -9,6 +9,7 @@ package core.screen
 	import flash.utils.getQualifiedClassName;
 	import game.screens.GameOverScreen;
 	import game.screens.PauseScreen;
+	import game.screens.VictoryScreen;
 	import starling.events.EnterFrameEvent;
 	import starling.events.KeyboardEvent;
 	/**
@@ -25,6 +26,7 @@ package core.screen
 		
 		private var _pauseScreen:PauseScreen;
 		private var _gameOverScreen:GameOverScreen;
+		private var _victoryScreen:VictoryScreen;
 		
 		private var cameraPoint:Point = new Point(0, 0);
 		
@@ -36,9 +38,11 @@ package core.screen
 			_userInterface = new UserInterface();
 			_pauseScreen = new PauseScreen();
 			_gameOverScreen = new GameOverScreen();
+			_victoryScreen = new VictoryScreen();
 			addChild(_userInterface);
 			addChild(_gameOverScreen);
 			addChild(_pauseScreen);
+			addChild(_victoryScreen);
 			addEventListener(EnterFrameEvent.ENTER_FRAME, OnEnterFrame);
 		}
 		
@@ -110,6 +114,8 @@ package core.screen
 				_pauseScreen.Control(e);
 			else if (_gameOverScreen.active)
 				_gameOverScreen.Control(e);
+			else if (_victoryScreen.active)
+				_victoryScreen.Control(e);
 		}
 		
 		/**
@@ -121,6 +127,7 @@ package core.screen
 			level.Pause();
 			_pauseScreen.active = true;
 			_gameOverScreen.active = false;
+			_victoryScreen.active = false;
 			_pauseScreen.activeItemPosition = 0;
 			setChildIndex(_pauseScreen, numChildren -1);
 			_pause = true;
@@ -135,6 +142,7 @@ package core.screen
 			level.Play();
 			_pauseScreen.active = false;
 			_gameOverScreen.active = false;
+			_victoryScreen.active = false;
 			setChildIndex(level, numChildren -2);
 			setChildIndex(userInterface, numChildren -1);
 			_pause = false;
@@ -152,14 +160,23 @@ package core.screen
 		/**
 		 * Show game over screen
 		 */
-		public function GameOver(won:Boolean = false):void
+		public function GameOver():void
 		{
 			level.Pause();
 			setChildIndex(_gameOverScreen, numChildren -1);
 			_gameOverScreen.active = true;
 			_gameOverScreen.activeItemPosition = 0;
 			_pause = true;
-			_gameOverScreen.Finished(won);
+		}
+		
+		public function Finished():void
+		{
+			level.Pause();
+			setChildIndex(_victoryScreen, numChildren -1);
+			_victoryScreen.active = true;
+			_victoryScreen.activeItemPosition = 0;
+			_victoryScreen.SetScore(Game.gameScreen.level.player.points);
+			_pause = true;
 		}
 	}
 

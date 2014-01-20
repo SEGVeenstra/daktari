@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:b3b547993b7632548ac363f403cca8f7:4eea241e671ba2a0ea3f1e7125a8b58e:82cb3bf15ffffdc9f73a7a649d8df116$ -->
-<TextureAtlas imagePath="items_level_1.png">
-    <SubTexture name="banana" x="2" y="100" width="40" height="48" frameX="-6" frameY="0" frameWidth="48" frameHeight="48"/>
-    <SubTexture name="bone" x="52" y="2" width="48" height="46" frameX="0" frameY="0" frameWidth="48" frameHeight="48"/>
-    <SubTexture name="kite" x="2" y="2" width="48" height="48"/>
-    <SubTexture name="green_apple" x="2" y="52" width="42" height="46" frameX="-2" frameY="0" frameWidth="48" frameHeight="48"/>
-    <SubTexture name="key" x="44" y="100" width="32" height="46" frameX="-7" frameY="-1" frameWidth="48" frameHeight="48"/>
-    <SubTexture name="medicines" x="78" y="100" width="30" height="48" frameX="-9" frameY="0" frameWidth="48" frameHeight="48"/>
-    <SubTexture name="red_apple" x="52" y="50" width="44" height="48" frameX="-1" frameY="0" frameWidth="48" frameHeight="48"/>
+<!-- $TexturePacker:SmartUpdate:4592499d27397fd63441777d3e19b38d:8e0c842a4381505b14c0f81aeb1bcb98:91e51333c99e7367fd34b842dd254a45$ -->
+<TextureAtlas imagePath="items.png">
+    <SubTexture name="banana" x="2" y="2" width="48" height="48"/>
+    <SubTexture name="bone" x="52" y="2" width="48" height="48"/>
+    <SubTexture name="bread" x="102" y="2" width="48" height="48"/>
+    <SubTexture name="broccoli" x="152" y="2" width="64" height="64"/>
+    <SubTexture name="chicken" x="218" y="2" width="64" height="64"/>
+    <SubTexture name="croissant" x="284" y="2" width="48" height="48"/>
+    <SubTexture name="fish" x="334" y="2" width="48" height="48"/>
+    <SubTexture name="fountain" x="2" y="68" width="128" height="96"/>
+    <SubTexture name="garbage" x="132" y="68" width="64" height="70"/>
+    <SubTexture name="green_apple" x="198" y="68" width="48" height="48"/>
+    <SubTexture name="juice" x="248" y="68" width="48" height="48"/>
+    <SubTexture name="key" x="298" y="68" width="64" height="64"/>
+    <SubTexture name="key_blue" x="364" y="68" width="64" height="64"/>
+    <SubTexture name="key_brown" x="430" y="68" width="64" height="64"/>
+    <SubTexture name="key_green" x="2" y="166" width="64" height="64"/>
+    <SubTexture name="key_red" x="68" y="166" width="64" height="64"/>
+    <SubTexture name="kite" x="134" y="166" width="64" height="64"/>
+    <SubTexture name="marble" x="200" y="166" width="64" height="64"/>
+    <SubTexture name="meat" x="266" y="166" width="48" height="48"/>
+    <SubTexture name="medicines" x="316" y="166" width="48" height="48"/>
+    <SubTexture name="milk" x="366" y="166" width="48" height="48"/>
+    <SubTexture name="necklace" x="416" y="166" width="64" height="64"/>
+    <SubTexture name="needle" x="2" y="232" width="64" height="64"/>
+    <SubTexture name="pineapple" x="68" y="232" width="48" height="48"/>
+    <SubTexture name="red_apple" x="118" y="232" width="48" height="48"/>
+    <SubTexture name="rice" x="168" y="232" width="64" height="64"/>
+    <SubTexture name="toolbox" x="234" y="232" width="64" height="64"/>
+    <SubTexture name="water" x="300" y="232" width="64" height="64"/>
 </TextureAtlas>

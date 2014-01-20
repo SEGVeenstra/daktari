@@ -52,10 +52,20 @@ package core.asset
 		[Embed(source = "/game/assets/characters/teenager.xml", mimeType="application/octet-stream")]
 		public static const teenager_XML:Class;
 		
-		[Embed(source = "/game/assets/comics/intro_1.png")]
+		[Embed(source = "/game/assets/characters/adult.png")]
+		public static const adult_TEXTURE:Class;
+		[Embed(source = "/game/assets/characters/adult.xml", mimeType="application/octet-stream")]
+		public static const adult_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_intro_1.png")]
 		public static const intro_1_TEXTURE:Class;
-		[Embed(source = "/game/assets/comics/intro_1.xml", mimeType="application/octet-stream")]
+		[Embed(source = "/game/assets/comics/comic_intro_1.xml", mimeType="application/octet-stream")]
 		public static const intro_1_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_outro_1.png")]
+		public static const outro_1_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_outro_1.xml", mimeType="application/octet-stream")]
+		public static const outro_1_XML:Class;
 		
 		[Embed(source = "/game/assets/menu/menu.png")]
 		public static const menu_TEXTURE:Class;

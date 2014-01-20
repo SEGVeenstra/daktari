@@ -44,11 +44,11 @@ package core.gameobject
 		
 		public var isSick:Boolean;
 		
-		public function Character(id:String, x:Number, y:Number, isSick:Boolean = false) 
+		public function Character(id:String, x:Number, y:Number,width:Number,height:Number, isSick:Boolean = false) 
 		{
 			super(id, x, y);
 			this.isSick = isSick;
-			collider = new Rectangle(x * Level.GRIDSIZE, y * Level.GRIDSIZE, Level.GRIDSIZE * 3, Level.GRIDSIZE * 5);
+			collider = new Rectangle(x * Level.GRIDSIZE, y * Level.GRIDSIZE, Level.GRIDSIZE * width, Level.GRIDSIZE * height);
 			Draw();
 			mode = MODE_AIRBOURNE;
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
@@ -209,7 +209,7 @@ package core.gameobject
 			{
 				if (_vitality < 1)
 				{
-					Game.gameScreen.GameOver(false);
+					Game.gameScreen.GameOver();
 					return;
 				}
 				_vitality -= ILLNESS_INTENSITIE;
@@ -513,7 +513,7 @@ package core.gameobject
 				{
 					if (o is Finish)
 					{
-						Game.gameScreen.GameOver(true);
+						Game.gameScreen.Finished();
 						return;
 					}
 					

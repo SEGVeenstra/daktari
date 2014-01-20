@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:18da0c8b351e25d996b38a460cf35631:acc669ca360b1ccb1b532f4c3081cb77:fab00c90bda2a6238cd4f8bafde2953f$ -->
+<TextureAtlas imagePath="adult.png">
+    <SubTexture name="climb_01" x="2" y="2" width="65" height="96"/>
+    <SubTexture name="climb_02" x="69" y="2" width="65" height="96"/>
+    <SubTexture name="climb_03" x="136" y="2" width="65" height="96"/>
+    <SubTexture name="climb_04" x="2" y="100" width="65" height="96"/>
+    <SubTexture name="door_01" x="69" y="100" width="65" height="96"/>
+    <SubTexture name="idle_01" x="136" y="100" width="65" height="96"/>
+    <SubTexture name="jump_01" x="2" y="198" width="65" height="96"/>
+    <SubTexture name="jump_02" x="69" y="198" width="65" height="96"/>
+    <SubTexture name="walk_01" x="136" y="198" width="65" height="96"/>
+    <SubTexture name="walk_02" x="2" y="296" width="65" height="96"/>
+    <SubTexture name="walk_03" x="69" y="296" width="65" height="96"/>
+    <SubTexture name="walk_04" x="136" y="296" width="65" height="96"/>
+    <SubTexture name="walk_05" x="2" y="394" width="65" height="96"/>
+    <SubTexture name="walk_06" x="69" y="394" width="65" height="96"/>
+    <SubTexture name="walk_07" x="136" y="394" width="65" height="96"/>
+</TextureAtlas>

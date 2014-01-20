@@ -5,6 +5,8 @@ package game.screens
 	import core.menu.Menu;
 	import core.menu.menuobject.Button;
 	import game.comics.ComicIntro1;
+	import game.comics.ComicIntro2;
+	import game.comics.ComicIntro3;
 	import game.levels.Level1;
 	import game.levels.Level2;
 	import game.levels.Level3;
@@ -46,9 +48,9 @@ package game.screens
 					Game.LoadComic(ComicIntro1);
 				}
 				else if (activeItem == level2Button)
-					Game.LoadLevel(Level2);
+					Game.LoadComic(ComicIntro2);
 				else if (activeItem == level3Button)
-					Game.LoadLevel(Level3);
+					Game.LoadComic(ComicIntro3);
 			}
 			else if (e.keyCode == Key.ESCAPE)
 				Game.LoadMenu(MainMenu);

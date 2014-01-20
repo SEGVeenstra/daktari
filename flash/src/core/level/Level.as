@@ -1,5 +1,6 @@
 package core.level 
 {
+	import core.comic.Comic;
 	import core.gameobject.Character;
 	import core.gameobject.GameObject;
 	import core.visualobject.VisualObject;
@@ -29,12 +30,24 @@ package core.level
 		
 		private var _debug:Boolean =  true;
 		
+		private var _endingComic:Class;
+		
 		public function Level(width:Number, height:Number) 
 		{
 			levelWidth = width * GRIDSIZE;
 			levelHeight = height * GRIDSIZE;
 			Build();
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
+		}
+		
+		public function get endingComic():Class
+		{
+			return _endingComic;
+		}
+		
+		public function SetEndingComic(comic:Class):void
+		{
+			_endingComic = comic;
 		}
 		
 		private function OnAddedToStage(e:Event):void 
