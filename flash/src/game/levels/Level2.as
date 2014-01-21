@@ -17,6 +17,7 @@ package game.levels
 	import game.objects.characters.Teenager;
 	import game.objects.items.powerups.Apple;
 	import starling.display.Image;
+	import core.visualobject.VisualObject;
 	
 	/**
 	 * ...
@@ -34,7 +35,16 @@ package game.levels
 		override protected function Build():void 
 		{
 			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background')));
+			
+			// visuals
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')),15,23);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')),15,40);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')),15,57);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')),15,74);
+			
 			SetPlayer(new Teenager('player', 2, 30));
+			
+			
 			AddGameObject(new Platform('ground', 0, 90, 125, 5));
 			AddGameObject(new Platform('border_top', 0, 0, 125, 1));
 			AddGameObject(new Platform('border_left', 0, 0, 1, 90));
@@ -111,8 +121,8 @@ package game.levels
 			AddGameObject(npc3);
 			npc3.AddQuestItem(new QuestItem(item4,new Image(Assets.GetCollectableTexture('key'))));
 			
-			AddGameObject(new MovableEnemy('enemy_1', 27, 87, 4, 3, 0, 0, 60, 3));
-			(GetGameObjectByID('enemy_1') as Enemy).requiredItem = item1;
+			AddGameObject(new MovableEnemy('enemy_1', 27, 87, 4, 3, 10, 0, 60, 3));
+			//(GetGameObjectByID('enemy_1') as Enemy).requiredItem = item1;
 			AddGameObject(new MovableEnemy('enemy_2', 75, 87, 4, 3, 0, 0, 107, 3));
 			(GetGameObjectByID('enemy_2') as Enemy).requiredItem = item2;
 			AddGameObject(new Enemy('enemy_3', 87, 68, 12, 5, 0, 0));

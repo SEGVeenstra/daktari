@@ -592,30 +592,20 @@ package core.gameobject
 		 */
 		private function interactWithEnemy(enemy:Enemy):void 
 		{
-			if (enemy.requiredItem)
+
+			if (mode != MODE_INDOOR && enemy.damage > 0)
 			{
-				if (Game.gameScreen.userInterface.inventory.containsItem(enemy.requiredItem))
-				{
-					Game.gameScreen.userInterface.inventory.useInventoryItem(enemy.requiredItem);
-					enemy.requiredItem = null;
-				}
-				else 
-				{
-					if (mode != MODE_INDOOR && enemy.damage > 0)
-					{
-						TakeHit(enemy.damage);
-						enemy.startAnimation();
-						collider.y -= 1;
-						
-						pressedJmp = true;
-						currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
-						jumpSpd = MAX_JUMP_SPEED * -1;
-						runSpd = runSpd > 0 ? -MAX_RUN_SPEED*2 : MAX_RUN_SPEED*2;
-						mode = MODE_AIRBOURNE;
-						blockedBottom = null;
-						return;
-					}
-				}
+				TakeHit(enemy.damage);
+				enemy.startAnimation();
+				collider.y -= 1;
+				
+				pressedJmp = true;
+				currentJump = MAX_JUMP_HEIGHT * vitalityRatio;
+				jumpSpd = MAX_JUMP_SPEED * -1;
+				runSpd = runSpd > 0 ? -MAX_RUN_SPEED*2 : MAX_RUN_SPEED*2;
+				mode = MODE_AIRBOURNE;
+				blockedBottom = null;
+				return;
 			}
 		}
 		
