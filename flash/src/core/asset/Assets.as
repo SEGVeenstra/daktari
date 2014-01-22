@@ -27,6 +27,11 @@ package core.asset
 		[Embed(source = "/game/assets/level2/supermarket.xml", mimeType="application/octet-stream")]
 		public static const level_2_XML:Class;
 		
+		[Embed(source = "/game/assets/level2/structure and background.png")]
+		public static const level_2_structure_TEXTURE:Class;
+		[Embed(source = "/game/assets/level2/structure and background.xml", mimeType="application/octet-stream")]
+		public static const level_2_structure_XML:Class;
+		
 		[Embed(source = "/game/assets/level3/level_3.png")]
 		public static const level_3_TEXTURE:Class;
 		[Embed(source = "/game/assets/level3/level_3.xml", mimeType="application/octet-stream")]
@@ -61,6 +66,11 @@ package core.asset
 		public static const adult_TEXTURE:Class;
 		[Embed(source = "/game/assets/characters/adult.xml", mimeType="application/octet-stream")]
 		public static const adult_XML:Class;
+		
+		[Embed(source = "/game/assets/characters/secondary_characters.png")]
+		public static const secondary_characters_TEXTURE:Class;
+		[Embed(source = "/game/assets/characters/secondary_characters.xml", mimeType="application/octet-stream")]
+		public static const secondary_characters_XML:Class;
 		
 		[Embed(source = "/game/assets/comics/comic_intro_1.png")]
 		public static const intro_1_TEXTURE:Class;

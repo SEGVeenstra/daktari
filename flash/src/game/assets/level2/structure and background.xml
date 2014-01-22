@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:72a77b5080ff106faac6111cf1a71012:56a8c7e6673ea7437a9dc82f9d574b77:9e5f2e0a75ebd63c0e0582c1edf8ee61$ -->
+<TextureAtlas imagePath="structure and background.png">
+    <SubTexture name="super_market_structure" x="2" y="2" width="1730" height="1074"/>
+</TextureAtlas>
