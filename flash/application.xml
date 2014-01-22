@@ -1,26 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<application xmlns="http://ns.adobe.com/air/application/3.7">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<application xmlns="http://ns.adobe.com/air/application/3.9">
   <id>Daktari</id>
-  <versionNumber>0.3</versionNumber>
-  <supportedProfiles>desktop</supportedProfiles>
+  <versionNumber>1.0</versionNumber>
   <filename>Daktari</filename>
   <name>Daktari</name>
-  <android>
-    <manifestAdditions><![CDATA[<manifest android:installLocation="auto">
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch" />
-</manifest>]]></manifestAdditions>
-  </android>
   <initialWindow>
     <title>Daktari</title>
-    <content>StarlingTest.swf</content>
-    <visible>true</visible>
-    <fullScreen>true</fullScreen>
-    <autoOrients>false</autoOrients>
-    <aspectRatio>landscape</aspectRatio>
-    <renderMode>direct</renderMode>
+    <content>Daktari.swf</content>
     <systemChrome>standard</systemChrome>
-    <resizable>false</resizable>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <minimizable>true</minimizable>
+    <maximizable>true</maximizable>
+    <resizable>true</resizable>
+    <renderMode>gpu</renderMode>
   </initialWindow>
-  <supportedLanguages>en</supportedLanguages>
+  <!-- 
+	More options:
+	http://livedocs.adobe.com/flex/3/html/File_formats_1.html#1043413
+	-->
 </application>
