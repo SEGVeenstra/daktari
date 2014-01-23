@@ -72,15 +72,65 @@ package core.asset
 		[Embed(source = "/game/assets/characters/secondary_characters.xml", mimeType="application/octet-stream")]
 		public static const secondary_characters_XML:Class;
 		
+		// COMICS [start]
+		// intro's
 		[Embed(source = "/game/assets/comics/comic_intro_1.png")]
 		public static const intro_1_TEXTURE:Class;
 		[Embed(source = "/game/assets/comics/comic_intro_1.xml", mimeType="application/octet-stream")]
 		public static const intro_1_XML:Class;
 		
+		[Embed(source = "/game/assets/comics/comic_intro_2.png")]
+		public static const intro_2_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_intro_2.xml", mimeType="application/octet-stream")]
+		public static const intro_2_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_intro_3.png")]
+		public static const intro_3_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_intro_3.xml", mimeType="application/octet-stream")]
+		public static const intro_3_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_intro_4.png")]
+		public static const intro_4_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_intro_4.xml", mimeType="application/octet-stream")]
+		public static const intro_4_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_intro_5.png")]
+		public static const intro_5_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_intro_5.xml", mimeType="application/octet-stream")]
+		public static const intro_5_XML:Class;
+		
+		// outro's
 		[Embed(source = "/game/assets/comics/comic_outro_1.png")]
 		public static const outro_1_TEXTURE:Class;
 		[Embed(source = "/game/assets/comics/comic_outro_1.xml", mimeType="application/octet-stream")]
 		public static const outro_1_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_outro_2_1.png")]
+		public static const outro_2_1_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_outro_2_1.xml", mimeType="application/octet-stream")]
+		public static const outro_2_1_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_outro_2_2.png")]
+		public static const outro_2_2_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_outro_2_2.xml", mimeType="application/octet-stream")]
+		public static const outro_2_2_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_outro_3.png")]
+		public static const outro_3_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_outro_3.xml", mimeType="application/octet-stream")]
+		public static const outro_3_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_outro_4.png")]
+		public static const outro_4_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_outro_4.xml", mimeType="application/octet-stream")]
+		public static const outro_4_XML:Class;
+		
+		[Embed(source = "/game/assets/comics/comic_outro_5.png")]
+		public static const outro_5_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_outro_5.xml", mimeType="application/octet-stream")]
+		public static const outro_5_XML:Class;
+		
+		// COMICS [end]
 		
 		[Embed(source = "/game/assets/menu/menu.png")]
 		public static const menu_TEXTURE:Class;

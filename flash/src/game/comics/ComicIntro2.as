@@ -14,7 +14,9 @@ package game.comics
 		
 		public function ComicIntro2() 
 		{
-			AddPage(new Image(Assets.GetTextureFromAtlas('intro_1', 'page_1')));
+			AddPage(new Image(Assets.GetTextureFromAtlas('intro_2', 'page_1')));
+			AddPage(new Image(Assets.GetTextureFromAtlas('intro_2', 'page_2')));
+			AddPage(new Image(Assets.GetTextureFromAtlas('intro_2', 'page_3')));
 			SetLevel(Level2);
 		}
 		

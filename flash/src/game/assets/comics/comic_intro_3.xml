@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:17eddeca9df85536367abae2c942d719:994ff57abcb11e644a0074bc53c9686a:01c7965d05570d586059140502b5d071$ -->
+<TextureAtlas imagePath="comic_intro_3.png">
+    <SubTexture name="page_1" x="2" y="2" width="800" height="600"/>
+    <SubTexture name="page_2" x="2" y="604" width="800" height="600"/>
+    <SubTexture name="page_3" x="2" y="1206" width="800" height="600"/>
+</TextureAtlas>

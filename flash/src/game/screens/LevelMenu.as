@@ -7,6 +7,8 @@ package game.screens
 	import game.comics.ComicIntro1;
 	import game.comics.ComicIntro2;
 	import game.comics.ComicIntro3;
+	import game.comics.ComicIntro4;
+	import game.comics.ComicIntro5;
 	import game.levels.Level1;
 	import game.levels.Level2;
 	import game.levels.Level3;
@@ -22,6 +24,8 @@ package game.screens
 		private var level1Button:Button = new Button('button_level_1', 100, 100, '1',Assets.GetTextureFromAtlas('menu','level-menu'),Assets.GetTextureFromAtlas('menu','level-menu-active'));
 		private var level2Button:Button = new Button('button_level_2', 100, 100, '2',Assets.GetTextureFromAtlas('menu','level-menu'),Assets.GetTextureFromAtlas('menu','level-menu-active'));
 		private var level3Button:Button = new Button('button_level_3', 100, 100, '3',Assets.GetTextureFromAtlas('menu','level-menu'),Assets.GetTextureFromAtlas('menu','level-menu-active'));
+		private var level4Button:Button = new Button('button_level_4', 100, 100, '4',Assets.GetTextureFromAtlas('menu','level-menu'),Assets.GetTextureFromAtlas('menu','level-menu-active'));
+		private var level5Button:Button = new Button('button_level_5', 100, 100, '5',Assets.GetTextureFromAtlas('menu','level-menu'),Assets.GetTextureFromAtlas('menu','level-menu-active'));
 		
 		public function LevelMenu() 
 		{
@@ -35,6 +39,8 @@ package game.screens
 			AddMenuObject(level1Button, 100, 250);
 			AddMenuObject(level2Button, 225, 250);
 			AddMenuObject(level3Button, 350, 250);
+			AddMenuObject(level4Button, 475, 250);
+			AddMenuObject(level5Button, 600, 250);
 			addChild(new TextField(800, 50, 'Level Menu', 'Arial', 30, 0, true));
 		}
 		
@@ -51,6 +57,10 @@ package game.screens
 					Game.LoadComic(ComicIntro2);
 				else if (activeItem == level3Button)
 					Game.LoadComic(ComicIntro3);
+				else if (activeItem == level4Button)
+					Game.LoadComic(ComicIntro4);
+				else if (activeItem == level5Button)
+					Game.LoadComic(ComicIntro5);
 			}
 			else if (e.keyCode == Key.ESCAPE)
 				Game.LoadMenu(MainMenu);
