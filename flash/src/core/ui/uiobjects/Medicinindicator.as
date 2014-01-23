@@ -65,6 +65,7 @@ package core.ui.uiobjects
 		
 		public function reset():void {
 			_medicationCount = 0;
+			indicator.text = _medicationCount + '';
 		}
 		
 	}
