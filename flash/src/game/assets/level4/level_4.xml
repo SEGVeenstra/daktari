@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:3a53c5b8d71f58d0b67b90ce6c37139d:8d6d3ddbae794561ede18455dbc09268:65dea5c87ffb572d399267eb91f6fce8$ -->
+<TextureAtlas imagePath="level_4.png">
+    <SubTexture name="ground" x="2" y="2" width="1600" height="80"/>
+    <SubTexture name="rain_pipe" x="1604" y="2" width="48" height="288"/>
+    <SubTexture name="vertical_beam" x="1654" y="2" width="16" height="480"/>
+</TextureAtlas>

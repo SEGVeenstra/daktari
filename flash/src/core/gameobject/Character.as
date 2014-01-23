@@ -536,7 +536,6 @@ package core.gameobject
 					}
 					else if (o is Platform)
 					{
-						var intersect:Rectangle = collider.intersection(o.collider);
 						if ( jumpSpd > 0 && collider.bottom > o.collider.top && collider.bottom < o.collider.bottom && !(mode == MODE_CLIMBING))
 						{
 							blockedBottom = o;
