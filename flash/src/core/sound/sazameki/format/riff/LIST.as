@@ -1,4 +1,4 @@
-package org.as3wavsound.sazameki.format.riff {
+package core.sound.sazameki.format.riff {
 	import flash.utils.ByteArray;
 	
 	/**

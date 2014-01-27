@@ -9,6 +9,8 @@ package core.level
 	import starling.display.Sprite;
 	import starling.events.EnterFrameEvent;
 	import starling.events.Event;
+	import core.sound.SoundManager;
+	import flash.media.Sound;
 	
 	/**
 	 * Can be extended to create a new level

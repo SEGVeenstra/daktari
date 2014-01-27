@@ -9,6 +9,7 @@ package
 	import core.screen.Screen;
 	import core.sound.SoundManager;
 	import flash.media.Sound;
+	import core.sound.Sounds;
 	import game.screens.IntroScreen;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -20,13 +21,10 @@ package
 	 */
 	public class Game extends Sprite 
 	{	
-		// Sound
-		[Embed(source="game/assets/sounds/Level 1 - Sweet Sunshine Final.mp3")]
-		private const backgroundMusic:Class;
-		
 		private static var instance:Game;
 		
 		private var _focus:Screen;
+		private var _soundmanager:SoundManager;
 		
 		private var _gameScreen:GameScreen;
 		private var _menuScreen:MenuScreen;
@@ -36,9 +34,6 @@ package
 		{
 			instance = this;
 			
-			var sound:Sound = new backgroundMusic as Sound;
-			sound.play(0,999);
-			
 			addChild(new Key());
 			
 			CreateScreens();
@@ -46,9 +41,19 @@ package
 			// Load the first screen!
 			Game.focus = Game.menuScreen;
 			
+			//sounds
+			instance._soundmanager = new SoundManager();
+			Sounds.addAllSounds();
+			
 			addEventListener(Event.ADDED_TO_STAGE, OnAddedToStage);
 			
+			//instance._soundmanager.playSound('musiclevel1', 1, 10);
 			
+		}
+		
+		static public function get soundmanager():SoundManager
+		{
+			return instance._soundmanager;
 		}
 		
 		/**
@@ -110,6 +115,7 @@ package
 		 */
 		static public function LoadComic(comic:Class):void
 		{
+			instance._soundmanager.stopAllSounds();
 			instance._gameScreen.active = false;
 			instance._menuScreen.active = false;
 			instance._movieScreen.active = true;
@@ -122,6 +128,7 @@ package
 		 */
 		static public function LoadLevel(level:Class):void
 		{
+			instance._soundmanager.stopAllSounds();
 			instance._gameScreen.active = true;
 			instance._menuScreen.active = false;
 			instance._movieScreen.active = false;
@@ -135,6 +142,7 @@ package
 		 */
 		static public function LoadMenu(menu:Class):void
 		{
+			instance._soundmanager.stopAllSounds();
 			instance._gameScreen.active = false;
 			instance._menuScreen.active = true;
 			instance._movieScreen.active = false;

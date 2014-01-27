@@ -225,6 +225,8 @@ package game.levels
 			AddGameObject(tutorialEnemy);
 			
 			debug = false;
+			
+			Game.soundmanager.playSound("musiclevel1", 1, 10);
 		}
 		
 		/**

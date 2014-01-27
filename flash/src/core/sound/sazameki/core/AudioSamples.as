@@ -1,4 +1,4 @@
-package org.as3wavsound.sazameki.core {
+package core.sound.sazameki.core {
 	
 	/**
 	 * Contains lists of samples -left and optionally right- decoded from a 

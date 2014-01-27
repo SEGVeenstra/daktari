@@ -1,4 +1,4 @@
-package org.as3wavsound.sazameki.format.wav {
+package core.sound.sazameki.format.wav {
 	import org.as3wavsound.sazameki.core.AudioSamples;
 	import org.as3wavsound.sazameki.core.AudioSetting;
 	import org.as3wavsound.sazameki.format.riff.Chunk;

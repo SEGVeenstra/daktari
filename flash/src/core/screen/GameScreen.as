@@ -150,6 +150,7 @@ package core.screen
 		
 		override public function Reset():void 
 		{
+			Game.soundmanager.stopAllSounds();
 			super.Reset();
 			var c:Class = Class(getDefinitionByName(getQualifiedClassName(Game.gameScreen.level)));
 			loadLevel(new c);
@@ -162,6 +163,7 @@ package core.screen
 		 */
 		public function GameOver():void
 		{
+			Game.soundmanager.stopAllSounds();
 			level.Pause();
 			setChildIndex(_gameOverScreen, numChildren -1);
 			_gameOverScreen.active = true;
@@ -171,6 +173,7 @@ package core.screen
 		
 		public function Finished():void
 		{
+			Game.soundmanager.stopAllSounds();
 			level.Pause();
 			setChildIndex(_victoryScreen, numChildren -1);
 			_victoryScreen.active = true;

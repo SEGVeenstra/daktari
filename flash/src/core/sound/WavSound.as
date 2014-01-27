@@ -45,7 +45,7 @@
 	 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	 * THE SOFTWARE.
 	 */
-package org.as3wavsound {
+package core.sound {
 	import flash.media.SoundTransform;
 	import flash.utils.ByteArray;
 	import org.as3wavsound.sazameki.core.AudioSamples;
@@ -75,6 +75,9 @@ package org.as3wavsound {
 	 */
 	public class WavSound {
 		
+		[Embed(source = "../../game/assets/sounds/Level 1 - Sweet Sunshine Final.mp3")]
+		public const bglevel1:Class;
+		public const bg_level1:WavSound = new WavSound(new bglevel1() as ByteArray);
 		// the master Sound player, which mixes all playing WavSound samples on any given moment
 		private static const player:WavSoundPlayer = new WavSoundPlayer();
 		

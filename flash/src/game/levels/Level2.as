@@ -225,6 +225,7 @@ package game.levels
 			AddGameObject(guy_with_basket);
 			
 			//debug = false;
+			Game.soundmanager.playSound("musiclevel2", 1, 10);
 		}
 		
 	}

@@ -56,6 +56,7 @@ package core.gameobject
 				{
 					Game.gameScreen.userInterface.inventory.useInventoryItem(requiredItem);
 					requiredItem = null;
+					Game.soundmanager.playSound("giveitem" , 2);
 					damage = 0;
 					if (rewardItem) Game.gameScreen.userInterface.inventory.addToInventory(rewardItem);
 					if (friendlyAnimation)

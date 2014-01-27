@@ -1,4 +1,4 @@
-package org.as3wavsound.sazameki.core {
+package core.sound.sazameki.core {
 	
 	/**
 	 * Contains a sound's playback configuration, such as mono / stereo, 

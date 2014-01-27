@@ -109,11 +109,14 @@ package core.gameobject
 				_health = 0;
 				Game.gameScreen.userInterface.healthbar.looseHealth(Game.gameScreen.userInterface.healthbar.getCurrentHealth());
 				Game.gameScreen.GameOver();
+				Game.soundmanager.playSound("fail", 2);
+				
 			}
 			else
 			{
 				Game.gameScreen.userInterface.healthbar.looseHealth(damage);
 				_health -= damage;
+				Game.soundmanager.playSound("gethurt", 4);
 			}
 		}
 		
@@ -210,6 +213,7 @@ package core.gameobject
 				if (_vitality < 1)
 				{
 					Game.gameScreen.GameOver();
+					Game.soundmanager.playSound("fail", 2);
 					return;
 				}
 				_vitality -= ILLNESS_INTENSITIE;
@@ -445,6 +449,7 @@ package core.gameobject
 				runSpd = 0;
 			if (Key.isDown(Key.SPACEBAR) && !blockedTop && !pressedJmp)
 			{
+				Game.soundmanager.playSound("jump", 2);
 				collider.y -= 1;
 				mode = MODE_AIRBOURNE;
 				pressedJmp = true;
@@ -514,6 +519,7 @@ package core.gameobject
 					if (o is Finish)
 					{
 						Game.gameScreen.Finished();
+						Game.soundmanager.playSound("victory", 2);
 						return;
 					}
 					
@@ -576,6 +582,7 @@ package core.gameobject
 					{
 						Game.gameScreen.userInterface.inventory.useInventoryItem(i);
 						npc.Collect(i);
+						Game.soundmanager.playSound("giveitem", 2);
 					}
 				}
 				if (npc.GetReferencedItems(false).length == 0)
@@ -622,6 +629,7 @@ package core.gameobject
 					{
 						Game.gameScreen.userInterface.inventory.useInventoryItem(door.requiredKey);
 						door.Unlock(door.requiredKey);
+						Game.soundmanager.playSound("unlockdoor", 2);
 					}
 				}
 			}
@@ -642,6 +650,7 @@ package core.gameobject
 				var m:Medication = o as Medication;
 				Game.gameScreen.level.RemoveGameObject(o);
 				Game.gameScreen.userInterface.medicinindicator.addMedication();
+				Game.soundmanager.playSound("getdrugs", 2);
 			}
 			else if (o is PowerUp)
 			{
@@ -649,13 +658,21 @@ package core.gameobject
 				Game.gameScreen.level.RemoveGameObject(o);
 				AddPoints(p.points);
 				RestoreHealth(p.health);
+				Game.soundmanager.playSound("getitem", 2);
 				
 			}
 			else if (o is Item)
 			{
 				var i:Item = o as Item;
-				Game.gameScreen.level.RemoveGameObject(o);
-				Game.gameScreen.userInterface.inventory.addToInventory(i);
+				if(Game.gameScreen.userInterface.inventory.addToInventory(i)){
+					Game.gameScreen.level.RemoveGameObject(o);
+					if (o is Key) {
+						Game.soundmanager.playSound("getkey", 2);
+					}else {
+						Game.soundmanager.playSound("getinvitem", 2);
+					}
+				}
+				
 			}
 			
 		}
