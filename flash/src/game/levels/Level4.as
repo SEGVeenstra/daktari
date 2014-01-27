@@ -34,12 +34,27 @@ package game.levels
 			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background')));
 			
 			// Visual Back
-			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'ground')),0,40);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'ground')), 0, 40);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'pharmacy')), 0, 20);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'rain_pipe')),2,20);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'vertical_beam')),30,10);
-			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'vertical_beam')),57,10);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'vertical_beam')), 57, 10);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'horizontal_beam')), 30, 10);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'horizontal_beam')), 30, 20);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'horizontal_beam')), 30, 30);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'fence')), 38, 11);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'chain')), 58, 10);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'pole')), 28, 37);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'pole')), 58, 37);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'school')), 75, 25);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'ladder')), 34, 19);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'ladder')), 44, 9);
+			
 			
 			SetPlayer(new Adult('player', 6, 35, true));
+			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_4', 'crane')), 17, 4);
+			
 			
 			// Borders
 			AddGameObject(new Platform('ground_left', 0, 40, 30, 5));
@@ -49,7 +64,7 @@ package game.levels
 			AddGameObject(new Platform('left_border', 0, 0, 1, 45));
 			AddGameObject(new Platform('right_border', 99, 0, 1, 45));
 			
-			AddGameObject(new Finish('finish', 90, 39, 4, 1));
+			AddGameObject(new Finish('finish', 88, 39, 4, 1));
 			
 			// platforms
 			
@@ -86,7 +101,7 @@ package game.levels
 			AddGameObject(kid);
 			
 			
-			//debug = false;
+			debug = false;
 		}
 	}
 
