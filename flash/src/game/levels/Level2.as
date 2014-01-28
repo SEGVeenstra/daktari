@@ -51,7 +51,13 @@ package game.levels
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')), 15, 57);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')), 15, 40);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')), 15, 23);
-			//AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shelves_drinks')), 27, 78);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shelves_drinks')), 27, 78);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shelves_fruits_vegetables')), 27, 61);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shelves_bread')), 27, 44);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shelves_rice')), 71, 44);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shelves_fish')), 17, 27);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shelves_meat')), 71, 27);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'gate_open')), 14, 83);
 			
 			AddGameObject(new Climbable('ladder_1', 117, 81, 3, 9));
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'ladder_1')), 117, 74);
@@ -83,6 +89,7 @@ package game.levels
 			
 			
 			AddGameObject(new Platform('ground', 0, 90, 125, 5));
+			
 			AddGameObject(new Platform('border_top', 0, 0, 125, 1));
 			AddGameObject(new Platform('border_left', 0, 0, 1, 90));
 			AddGameObject(new Platform('border_right', 124, 0, 1, 90));
@@ -211,6 +218,9 @@ package game.levels
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('secondary_characters', 'guy_needs_card')), 109, 33);
 			AddGameObject(npc3);
 			//npc3.AddQuestItem(new QuestItem(item4,new Image(Assets.GetCollectableTexture('key'))));
+			
+			var npc4:Npc = new Npc('npc_4', 1, 86, 5, 4, 1000);
+			AddGameObject(npc4);
 			
 			var kid_on_bike_1:MovableEnemy = new MovableEnemy('kid_on_bike_1', 27, 87, 4, 3, 10, 0, 60, 3);
 			kid_on_bike_1.SetAnimations(new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_01'), 2), new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_02'), 2));
