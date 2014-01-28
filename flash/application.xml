@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/3.9">
   <id>Daktari</id>
-  <versionNumber>0.8</versionNumber>
+  <versionNumber>0.9</versionNumber>
   <filename>Daktari</filename>
   <name>Daktari</name>
   <initialWindow>
@@ -19,4 +19,5 @@
 	More options:
 	http://livedocs.adobe.com/flex/3/html/File_formats_1.html#1043413
 	-->
+  <versionLabel>Level 5</versionLabel>
 </application>

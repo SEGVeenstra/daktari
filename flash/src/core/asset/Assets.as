@@ -42,6 +42,11 @@ package core.asset
 		[Embed(source = "/game/assets/level4/level_4.xml", mimeType="application/octet-stream")]
 		public static const level_4_XML:Class;
 		
+		[Embed(source = "/game/assets/level5/level_5.png")]
+		public static const level_5_TEXTURE:Class;
+		[Embed(source = "/game/assets/level5/level_5.xml", mimeType="application/octet-stream")]
+		public static const level_5_XML:Class;
+		
 		[Embed(source = "/game/assets/npc/npc.png")]
 		public static const npc_TEXTURE:Class;
 		[Embed(source = "/game/assets/npc/npc.xml", mimeType="application/octet-stream")]
