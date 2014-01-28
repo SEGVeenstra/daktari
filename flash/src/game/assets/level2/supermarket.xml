@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:ab50ca0d851029f1bdd70e27c64dfbe6:802058224d6bf8df8e9b0a363b0bd9fa:5391f9a2bd0834615b955fa253facaef$ -->
+<!-- $TexturePacker:SmartUpdate:c0a3c57fd68863ae67536f68dcc028d9:1bc781e9a56deea2699e79e2de55c670:5391f9a2bd0834615b955fa253facaef$ -->
 <TextureAtlas imagePath="supermarket.png">
     <SubTexture name="DISCOUNT_sign" x="1790" y="2" width="162" height="66"/>
     <SubTexture name="MARKET_sign" x="2" y="532" width="322" height="50"/>

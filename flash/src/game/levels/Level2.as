@@ -35,6 +35,11 @@ package game.levels
 	public class Level2 extends Level 
 	{
 		
+		private var Door1Left:Door = new Door('door1_left', 19, 83);
+		private var Door2Left:Door = new Door('door2_left', 19, 66);
+		private var Door3Left:Door = new Door('door3_left', 19, 49);
+		private var Door1Center:Door = new Door('door1_center', 63, 49);
+		private var Door2Center:Door = new Door('door2_center', 63, 32);
 		
 		public function Level2() 
 		{
@@ -47,6 +52,7 @@ package game.levels
 			
 			// Visuals
 			
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'ground')), 0, 90);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')), 15, 74);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')), 15, 57);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'wall')), 15, 40);
@@ -85,7 +91,6 @@ package game.levels
 			
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('collectables', 'garbage')), 120, 86);
 			
-			SetPlayer(new Teenager('player', 6, 85));
 			
 			
 			AddGameObject(new Platform('ground', 0, 90, 125, 5));
@@ -102,6 +107,30 @@ package game.levels
 			
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2_structure', 'super_market_structure')), 14, 16);
 			
+			AddGameObject(Door1Left);
+			Door1Left.openImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_b2_open'));
+			Door1Left.closedImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_b2_closed'));
+			Door1Left.SetExits(null, null, Door2Left, null);
+			AddGameObject(Door2Left);
+			Door2Left.openImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_b2_open'));
+			Door2Left.closedImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_b2_closed'));
+			Door2Left.SetExits(null, null, Door3Left, Door1Left);
+			AddGameObject(Door3Left);
+			Door3Left.openImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_b2_open'));
+			Door3Left.closedImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_b2_closed'));
+			Door3Left.SetExits(null, null, null, Door2Left);
+			AddGameObject(Door1Center);
+			Door1Center.openImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_A1_open'));
+			Door1Center.closedImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_a1_closed'));
+			Door1Center.SetExits(null, null, Door2Center, null);
+			AddGameObject(Door2Center);
+			Door2Center.openImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_A1_open'));
+			Door2Center.closedImage = new Image(Assets.GetTextureFromAtlas('level_2', 'door_a1_closed'));
+			Door2Center.SetExits(null, null, null, Door1Center);
+			
+			
+			
+			SetPlayer(new Teenager('player', 6, 85));
 			
 			AddGameObject(new Juice('juice_1', 32, 84));
 			AddGameObject(new Juice('juice_2', 50, 78));
@@ -140,6 +169,7 @@ package game.levels
 			AddGameObject(new Meat('meat_2', 100, 33));
 			
 			AddGameObject(new Platform('platform_4', 15, 22, 100, 1));
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'roof_background')), 15, 17);
 			AddGameObject(new Platform('SUPER', 39, 18, 20, 3));
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'SUPER_sign')), 39, 18);
 			AddGameObject(new Platform('MARKET', 71, 18, 20, 3));
@@ -147,17 +177,6 @@ package game.levels
 			
 			AddGameObject(new Platform('platform_5', 15, 16, 106, 1));
 			
-			
-			AddGameObject(new Door('door_1', 19, 83));
-			AddGameObject(new Door('door_2', 19, 66));
-			AddGameObject(new Door('door_3', 19, 49));
-			AddGameObject(new Door('door_4', 63, 49));
-			AddGameObject(new Door('door_5', 63, 32));
-			(GetGameObjectByID('door_1') as Door).SetExits(null, null, GetGameObjectByID('door_2') as Door, null);
-			(GetGameObjectByID('door_2') as Door).SetExits(null, null, GetGameObjectByID('door_3') as Door, GetGameObjectByID('door_1') as Door);
-			(GetGameObjectByID('door_3') as Door).SetExits(null, null, null, GetGameObjectByID('door_2') as Door);
-			(GetGameObjectByID('door_4') as Door).SetExits(null, null, GetGameObjectByID('door_5') as Door, null);
-			(GetGameObjectByID('door_5') as Door).SetExits(null, null, null, GetGameObjectByID('door_4') as Door);
 			
 			// GATE & SWITCH TESTING! (Stephan)
 			
@@ -217,10 +236,17 @@ package game.levels
 			var npc3:Npc = new Npc('npc_3', 109, 33, 3, 6, 1000);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('secondary_characters', 'guy_needs_card')), 109, 33);
 			AddGameObject(npc3);
-			//npc3.AddQuestItem(new QuestItem(item4,new Image(Assets.GetCollectableTexture('key'))));
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('npc', 'bubble')), 108, 28);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('collectables', 'key_brown')), 108, 28);
 			
-			var npc4:Npc = new Npc('npc_4', 1, 86, 5, 4, 1000);
+			
+			var npc4:Npc = new Npc('npc_4', 1, 86, 5, 4, 4000);
+			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shoping_cart')), 1, 86);
 			AddGameObject(npc4);
+			npc4.AddQuestItem(new QuestItem(item3, new Image(Assets.GetCollectableTexture('broccoli'))));
+			npc4.AddQuestItem(new QuestItem(item4, new Image(Assets.GetCollectableTexture('rice'))));
+			npc4.AddQuestItem(new QuestItem(item5, new Image(Assets.GetCollectableTexture('water'))));
+			npc4.AddQuestItem(new QuestItem(item6, new Image(Assets.GetCollectableTexture('chicken'))));
 			
 			var kid_on_bike_1:MovableEnemy = new MovableEnemy('kid_on_bike_1', 27, 87, 4, 3, 10, 0, 60, 3);
 			kid_on_bike_1.SetAnimations(new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_01'), 2), new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_02'), 2));
@@ -234,7 +260,7 @@ package game.levels
 			guy_with_basket.SetAnimations(new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('guy_with_basket'), 2));
 			AddGameObject(guy_with_basket);
 			
-			//debug = false;
+			debug = false;
 			Game.soundmanager.playSound("musiclevel2", 1, 10);
 		}
 		

@@ -13,7 +13,7 @@ package game.objects.items.powerups
 		
 		public function Marble(id:String,x:Number,y:Number) 
 		{
-			super(id, x, y, 50, 5);
+			super(id, x, y, 100, 5);
 			image = new Image(Assets.GetCollectableTexture('marble'));
 			addChild(image);
 		}
