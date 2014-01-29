@@ -1,5 +1,6 @@
 package core.gameobject 
 {
+	import starling.display.MovieClip;
 	import starling.events.EnterFrameEvent;
 	import starling.events.Event;
 	import core.level.Level;
@@ -40,15 +41,39 @@ package core.gameobject
 					this.x += speed;
 					if (this.x >= destination) {
 						reached = true;
+						flipAnimation(true);
 					}	
 			}else{
 				collider.x -= speed;
 				this.x -= speed;
 				if (this.x <= start) {
 					reached = false;
+					flipAnimation(false);
 				}
 			}
 			
+		}
+		
+		private function flipAnimation(flip:Boolean = false):void {
+			if (flip && idleAnimation.scaleX == 1)
+			{
+				idleAnimation.scaleX = -1;
+				idleAnimation.x = idleAnimation.width;
+				if (friendlyAnimation != null) {
+					friendlyAnimation.scaleX = -1;
+					friendlyAnimation.x = idleAnimation.width;
+				}
+			}
+			else if (!flip && idleAnimation.scaleX == -1)
+			{
+				idleAnimation.scaleX = 1;
+				idleAnimation.x = 0;
+				if (friendlyAnimation != null) {
+					friendlyAnimation.x = 0;
+					friendlyAnimation.scaleX = 1;
+				}
+				
+			}
 		}
 	
 	}
