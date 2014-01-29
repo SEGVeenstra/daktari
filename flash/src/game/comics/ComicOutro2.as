@@ -3,7 +3,6 @@ package game.comics
 	import core.asset.Assets;
 	import core.comic.Comic;
 	import starling.display.Image;
-	import game.comics.
 	
 	/**
 	 * ...

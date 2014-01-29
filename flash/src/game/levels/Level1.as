@@ -43,6 +43,7 @@ package game.levels
 	import game.objects.level1.visual.Railing;
 	import game.objects.level1.WallBuilding1;
 	import starling.display.Image;
+	import starling.display.MovieClip;
 	
 	/**
 	 * ...
@@ -197,7 +198,7 @@ package game.levels
 			dog.requiredItem = bone;
 			
 			AddGameObject(girl);
-			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('npc', 'girl')),37,51);
+			girl.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('girl')),new MovieClip(Assets.GetAtlas('npc').getTextures('girl')));
 			girl.AddQuestItem(new QuestItem(kite, new Image(Assets.GetCollectableTexture('kite'))));
 
 			AddGameObject(kite);

@@ -16,6 +16,8 @@ package game.levels
 	import game.comics.ComicOutro3;
 	import game.objects.characters.Adult;
 	import game.objects.characters.Teenager;
+	import game.objects.items.powerups.Apple;
+	import game.objects.items.powerups.Pineapple;
 	import game.objects.level3.BusDriverNPC;
 	import starling.display.Image;
 	import starling.display.MovieClip;
@@ -38,14 +40,14 @@ package game.levels
 			Game.gameScreen.userInterface.activateDisease(true);
 			
 			// items
-			var money:Item = new Item('money', 0, 0, new Image(Assets.GetCollectableTexture('banana')));
-			var birdSeed:Item = new Item('bird_seed', 100, 20, new Image(Assets.GetCollectableTexture('bone')));
+			var money:Item = new Item('money', 0, 0, new Image(Assets.GetCollectableTexture('money')));
+			var birdSeed:Item = new Item('bird_seed', 100, 20, new Image(Assets.GetCollectableTexture('birdfood')));
 			
-			var delivery1:Item = new Item('delivery_1', 2, 47, new Image(Assets.GetCollectableTexture('green_apple')));
-			var delivery2:Item = new Item('delivery_2', 2, 47, new Image(Assets.GetCollectableTexture('green_apple')));
-			var delivery3:Item = new Item('delivery_3', 2, 47, new Image(Assets.GetCollectableTexture('green_apple')));
+			var delivery1:Item = new Item('delivery_1', 2, 47, new Image(Assets.GetCollectableTexture('medicine_bag')));
+			var delivery2:Item = new Item('delivery_2', 2, 47, new Image(Assets.GetCollectableTexture('medicine_bag')));
+			var delivery3:Item = new Item('delivery_3', 2, 47, new Image(Assets.GetCollectableTexture('medicine_bag')));
 			
-			var busKeys:Item = new Item('bus_keys', 0, 0,new Image(Assets.GetCollectableTexture('kite')));
+			var busKeys:Item = new Item('bus_keys', 0, 0,new Image(Assets.GetCollectableTexture('car_keys')));
 			
 			
 			SetBackground(new Image(Assets.GetAtlas('level_1').getTexture('background')));
@@ -159,22 +161,22 @@ package game.levels
 			
 			// NPC
 			var client1:Npc = new Npc('client_1', 14, 29, 3, 6, 100);
-			client1.AddQuestItem(new QuestItem(delivery1, new Image(Assets.GetCollectableTexture('green_apple'))));
-			client1.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
+			client1.AddQuestItem(new QuestItem(delivery1, new Image(Assets.GetCollectableTexture('medicine_bag'))));
+			client1.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1-idle-'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1-finished-'), 2));
 			var client2:Npc = new Npc('client_2', 34, 19, 3, 6, 100);
-			client2.AddQuestItem(new QuestItem(delivery2, new Image(Assets.GetCollectableTexture('green_apple'))));
-			client2.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
+			client2.AddQuestItem(new QuestItem(delivery2, new Image(Assets.GetCollectableTexture('medicine_bag'))));
+			client2.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client2-idle-'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client2-finished-'), 2));
 			var client3:Npc = new Npc('client_3', 44, 9, 3, 6, 0, money);
-			client3.AddQuestItem(new QuestItem(delivery3, new Image(Assets.GetCollectableTexture('green_apple'))));
-			client3.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
+			client3.AddQuestItem(new QuestItem(delivery3, new Image(Assets.GetCollectableTexture('medicine_bag'))));
+			client3.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client3-idle-'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client3-finished-'), 2));
 			
 			var birdFeeder:Npc = new Npc('bird_feeder', 127, 34, 3, 6, 150, birdSeed);
-			birdFeeder.AddQuestItem(new QuestItem(money, new Image(Assets.GetCollectableTexture('banana'))));
-			birdFeeder.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
+			birdFeeder.AddQuestItem(new QuestItem(money, new Image(Assets.GetCollectableTexture('money'))));
+			birdFeeder.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('birdfeeder-idle-'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('birdfeeder-finished-'), 2));
 			
 			var busDriver:BusDriverNPC = new BusDriverNPC('bus_driver', 46, 49, 1000);
-			busDriver.AddQuestItem(new QuestItem(busKeys, new Image(Assets.GetCollectableTexture('kite'))));
-			busDriver.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('client1_idle_'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('client1_finished_'), 2));
+			busDriver.AddQuestItem(new QuestItem(busKeys, new Image(Assets.GetCollectableTexture('car_keys'))));
+			busDriver.SetAnimations(new MovieClip(Assets.GetAtlas('npc').getTextures('busdriver-idle-'), 2), new MovieClip(Assets.GetAtlas('npc').getTextures('busdriver-finished-'), 2));
 			
 			AddGameObject(client1);
 			AddGameObject(client2);
@@ -184,6 +186,23 @@ package game.levels
 			
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'ground')), 0, 55);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'ground')), 75, 55);
+			
+			AddGameObject(new Apple('apple_1_1', 11, 40));
+			AddGameObject(new Pineapple('apple_1_2', 18, 40));
+			AddGameObject(new Apple('apple_1_3', 29, 40));
+			AddGameObject(new Pineapple('apple_1_4', 36, 40));
+			AddGameObject(new Apple('apple_1_5', 44, 40));
+			
+			AddGameObject(new Pineapple('apple_2_3', 29, 30));
+			AddGameObject(new Apple('apple_2_4', 36, 30));
+			AddGameObject(new Apple('apple_2_5', 44, 30));
+			
+			AddGameObject(new Apple('apple_3_1', 11, 20));
+			AddGameObject(new Pineapple('apple_3_2', 18, 20));
+			AddGameObject(new Apple('apple_3_5', 44, 20));
+			
+			AddGameObject(new Apple('apple_4_1', 11, 10));
+			AddGameObject(new Pineapple('apple_4_2', 18, 10));
 			
 			this.backgroundmusic = "musiclevel3";
 			

@@ -82,7 +82,15 @@ package core.asset
 		[Embed(source = "/game/assets/characters/secondary_characters.xml", mimeType="application/octet-stream")]
 		public static const secondary_characters_XML:Class;
 		
+			
 		// COMICS [start]
+		// Other
+		
+		[Embed(source = "/game/assets/comics/comic_other.png")]
+		public static const other_TEXTURE:Class;
+		[Embed(source = "/game/assets/comics/comic_other.xml", mimeType="application/octet-stream")]
+		public static const other_XML:Class;
+		
 		// intro's
 		[Embed(source = "/game/assets/comics/comic_intro_1.png")]
 		public static const intro_1_TEXTURE:Class;

@@ -14,6 +14,7 @@ package game.levels
 	import core.gameobject.MovableEnemy;
 	import core.level.Level;
 	import core.quest.QuestItem;
+	import game.comics.ComicOutro2;
 	import game.objects.characters.Teenager;
 	import game.objects.items.powerups.Apple;
 	import game.objects.items.powerups.Bread;
@@ -45,6 +46,7 @@ package game.levels
 		public function Level2() 
 		{
 			super(100, 60);
+			SetEndingComic(ComicOutro2);
 		}
 		
 		override protected function Build():void 

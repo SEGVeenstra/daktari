@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:05c9fa092bdf3277e94b2991c63212cf:305f5f022c6a3c3ed87a2e65ae58f222:8d98d383e8b725027c4a677786b61059$ -->
+<TextureAtlas imagePath="comic_other.png">
+    <SubTexture name="credits" x="2" y="2" width="800" height="600"/>
+    <SubTexture name="vitality" x="2" y="604" width="800" height="600"/>
+</TextureAtlas>

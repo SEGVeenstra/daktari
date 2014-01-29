@@ -15,6 +15,7 @@ package game.comics
 		public function ComicOutro5() 
 		{
 			AddPage(new Image(Assets.GetTextureFromAtlas('outro_5', 'page_1')));
+			AddPage(new Image(Assets.GetTextureFromAtlas('other', 'credits')));
 			SetMenu(MainMenu);
 		}
 		
