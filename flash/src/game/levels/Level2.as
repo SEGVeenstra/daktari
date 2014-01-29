@@ -240,8 +240,6 @@ package game.levels
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('npc', 'bubble')), 108, 28);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('collectables', 'key_brown')), 108, 28);
 			
-			//var busDriver:BusDriverNPC = new BusDriverNPC('bus_driver', 46, 49, 1000);
-			
 			var shoppingcart:ShoppingCartNPC = new ShoppingCartNPC('shopping_cart', 1, 86, 4000);
 			shoppingcart.SetAnimations(new MovieClip(Assets.GetAtlas('level_2').getTextures('shoping_cart'), 2), new MovieClip(Assets.GetAtlas('level_2').getTextures('shoping_cart'), 2));
 			shoppingcart.AddQuestItem(new QuestItem(item3, new Image(Assets.GetCollectableTexture('broccoli'))));
@@ -249,14 +247,6 @@ package game.levels
 			shoppingcart.AddQuestItem(new QuestItem(item5, new Image(Assets.GetCollectableTexture('water'))));
 			shoppingcart.AddQuestItem(new QuestItem(item6, new Image(Assets.GetCollectableTexture('chicken'))));
 			AddGameObject(shoppingcart);
-			
-			/* var npc4:Npc = new Npc('npc_4', 1, 86, 5, 4, 4000);
-			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_2', 'shoping_cart')), 1, 86);
-			AddGameObject(npc4);
-			npc4.AddQuestItem(new QuestItem(item3, new Image(Assets.GetCollectableTexture('broccoli'))));
-			npc4.AddQuestItem(new QuestItem(item4, new Image(Assets.GetCollectableTexture('rice'))));
-			npc4.AddQuestItem(new QuestItem(item5, new Image(Assets.GetCollectableTexture('water'))));
-			npc4.AddQuestItem(new QuestItem(item6, new Image(Assets.GetCollectableTexture('chicken'))));*/
 			
 			var kid_on_bike_1:MovableEnemy = new MovableEnemy('kid_on_bike_1', 27, 87, 4, 3, 10, 0, 60, 3);
 			kid_on_bike_1.SetAnimations(new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_01'), 2), new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_02'), 2));
