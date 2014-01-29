@@ -224,9 +224,11 @@ package game.levels
 			AddGameObject(tutorialNPC);
 			AddGameObject(tutorialEnemy);
 			
+			backgroundmusic = "musiclevel1";
+			
+			
 			debug = false;
 			
-			Game.soundmanager.playSound("musiclevel1", 1, 10);
 		}
 		
 		/**

@@ -58,7 +58,9 @@ package game.levels
 			AddGameObject(new Platform('tree_3_p1', 20, 35, 5, 1, true));
 			AddGameObject(new Platform('tree_3_p2', 10, 32, 5, 1, true));
 			
-			AddGameObject(new Enemy('cows', 77, 49, 30, 6, 25,0));
+			AddGameObject(new Enemy('cows', 77, 49, 30, 6, 25, 0));
+			
+			this.backgroundmusic = "musiclevel5";
 		}
 	}
 

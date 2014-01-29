@@ -20,6 +20,11 @@ package core.sound
 		public static const MusicLevel4:Class;
 		[Embed(source="../../game/assets/sounds/Level 5 - music.mp3")]
 		public static const MusicLevel5:Class;
+		[Embed(source="../../game/assets/sounds/Menu.mp3")]
+		public static const MusicMenu:Class;
+		[Embed(source="../../game/assets/sounds/Pause.mp3")]
+		public static const PauseMusic:Class;
+		
 		
 		//feedback sounds
 		[Embed(source="../../game/assets/sounds/Bird sounds.mp3")]
@@ -59,6 +64,8 @@ package core.sound
 			Game.soundmanager.addSound("musiclevel3", new MusicLevel3() as Sound);
 			Game.soundmanager.addSound("musiclevel4", new MusicLevel4() as Sound);
 			Game.soundmanager.addSound("musiclevel5", new MusicLevel5() as Sound);
+			Game.soundmanager.addSound("menu", new MusicMenu() as Sound);
+			Game.soundmanager.addSound("pausemusic", new PauseMusic() as Sound);
 			
 			//feedback sounds
 			Game.soundmanager.addSound("birds", new Birds() as Sound);

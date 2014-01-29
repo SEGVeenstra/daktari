@@ -100,6 +100,7 @@ package game.levels
 			kid.AddQuestItem(new QuestItem(book, new Image(Assets.GetCollectableTexture('bone'))));
 			AddGameObject(kid);
 			
+			this.backgroundmusic = "musiclevel4";
 			
 			debug = false;
 		}

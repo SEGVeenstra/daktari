@@ -148,6 +148,7 @@ package
 			instance._movieScreen.active = false;
 			instance._focus = instance._menuScreen;
 			instance._menuScreen.loadMenu(new menu);
+			instance._soundmanager.playSound("menu", 1, 10);
 		}
 		
 		/**

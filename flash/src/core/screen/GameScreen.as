@@ -123,6 +123,7 @@ package core.screen
 		 */
 		override public function Pause():void 
 		{
+			Game.soundmanager.stopAllSounds();
 			super.Pause();
 			level.Pause();
 			_pauseScreen.active = true;
@@ -131,6 +132,7 @@ package core.screen
 			_pauseScreen.activeItemPosition = 0;
 			setChildIndex(_pauseScreen, numChildren -1);
 			_pause = true;
+			Game.soundmanager.playSound("pausemusic", 1, 10);
 		}
 		
 		/**
@@ -138,6 +140,7 @@ package core.screen
 		 */
 		override public function Play():void 
 		{
+			Game.soundmanager.stopAllSounds();
 			super.Play();
 			level.Play();
 			_pauseScreen.active = false;
@@ -146,6 +149,7 @@ package core.screen
 			setChildIndex(level, numChildren -2);
 			setChildIndex(userInterface, numChildren -1);
 			_pause = false;
+			Game.soundmanager.playSound(level.backgroundmusic, 1, 10);
 		}
 		
 		override public function Reset():void 
@@ -164,6 +168,7 @@ package core.screen
 		public function GameOver():void
 		{
 			Game.soundmanager.stopAllSounds();
+			Game.soundmanager.playSound("fail", 2);
 			level.Pause();
 			setChildIndex(_gameOverScreen, numChildren -1);
 			_gameOverScreen.active = true;
@@ -174,6 +179,7 @@ package core.screen
 		public function Finished():void
 		{
 			Game.soundmanager.stopAllSounds();
+			Game.soundmanager.playSound("victory", 2);
 			level.Pause();
 			setChildIndex(_victoryScreen, numChildren -1);
 			_victoryScreen.active = true;

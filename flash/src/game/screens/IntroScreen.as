@@ -31,7 +31,7 @@ package game.screens
 		{
 			if (e.keyCode == Key.ENTER)
 			{
-				Game.menuScreen.loadMenu(new MainMenu());
+				Game.LoadMenu(MainMenu);
 			}
 		}
 		

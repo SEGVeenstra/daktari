@@ -57,8 +57,7 @@ package game.screens
 				}
 				else if (activeItem == stopButton)
 				{
-					Game.focus = Game.menuScreen;
-					Game.menuScreen.loadMenu(new MainMenu());
+					Game.LoadMenu(MainMenu);
 				}
 			}
 			

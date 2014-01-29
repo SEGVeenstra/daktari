@@ -34,6 +34,8 @@ package core.level
 		
 		private var _endingComic:Class;
 		
+		private var _backgroundmusic:String;
+		
 		public function Level(width:Number, height:Number) 
 		{
 			levelWidth = width * GRIDSIZE;
@@ -50,6 +52,14 @@ package core.level
 		public function SetEndingComic(comic:Class):void
 		{
 			_endingComic = comic;
+		}
+		
+		public function get backgroundmusic():String {
+			return _backgroundmusic;
+		}
+		
+		public function set backgroundmusic(backgroundmusic:String):void {
+			this._backgroundmusic = backgroundmusic;
 		}
 		
 		private function OnAddedToStage(e:Event):void 

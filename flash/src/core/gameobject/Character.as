@@ -213,7 +213,6 @@ package core.gameobject
 				if (_vitality < 1)
 				{
 					Game.gameScreen.GameOver();
-					Game.soundmanager.playSound("fail", 2);
 					return;
 				}
 				_vitality -= ILLNESS_INTENSITIE;
@@ -420,8 +419,10 @@ package core.gameobject
 			if (Key.isDown(Key.ENTER) && !pressedMedication)
 			{
 				pressedMedication = true;
-				if (Game.gameScreen.userInterface.medicinindicator.removeMedication())
+				if (Game.gameScreen.userInterface.medicinindicator.removeMedication()){
 					_vitality = MAX_VITALITY;
+					Game.soundmanager.playSound("takedrugs", 2);
+				}
 			}
 			if (!Key.isDown(Key.ENTER) && pressedMedication)
 				pressedMedication = false;

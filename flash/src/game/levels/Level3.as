@@ -185,6 +185,8 @@ package game.levels
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'ground')), 0, 55);
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('level_3', 'ground')), 75, 55);
 			
+			this.backgroundmusic = "musiclevel3";
+			
 			debug = false;
 		}
 	}

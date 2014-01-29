@@ -28,6 +28,7 @@ package core.gameobject
 			solid = false;
 			openImage.visible = true;
 			closedImage.visible = false;
+			Game.soundmanager.playSound("unlockdoor", 2);
 		}
 		
 		public function get isLocked():Boolean
