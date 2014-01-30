@@ -251,10 +251,10 @@ package game.levels
 			AddGameObject(shoppingcart);
 			
 			var kid_on_bike_1:MovableEnemy = new MovableEnemy('kid_on_bike_1', 27, 87, 4, 3, 10, 0, 60, 3);
-			kid_on_bike_1.SetAnimations(new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_01'), 2), new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_02'), 2));
+			kid_on_bike_1.SetAnimations(new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_1_'), 2));
 			AddGameObject(kid_on_bike_1)
 			var kid_on_bike_2:MovableEnemy = new MovableEnemy('kid_on_bike_2', 75, 87, 4, 3, 10, 0, 107, 3);
-			kid_on_bike_2.SetAnimations(new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_03'), 2), new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_04'), 2));
+			kid_on_bike_2.SetAnimations(new MovieClip(Assets.GetAtlas('secondary_characters').getTextures('kid_on_bike_2_'), 2));
 			AddGameObject(kid_on_bike_2)
 			AddGameObject(new Enemy('teenager_gang', 87, 68, 12, 5, 10, 0));
 			AddVisualObject(new VisualObject(Assets.GetTextureFromAtlas('secondary_characters', 'teenager_gang_01')), 87, 68);

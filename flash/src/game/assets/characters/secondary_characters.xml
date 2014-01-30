@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:c7245c99f815805e3ac248a43fa5f575:5717c101432c5b2deb420ce99b43f3aa:a4f23f527047e0a8b011ac2723251dc0$ -->
+<!-- $TexturePacker:SmartUpdate:9363e7cce2bdb41f4e204544b4d71337:66191bfb48460b6ff279a1f338f41296:a4f23f527047e0a8b011ac2723251dc0$ -->
 <TextureAtlas imagePath="secondary_characters.png">
-    <SubTexture name="birdfeeder-finished-1" x="44" y="307" width="40" height="97"/>
-    <SubTexture name="birdfeeder-idle-1" x="2" y="307" width="40" height="97"/>
-    <SubTexture name="birdnest-finished-1" x="2" y="113" width="69" height="46"/>
-    <SubTexture name="birdnest-hit-1" x="140" y="65" width="69" height="46"/>
-    <SubTexture name="birdnest-ilde-1" x="69" y="65" width="69" height="46"/>
-    <SubTexture name="busdriver-finished-1" x="136" y="307" width="48" height="96"/>
-    <SubTexture name="busdriver-idle-1" x="86" y="307" width="48" height="96"/>
-    <SubTexture name="girl" x="2" y="2" width="26" height="61"/>
-    <SubTexture name="guy_needs_card" x="73" y="113" width="34" height="92"/>
-    <SubTexture name="guy_with_basket_01" x="159" y="113" width="42" height="93"/>
-    <SubTexture name="guy_with_basket_02" x="203" y="113" width="42" height="93"/>
-    <SubTexture name="guy_without_tools" x="186" y="307" width="48" height="96"/>
-    <SubTexture name="kid_on_bike_01" x="97" y="2" width="65" height="46"/>
-    <SubTexture name="kid_on_bike_02" x="30" y="2" width="65" height="46"/>
-    <SubTexture name="kid_on_bike_03" x="2" y="65" width="65" height="46"/>
-    <SubTexture name="kid_on_bike_04" x="164" y="2" width="65" height="46"/>
-    <SubTexture name="sick-finished-1" x="212" y="208" width="40" height="97"/>
-    <SubTexture name="sick-finished-2" x="170" y="208" width="40" height="97"/>
-    <SubTexture name="sick-finished-3" x="128" y="208" width="40" height="97"/>
-    <SubTexture name="sick-idle-1" x="2" y="208" width="40" height="97"/>
-    <SubTexture name="sick-idle-2" x="44" y="208" width="40" height="97"/>
-    <SubTexture name="sick-idle-3" x="86" y="208" width="40" height="97"/>
-    <SubTexture name="teenager_gang_01" x="2" y="406" width="192" height="80"/>
-    <SubTexture name="woman_old" x="109" y="113" width="48" height="80"/>
+    <SubTexture name="birdfeeder-finished-1" x="2" y="2" width="40" height="97"/>
+    <SubTexture name="birdfeeder-idle-1" x="44" y="2" width="40" height="97"/>
+    <SubTexture name="bubble" x="86" y="2" width="84" height="74"/>
+    <SubTexture name="busdriver-finished-1" x="172" y="2" width="48" height="96"/>
+    <SubTexture name="busdriver-idle-1" x="222" y="2" width="48" height="96"/>
+    <SubTexture name="client1-finished-1" x="272" y="2" width="40" height="97"/>
+    <SubTexture name="client1-finished-2" x="314" y="2" width="40" height="97"/>
+    <SubTexture name="client1-finished-3" x="356" y="2" width="40" height="97"/>
+    <SubTexture name="client1-idle-1" x="398" y="2" width="40" height="97"/>
+    <SubTexture name="client1-idle-2" x="440" y="2" width="40" height="97"/>
+    <SubTexture name="client1-idle-3" x="2" y="101" width="40" height="97"/>
+    <SubTexture name="finished" x="44" y="101" width="52" height="56"/>
+    <SubTexture name="girl-2" x="98" y="101" width="26" height="61"/>
+    <SubTexture name="girl" x="126" y="101" width="26" height="61"/>
+    <SubTexture name="guy_needs_card" x="154" y="101" width="34" height="92"/>
+    <SubTexture name="guy_with_basket_01" x="190" y="101" width="42" height="93"/>
+    <SubTexture name="guy_with_basket_02" x="234" y="101" width="42" height="93"/>
+    <SubTexture name="guy_without_tools" x="278" y="101" width="48" height="96"/>
+    <SubTexture name="kid_on_bike_1_01" x="328" y="101" width="65" height="46"/>
+    <SubTexture name="kid_on_bike_1_02" x="395" y="101" width="65" height="46"/>
+    <SubTexture name="kid_on_bike_2_01" x="2" y="200" width="65" height="46"/>
+    <SubTexture name="kid_on_bike_2_02" x="69" y="200" width="65" height="46"/>
+    <SubTexture name="teenager_gang_01" x="136" y="200" width="192" height="80"/>
+    <SubTexture name="woman_old" x="330" y="200" width="48" height="80"/>
 </TextureAtlas>
