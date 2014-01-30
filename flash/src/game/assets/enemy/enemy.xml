@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:539714838e1ed74b4e9133f9e86c0c04:1/1$ -->
+<!-- $TexturePacker:SmartUpdate:d4b73e38c622ccc065b765cc9456e29c:ec8a9cfa651cc45c878b73a19d220838:d6d8f0f8bd7b73a8b05fbfe452b3202c$ -->
 <TextureAtlas imagePath="enemy.png">
-    <SubTexture name="bird-nest-friendly-1" x="2" y="2" width="80" height="112"/>
-    <SubTexture name="bird-nest-friendly-2" x="84" y="2" width="80" height="112"/>
-    <SubTexture name="bird-nest-hit-1" x="166" y="2" width="80" height="112"/>
-    <SubTexture name="bird-nest-hit-2" x="248" y="2" width="80" height="112"/>
-    <SubTexture name="bird-nest-hit-3" x="330" y="2" width="80" height="112"/>
-    <SubTexture name="bird-nest-idle-1" x="166" y="2" width="80" height="112"/>
-    <SubTexture name="bird-nest-idle-2" x="412" y="2" width="80" height="112"/>
-    <SubTexture name="enemy" x="2" y="116" width="256" height="256"/>
+    <SubTexture name="bird-nest-friendly-1" x="2" y="2" width="69" height="63"/>
+    <SubTexture name="bird-nest-friendly-2" x="73" y="2" width="69" height="63"/>
+    <SubTexture name="bird-nest-hit-1" x="144" y="2" width="69" height="63"/>
+    <SubTexture name="bird-nest-hit-2" x="215" y="2" width="69" height="63"/>
+    <SubTexture name="bird-nest-hit-3" x="286" y="2" width="69" height="63"/>
+    <SubTexture name="bird-nest-idle-1" x="357" y="2" width="69" height="63"/>
+    <SubTexture name="bird-nest-idle-2" x="428" y="2" width="69" height="63"/>
+    <SubTexture name="cows_1" x="2" y="67" width="324" height="98"/>
+    <SubTexture name="cows_2" x="2" y="167" width="326" height="98"/>
 </TextureAtlas>

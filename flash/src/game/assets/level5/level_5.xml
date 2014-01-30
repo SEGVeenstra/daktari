@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:23386206187ec90159b3d18523b3fc17:a196491af2c922569fcbb18fb576462e:45f67bcd290c26afa5dc3f99dca440db$ -->
-<TextureAtlas imagePath="level_5.png">
+<!-- $TexturePacker:SmartUpdate:3d53de6c19d85499900d2986cae9662f:f46d00318ae68553924fe5b49c35d94b:bd69768fe2168f9288114ded00a68344$ -->
+<TextureAtlas imagePath="level 5.png">
     <SubTexture name="background" x="2" y="2" width="1565" height="800"/>
+    <SubTexture name="barrel" x="1569" y="2" width="48" height="64"/>
     <SubTexture name="ground" x="2" y="804" width="1200" height="128"/>
-    <SubTexture name="tree" x="1204" y="804" width="384" height="432"/>
+    <SubTexture name="long_house" x="1204" y="804" width="498" height="208"/>
+    <SubTexture name="small_house" x="2" y="1014" width="368" height="272"/>
+    <SubTexture name="tree" x="372" y="1014" width="384" height="432"/>
+    <SubTexture name="tree2" x="758" y="1014" width="640" height="592"/>
+    <SubTexture name="tree3" x="1400" y="1014" width="448" height="656"/>
 </TextureAtlas>
