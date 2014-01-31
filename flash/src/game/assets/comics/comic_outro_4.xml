@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:f05357c8973f621b289ea74822919008:2d2e47eb58b0aa9aa5063d3588c9d237:eddbbb93d7a9e1fb23ac8f837507143f$ -->
-<TextureAtlas imagePath="comic_outro_4.png">
+<!-- $TexturePacker:SmartUpdate:ed4720920b8477deea22f69e7ccea3f6:454b5808449d42cc3b23b07adb5503b9:ae228319c5518d49e812afbc5ca829a9$ -->
+<TextureAtlas imagePath="comic_.png">
     <SubTexture name="page_1" x="2" y="2" width="800" height="600"/>
 </TextureAtlas>
