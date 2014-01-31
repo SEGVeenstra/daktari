@@ -1,6 +1,7 @@
 package game.levels 
 {
 	import core.asset.Assets;
+	import core.gameobject.collectable.Medication;
 	import core.gameobject.Enemy;
 	import core.gameobject.Finish;
 	import core.gameobject.Platform;
@@ -70,6 +71,8 @@ package game.levels
 			AddGameObject(new Platform('tree_2_p2', 100, 42, 5, 1, true));
 			AddGameObject(new Platform('tree_3_p1', 20, 35, 5, 1, true));
 			AddGameObject(new Platform('tree_3_p2', 10, 32, 5, 1, true));
+			
+			AddGameObject(new Medication('med_1', 35, 39));
 			
 			var cows:Enemy = new Enemy('cows', 77, 49, 20, 6, 25, 0);
 			cows.SetAnimations(new MovieClip(Assets.GetAtlas('enemy').getTextures('cows_'), 2));
